@@ -58,10 +58,10 @@
           <li>
             <a href="#">Position</a>
             <ul>
-              <li><a href="job-list-1.html">Browse jobs - 1</a></li>
+              <li><a href="job-list-1.php">Browse jobs - 1</a></li>
               <li><a href="job-list-2.html">Browse jobs - 2</a></li>
               <li><a href="job-list-3.html">Browse jobs - 3</a></li>
-              <li><a href="job-detail.html">Job detail</a></li>
+              <li><a href="job-detail.php">Job detail</a></li>
               <li><a href="job-apply.html">Apply for job</a></li>
               <li><a href="job-add.php">Post a job</a></li>
               <li><a href="job-manage.html">Manage jobs</a></li>
