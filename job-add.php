@@ -1,3 +1,10 @@
+<?php
+
+$conn = mysqli_connect('mysql4.000webhost.com', 'a1829662_Belmo1','vclub.palma','a1829662_Belmo1');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
