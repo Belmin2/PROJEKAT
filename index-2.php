@@ -14,12 +14,11 @@
     <link href="./css/custom.css" rel="stylesheet">
 
     <!-- Fonts -->
-   
-    <link rel="stylesheet" href="font-awesome_4.6.3/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Oswald:100,300,400,500,600,800%7COpen+Sans:300,400,500,600,700,800%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="assets/img/favicon.ico">
   </head>
 
   <body class="nav-on-header smart-nav">
@@ -33,16 +32,29 @@
           <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
           <div class="logo-wrapper">
-            <a class="logo" href="index.php"><img src="./pictures/logo.png" alt="logo"></a>
-            <a class="logo-alt" href="index.php"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
+            <a class="logo" href="index.html"><img src="./pictures/logo.png" alt="logo"></a>
+            <a class="logo-alt" href="index.html"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
           </div>
 
         </div>
         <!-- END Logo -->
 
         <!-- User account -->
-        <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.html">Login</a> or <a href="user-register.html">register</a>
+        <div class="pull-right">
+
+          <div class="dropdown user-account">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+              <img src="./pictures/logo-envato.png" alt="avatar">
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="user-login.html">Login</a></li>
+              <li><a href="user-register.html">Register</a></li>
+              <li><a href="user-forget-pass.html">Forget pass</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </div>
+
         </div>
         <!-- END User account -->
 
@@ -51,19 +63,19 @@
           <li>
             <a class="active" href="index.php">Home</a>
             <ul>
-              <li><a class="active" href="index.php">Version 1</a></li>
-              <li><a href="index-2.php">Version 2</a></li>
+              <li><a href="index.html">Version 1</a></li>
+              <li><a class="active" href="index-2.php">Version 2</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Position</a>
             <ul>
-              <li><a href="job-list-1.php">Browse jobs - 1</a></li>
+              <li><a href="job-list-1.html">Browse jobs - 1</a></li>
               <li><a href="job-list-2.html">Browse jobs - 2</a></li>
               <li><a href="job-list-3.html">Browse jobs - 3</a></li>
-              <li><a href="job-detail.php">Job detail</a></li>
+              <li><a href="job-detail.html">Job detail</a></li>
               <li><a href="job-apply.html">Apply for job</a></li>
-              <li><a href="job-add.php">Post a job</a></li>
+              <li><a href="job-add.html">Post a job</a></li>
               <li><a href="job-manage.html">Manage jobs</a></li>
               <li><a href="job-candidates.html">Candidates</a></li>
             </ul>
@@ -126,7 +138,7 @@
 
             <div class="btn-search">
               <button class="btn btn-primary" type="submit">Find jobs</button>
-              <a href="job-list.html">Advanced Job Search</a>
+              <a href="">Advanced Job Search</a>
             </div>
           </form>
         </div>
@@ -142,18 +154,19 @@
 
 
       <!-- Recent jobs -->
-      <section>
+      <section class="bg-alt">
         <div class="container">
           <header class="section-header">
             <span>Latest</span>
             <h2>Recent jobs</h2>
+            <p>Here's the last five job posted on the website</p>
           </header>
 
-          <div class="row item-blocks-connected">
+          <div class="row item-blocks-condensed">
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
+              <a class="item-block" href="job-detail.html">
                 <header>
                   <img src="./pictures/logo-google.jpg" alt="">
                   <div class="hgroup">
@@ -172,7 +185,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
+              <a class="item-block" href="job-detail.html">
                 <header>
                   <img src="./pictures/logo-linkedin.png" alt="">
                   <div class="hgroup">
@@ -190,7 +203,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
+              <a class="item-block" href="job-detail.html">
                 <header>
                   <img src="./pictures/logo-envato.png" alt="">
                   <div class="hgroup">
@@ -208,7 +221,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
+              <a class="item-block" href="job-detail.html">
                 <header>
                   <img src="./pictures/logo-facebook.png" alt="">
                   <div class="hgroup">
@@ -226,7 +239,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
+              <a class="item-block" href="job-detail.html">
                 <header>
                   <img src="./pictures/logo-microsoft.jpg" alt="">
                   <div class="hgroup">
@@ -251,40 +264,14 @@
       <!-- END Recent jobs -->
 
 
-      <!-- Facts -->
-      <section class="bg-img bg-repeat no-overlay section-sm" style="background-image: url(./pictures/bg-pattern.png)">
-        <div class="container">
-
-          <div class="row">
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="6890"></span>+</p>
-              <h6>Jobs</h6>
-            </div>
-
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="1200"></span>+</p>
-              <h6>Members</h6>
-            </div>
-
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="36800"></span>+</p>
-              <h6>Resume</h6>
-            </div>
-
-            <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="15400"></span>+</p>
-              <h6>Company</h6>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <!-- END Facts -->
-
-
       <!-- How it works -->
       <section>
         <div class="container">
+
+          <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">
+            <br>
+            <img class="center-block" src="./pictures/how-it-works.png" alt="how it works">
+          </div>
 
           <div class="col-sm-12 col-md-6">
             <header class="section-header text-left">
@@ -300,11 +287,6 @@
             <a class="btn btn-primary" href="page-typography.html">Learn more</a>
           </div>
 
-          <div class="col-sm-12 col-md-6 hidden-xs hidden-sm">
-            <br>
-            <img class="center-block" src="./pictures/how-it-works.png" alt="how it works">
-          </div>
-
         </div>
       </section>
       <!-- END How it works -->
@@ -315,51 +297,112 @@
         <div class="container">
           <header class="section-header">
             <span>Categories</span>
-            <h2>Popular categories</h2>
+            <h2>Popular jobs</h2>
             <p>Here's the most popular categories</p>
           </header>
 
           <div class="category-grid">
-            <a href="job-list-1.php">
+            <a href="#">
               <i class="fa fa-laptop"></i>
               <h6>Technology</h6>
               <p>Designer, Developer, IT Service, Front-end developer, Project management</p>
             </a>
 
-            <a href="job-list-2.html">
+            <a href="#">
               <i class="fa fa-line-chart"></i>
               <h6>Accounting</h6>
               <p>Finance, Tax service, Payroll manager, Book keeper, Human resource</p>
             </a>
 
-            <a href="job-list-3.html">
+            <a href="#">
               <i class="fa fa-medkit"></i>
               <h6>Medical</h6>
               <p>Doctor, Nurse, Hospotal, Dental service, Massagist</p>
             </a>
 
-            <a href="job-list-1.php">
+            <a href="#">
               <i class="fa fa-cutlery"></i>
               <h6>Food</h6>
               <p>Restaurant, Food service, Coffe shop, Cashier, Waitress</p>
             </a>
 
-            <a href="job-list-2.html">
+            <a href="#">
               <i class="fa fa-newspaper-o"></i>
               <h6>Media</h6>
               <p>Journalism, Newspaper, Reporter, Writer, Cameraman</p>
             </a>
 
-            <a href="job-list-3.html">
+            <a href="#">
               <i class="fa fa-institution"></i>
               <h6>Government</h6>
               <p>Federal, Law, Human resource, Manager, Biologist</p>
             </a> 
           </div>
 
+          <p class="text-center"><a class="btn btn-info" href="">Browse all categories</a></p>
+
         </div>
       </section>
       <!-- END Categories -->
+
+
+
+      <!-- Pricing -->
+      <section>
+        <div class="container">
+          <header class="section-header">
+            <span>Plans</span>
+            <h2>Pricing</h2>
+            <p>Choose a plan that fits your needs</p>
+          </header>
+
+          <ul class="pricing">
+            <li>
+              <h6>Basic Package</h6>
+              <div class="price">
+                <sup>$</sup>0
+                <span>&nbsp;</span>
+              </div>
+              <hr>
+              <p><strong>1</strong> job posting</p>
+              <p><strong>No</strong> featured job</p>
+              <p><strong>5 days</strong> listing duration</p>
+              <br>
+              <a class="btn btn-primary btn-block" href="#">Select plan</a>
+            </li>
+
+            <li>
+              <h6>Medium Package</h6>
+              <div class="price">
+                <sup>$</sup>5<sup>.99</sup>
+                <span>per month</span>
+              </div>
+              <hr>
+              <p><strong>5</strong> job posting</p>
+              <p><strong>1</strong> featured job</p>
+              <p><strong>30 days</strong> listing duration</p>
+              <br>
+              <a class="btn btn-primary btn-block" href="#">Select plan</a>
+            </li>
+
+            <li>
+              <h6>Big Package</h6>
+              <div class="price">
+                <sup>$</sup>15<sup>.99</sup>
+                <span>per month</span>
+              </div>
+              <hr>
+              <p><strong>20</strong> job posting</p>
+              <p><strong>5</strong> featured job</p>
+              <p><strong>75 days</strong> listing duration</p>
+              <br>
+              <a class="btn btn-primary btn-block" href="#">Select plan</a>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+      <!-- END Pricing -->
 
 
       <!-- Newsletter -->
@@ -410,7 +453,7 @@
           <div class="col-xs-6 col-md-3">
             <h6>Trendeing jobs</h6>
             <ul class="footer-links">
-              <li><a href="job-list-1.php">Front-end developer</a></li>
+              <li><a href="job-list.html">Front-end developer</a></li>
               <li><a href="job-list.html">Android developer</a></li>
               <li><a href="job-list.html">iOS developer</a></li>
               <li><a href="job-list.html">Full stack developer</a></li>
