@@ -64,7 +64,7 @@
               <li><a href="job-detail.php">Job detail</a></li>
               <li><a href="job-apply.html">Apply for job</a></li>
               <li><a href="job-add.php">Post a job</a></li>
-              <li><a href="job-manage.html">Manage jobs</a></li>
+              <li><a href="job-manage.php">Manage jobs</a></li>
               <li><a href="job-candidates.html">Candidates</a></li>
             </ul>
           </li>
