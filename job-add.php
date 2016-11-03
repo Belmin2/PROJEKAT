@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
   $Certificate =$_POST["Certificate"];
   $Description =$_POST["Description"];
 
-$q = "INSERT INTO Add_Job (Job_title, Select_company, Short_description, Application_URL, Location, Form_work, Salary, Working_hours, Experience, Certificate, Description) VALUES ('$_POST[Job_title]','$_POST[Select_company]', '$_POST[Short_description]','$_POST[Application_URL]','$_POST[Location]','$_POST[Form_work]',' $_POST[Salary]','$_POST[Working_hours]','$_POST[Experience]', '$_POST[Certificate]','$_POST[Description]')";
+$q = "INSERT INTO jobs (job_title, select_company, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[Job_title]','$_POST[Select_company]', '$_POST[Short_description]','$_POST[Application_URL]','$_POST[Location]','$_POST[Form_work]',' $_POST[Salary]','$_POST[Working_hours]','$_POST[Experience]', '$_POST[Certificate]','$_POST[Description]')";
 $provjera = mysqli_query($conn,$q);
 if ($provjera) {
   echo "Uspjesno uneseno";
