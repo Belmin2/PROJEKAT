@@ -33,8 +33,8 @@
           <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
           <div class="logo-wrapper">
-            <a class="logo" href="index.html"><img src="./pictures/logo.png" alt="logo"></a>
-            <a class="logo-alt" href="index.html"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
+            <a class="logo" href="index.php"><img src="./pictures/logo.png" alt="logo"></a>
+            <a class="logo-alt" href="index.php"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
           </div>
 
         </div>
@@ -51,19 +51,19 @@
           <li>
             <a href="index.html">Home</a>
             <ul>
-              <li><a href="index.html">Version 1</a></li>
+              <li><a href="index.php">Version 1</a></li>
               <li><a href="index-2.html">Version 2</a></li>
             </ul>
           </li>
           <li>
             <a class="active" href="#">Position</a>
             <ul>
-              <li><a class="active" href="job-list-1.html">Browse jobs - 1</a></li>
+              <li><a class="active" href="job-list-1.php">Browse jobs - 1</a></li>
               <li><a href="job-list-2.html">Browse jobs - 2</a></li>
               <li><a href="job-list-3.html">Browse jobs - 3</a></li>
-              <li><a href="job-detail.html">Job detail</a></li>
+              <li><a href="job-detail.php">Job detail</a></li>
               <li><a href="job-apply.html">Apply for job</a></li>
-              <li><a href="job-add.html">Post a job</a></li>
+              <li><a href="job-add.php">Post a job</a></li>
               <li><a href="job-manage.html">Manage jobs</a></li>
               <li><a href="job-candidates.html">Candidates</a></li>
             </ul>
@@ -263,7 +263,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-google.jpg" alt="">
                   <div class="hgroup">
@@ -302,7 +302,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-linkedin.png" alt="">
                   <div class="hgroup">
@@ -341,7 +341,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-envato.png" alt="">
                   <div class="hgroup">
@@ -380,7 +380,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-facebook.png" alt="">
                   <div class="hgroup">
@@ -419,7 +419,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-microsoft.jpg" alt="">
                   <div class="hgroup">
@@ -510,7 +510,7 @@
           <div class="col-xs-6 col-md-3">
             <h6>Trendeing jobs</h6>
             <ul class="footer-links">
-              <li><a href="job-list.html">Front-end developer</a></li>
+              <li><a href="job-list-1.php">Front-end developer</a></li>
               <li><a href="job-list.html">Android developer</a></li>
               <li><a href="job-list.html">iOS developer</a></li>
               <li><a href="job-list.html">Full stack developer</a></li>

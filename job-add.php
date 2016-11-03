@@ -2,18 +2,37 @@
 
 //Konekcija
 $conn = mysqli_connect('mysql4.000webhost.com', 'a1829662_Belmo1','vclub.palma','a1829662_Belmo1');
-
-if ( mysqli_connect_errno()) {
-  echo mysqli_connect_errno();
-  die();
-
-} 
-
-else {
-  echo"USPJESNA KONEKCIJA "."<br>";
-}
 ?>
-<hr>
+<?php
+if (isset($_POST["submit"])) {
+  $Job_title =$_POST["Job_title"];
+  $Select_company =$_POST["Select_company"];
+  $Short_description =$_POST["Short_description"];
+  $Application_URL =$_POST["Application_URL"];
+  $Location = $_POST["Location"];
+  $Form_work = $_POST["Form_work"];
+  $Salary = $_POST["Salary"];
+  $Working_hours = $_POST["Working_hours"];
+  $Experience = $_POST["Experience"];
+  $Certificate =$_POST["Certificate"];
+  $Description =$_POST["Description"];
+
+$q = "INSERT INTO Add_Job (Job_title, Select_company, Short_description, Application_URL, Location, Form_work, Salary, Working_hours, Experience, Certificate, Description) VALUES ('$_POST[Job_title]','$_POST[Select_company]', '$_POST[Short_description]','$_POST[Application_URL]','$_POST[Location]','$_POST[Form_work]',' $_POST[Salary]','$_POST[Working_hours]','$_POST[Experience]', '$_POST[Certificate]','$_POST[Description]')";
+$provjera = mysqli_query($conn,$q);
+if ($provjera) {
+  echo "Uspjesno uneseno";
+}
+
+else{
+
+  echo "Doslo je do greske";
+}
+
+}
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +70,8 @@ else {
           <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
           <div class="logo-wrapper">
-            <a class="logo" href="index.html"><img src="./pictures/logo.png" alt="logo"></a>
-            <a class="logo-alt" href="index.html"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
+            <a class="logo" href="index.php"><img src="./pictures/logo.png" alt="logo"></a>
+            <a class="logo-alt" href="index.php"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
           </div>
 
         </div>
@@ -80,19 +99,19 @@ else {
         <!-- Navigation menu -->
         <ul class="nav-menu">
           <li>
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
             <ul>
-              <li><a href="index.html">Version 1</a></li>
+              <li><a href="index.php">Version 1</a></li>
               <li><a href="index-2.html">Version 2</a></li>
             </ul>
           </li>
           <li>
             <a class="active" href="#">Position</a>
             <ul>
-              <li><a href="job-list-1.html">Browse jobs - 1</a></li>
+              <li><a href="job-list-1.php">Browse jobs - 1</a></li>
               <li><a href="job-list-2.html">Browse jobs - 2</a></li>
               <li><a href="job-list-3.html">Browse jobs - 3</a></li>
-              <li><a href="job-detail.html">Job detail</a></li>
+              <li><a href="job-detail.php">Job detail</a></li>
               <li><a href="job-apply.html">Apply for job</a></li>
               <li><a class="active" href="job-add.html">Post a job</a></li>
               <li><a href="job-manage.html">Manage jobs</a></li>
@@ -149,11 +168,11 @@ else {
 
         <div class="row">
           <div class="form-group col-xs-12 col-sm-6">
-            <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer">
+            <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="Job_title" id="Job_title">
           </div>
 
           <div class="form-group col-xs-12 col-sm-6">
-            <select class="form-control selectpicker">
+            <select name="Select_company" class="form-control selectpicker">
               <option>Select a company</option>
               <option>Google</option>
               <option>Microsoft</option>
@@ -164,24 +183,24 @@ else {
           </div>
 
           <div class="form-group col-xs-12">
-            <textarea class="form-control" rows="3" placeholder="Short description"></textarea>
+            <textarea class="form-control" name="Short_description" id="Short_description" rows="3" placeholder="Short description"></textarea>
           </div>
 
           <div class="form-group col-xs-12">
-            <input type="text" class="form-control" placeholder="Application URL">
+            <input type="text" name="Application_URL" id="Application_URL" class="form-control" placeholder="Application URL">
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-              <input type="text" class="form-control" placeholder="Location, e.g. Melon Park, CA">
+              <input type="text" class="form-control" name="Location" id="Location" placeholder="Location, e.g. Melon Park, CA">
             </div>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-              <select class="form-control selectpicker">
+              <select name="Form_work" id="Form_work" class="form-control selectpicker">
                 <option>Full time</option>
                 <option>Part time</option>
                 <option>Internship</option>
@@ -194,14 +213,14 @@ else {
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-money"></i></span>
-              <input type="text" class="form-control" placeholder="Salary">
+              <input type="text" class="form-control" name="Salary" id="Salary" placeholder="Salary">
             </div>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-              <input type="text" class="form-control" placeholder="Working hours, e.g. 40">
+              <input type="text" name="Working_hours" id="Working_hours" class="form-control" placeholder="Working hours, e.g. 40">
               <span class="input-group-addon">hours / week</span>
             </div>
           </div>
@@ -209,7 +228,7 @@ else {
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-flask"></i></span>
-              <input type="text" class="form-control" placeholder="Experience, e.g. 5">
+              <input type="text" class="form-control" name="Experience" id="Experience" placeholder="Experience, e.g. 5">
               <span class="input-group-addon">Years</span>
             </div>
           </div>
@@ -217,7 +236,7 @@ else {
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-certificate"></i></span>
-              <select class="form-control selectpicker" multiple>
+              <select name="Certificate" id="Certificate" class="form-control selectpicker" multiple>
                 <option>Postdoc</option>
                 <option>Ph.D.</option>
                 <option>Master</option>
@@ -257,7 +276,7 @@ else {
               <p>Write about your company, job description, skills required, benefits, etc.</p>
             </header>
             
-            <textarea class="summernote-editor"></textarea>
+            <textarea name="Description" class="summernote-editor"></textarea>
 
           </div>
         </section>
@@ -273,7 +292,7 @@ else {
               <p>Please review your information once more and press the below button to put your job online.</p>
             </header>
 
-            <p class="text-center"><button class="btn btn-success btn-xl btn-round">Submit your job</button></p>
+            <p class="text-center"><button name="submit" id="submit" class="btn btn-success btn-xl btn-round">Submit your job</button></p>
 
           </div>
         </section>
@@ -309,7 +328,7 @@ else {
           <div class="col-xs-6 col-md-3">
             <h6>Trendeing jobs</h6>
             <ul class="footer-links">
-              <li><a href="job-list.html">Front-end developer</a></li>
+              <li><a href="job-list-1.php">Front-end developer</a></li>
               <li><a href="job-list.html">Android developer</a></li>
               <li><a href="job-list.html">iOS developer</a></li>
               <li><a href="job-list.html">Full stack developer</a></li>

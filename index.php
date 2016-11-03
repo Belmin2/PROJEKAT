@@ -33,8 +33,8 @@
           <a class="navbar-toggle" href="#" data-toggle="offcanvas"><i class="ti-menu"></i></a>
 
           <div class="logo-wrapper">
-            <a class="logo" href="index.html"><img src="./pictures/logo.png" alt="logo"></a>
-            <a class="logo-alt" href="index.html"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
+            <a class="logo" href="index.php"><img src="./pictures/logo.png" alt="logo"></a>
+            <a class="logo-alt" href="index.php"><img src="./pictures/logo-alt.png" alt="logo-alt"></a>
           </div>
 
         </div>
@@ -49,9 +49,9 @@
         <!-- Navigation menu -->
         <ul class="nav-menu">
           <li>
-            <a class="active" href="index.html">Home</a>
+            <a class="active" href="index.php">Home</a>
             <ul>
-              <li><a class="active" href="index.html">Version 1</a></li>
+              <li><a class="active" href="index.php">Version 1</a></li>
               <li><a href="index-2.html">Version 2</a></li>
             </ul>
           </li>
@@ -153,7 +153,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-google.jpg" alt="">
                   <div class="hgroup">
@@ -172,7 +172,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-linkedin.png" alt="">
                   <div class="hgroup">
@@ -190,7 +190,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-envato.png" alt="">
                   <div class="hgroup">
@@ -208,7 +208,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-facebook.png" alt="">
                   <div class="hgroup">
@@ -226,7 +226,7 @@
 
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.html">
+              <a class="item-block" href="job-detail.php">
                 <header>
                   <img src="./pictures/logo-microsoft.jpg" alt="">
                   <div class="hgroup">
@@ -320,7 +320,7 @@
           </header>
 
           <div class="category-grid">
-            <a href="job-list-1.html">
+            <a href="job-list-1.php">
               <i class="fa fa-laptop"></i>
               <h6>Technology</h6>
               <p>Designer, Developer, IT Service, Front-end developer, Project management</p>
@@ -338,7 +338,7 @@
               <p>Doctor, Nurse, Hospotal, Dental service, Massagist</p>
             </a>
 
-            <a href="job-list-1.html">
+            <a href="job-list-1.php">
               <i class="fa fa-cutlery"></i>
               <h6>Food</h6>
               <p>Restaurant, Food service, Coffe shop, Cashier, Waitress</p>
@@ -410,7 +410,7 @@
           <div class="col-xs-6 col-md-3">
             <h6>Trendeing jobs</h6>
             <ul class="footer-links">
-              <li><a href="job-list.html">Front-end developer</a></li>
+              <li><a href="job-list-1.php">Front-end developer</a></li>
               <li><a href="job-list.html">Android developer</a></li>
               <li><a href="job-list.html">iOS developer</a></li>
               <li><a href="job-list.html">Full stack developer</a></li>
