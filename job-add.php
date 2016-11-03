@@ -168,6 +168,7 @@ else{
 
         <div class="row">
           <div class="form-group col-xs-12 col-sm-6">
+            <form action ="job-add.php" method="POST">
             <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="Job_title" id="Job_title">
           </div>
 
@@ -293,7 +294,7 @@ else{
             </header>
 
             <p class="text-center"><button name="submit" id="submit" class="btn btn-success btn-xl btn-round">Submit your job</button></p>
-
+   </form>
           </div>
         </section>
         <!-- END Submit -->
