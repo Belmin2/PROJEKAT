@@ -14,6 +14,7 @@
     <link href="./css/custom.css" rel="stylesheet">
 
     <!-- Fonts -->
+    <link rel="stylesheet" href="font-awesome_4.6.3/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,800%7COpen+Sans:300,400,500,600,700,800%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicons -->

@@ -42,17 +42,17 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.html">Login</a> or <a href="user-register.html">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.html">register</a>
         </div>
         <!-- END User account -->
 
         <!-- Navigation menu -->
         <ul class="nav-menu">
           <li>
-            <a href="index.html">Home</a>
+            <a href="index.php">Home</a>
             <ul>
               <li><a href="index.php">Version 1</a></li>
-              <li><a href="index-2.html">Version 2</a></li>
+              <li><a href="index-2.php">Version 2</a></li>
             </ul>
           </li>
           <li>
