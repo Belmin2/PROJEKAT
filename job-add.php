@@ -1,21 +1,21 @@
 <?php
 
 //Konekcija
-$conn = mysqli_connect('mysql4.000webhost.com', 'a1829662_Belmo1','vclub.palma','a1829662_Belmo1');
+$conn = mysqli_connect('localhost','root','','baza_1');
 ?>
 <?php
 if (isset($_POST["submit"])) {
-  $job_title =$_POST["job_title"];
-  $select_company =$_POST["select_company"];
-  $short_description =$_POST["short_description"];
-  $application_url =$_POST["application_url"];
-  $location = $_POST["location"];
-  $form_work = $_POST["form_work"];
-  $salary = $_POST["salary"];
-  $working_hours = $_POST["working_hours"];
-  $experience = $_POST["experience"];
-  $certificate =$_POST["certificate"];
-  $Description =$_POST["description"];
+  $job_title=$_POST["job_title"];
+  $select_company=$_POST["select_company"];
+  $short_description=$_POST["short_description"];
+  $application_url=$_POST["application_url"];
+  $location=$_POST["location"];
+  $form_work=$_POST["form_work"];
+  $salary=$_POST["salary"];
+  $working_hours=$_POST["working_hours"];
+  $experience=$_POST["experience"];
+  $certificate=$_POST["certificate"];
+  $description=$_POST["description"];
 
 $q = "INSERT INTO jobs (job_title, select_company, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[select_company]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
 $provjera = mysqli_query($conn,$q);

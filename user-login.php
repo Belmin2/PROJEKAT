@@ -1,3 +1,28 @@
+<?php
+
+//Konekcija
+$conn = mysqli_connect('localhost','root','','baza_1');
+?>
+<?php 
+if (isset($_POST["submit"])) {
+$email = $_POST["email"];
+$password = $_POST["password"];
+
+$q = "INSERT INTO login(email,password) VALUES ('$_POST[email]','$_POST[password]')";
+$provjera = mysqli_query($conn,$q);
+if ($provjera) {
+  echo "Successful registration";
+}
+
+else{
+
+  echo "An error occurred";
+}
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,12 +56,12 @@
         <img src="./pictures/logo.png" alt="logo">
         <h1>Log into your account</h1>
 
-        <form action="#">
+        <form action="user-login.php" method="POST">
 
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-email"></i></span>
-              <input type="text" class="form-control" placeholder="Email">
+              <input type="text" name="email" class="form-control" placeholder="Email">
             </div>
           </div>
           
@@ -45,11 +70,11 @@
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
           </div>
 
-          <button class="btn btn-primary btn-block" type="submit">Login</button>
+          <button class="btn btn-primary btn-block" name="submit" type="submit">Login</button>
 
           <div class="login-footer">
             <h6>Or login with</h6>
