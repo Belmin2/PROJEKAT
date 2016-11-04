@@ -53,7 +53,8 @@ else{
     <main>
 
       <div class="login-block">
-        <img src="./pictures/logo.png" alt="logo">
+       
+         <a class="logo" href="index.php"><img src="./pictures/logo.png" alt="logo"></a>
         <h1>Log into your account</h1>
 
         <form action="user-login.php" method="POST">
