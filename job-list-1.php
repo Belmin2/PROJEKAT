@@ -1,3 +1,19 @@
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "baza_1";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password , $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,33 +87,33 @@
           <li>
             <a href="#">Resume</a>
             <ul>
-              <li><a href="resume-list.html">Browse resumes</a></li>
-              <li><a href="resume-detail.html">Resume detail</a></li>
-              <li><a href="resume-add.html">Create a resume</a></li>
-              <li><a href="resume-manage.html">Manage resumes</a></li>
+          <li><a href="resume-list.php">Browse resumes</a></li>
+              <li><a href="resume-detail.php">Resume detail</a></li>
+              <li><a href="resume-add.php">Create a resume</a></li>
+              <li><a href="resume-manage.php">Manage resumes</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Company</a>
             <ul>
-              <li><a href="company-list.html">Browse companies</a></li>
-              <li><a href="company-detail.html">Company detail</a></li>
-              <li><a href="company-add.html">Create a company</a></li>
-              <li><a href="company-manage.html">Manage companies</a></li>
+              <li><a href="company-list.php">Browse companies</a></li>
+              <li><a href="company-detail.php">Company detail</a></li>
+              <li><a href="company-add.php">Create a company</a></li>
+              <li><a href="company-manage.php">Manage companies</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Pages</a>
             <ul>
-              <li><a href="page-blog.html">Blog</a></li>
-              <li><a href="page-post.html">Blog-post</a></li>
-              <li><a href="page-about.html">About</a></li>
-              <li><a href="page-contact.html">Contact</a></li>
-              <li><a href="page-faq.html">FAQ</a></li>
-              <li><a href="page-pricing.html">Pricing</a></li>
-              <li><a href="page-typography.html">Typography</a></li>
-              <li><a href="page-ui-elements.html">UI elements</a></li>
-            </ul>
+              <li><a href="page-blog.php">Blog</a></li>
+              <li><a href="page-post.v">Blog-post</a></li>
+              <li><a href="page-about.php">About</a></li>
+              <li><a href="page-contact.php">Contact</a></li>
+              <li><a href="page-faq.php">FAQ</a></li>
+              <li><a href="page-pricing.php">Pricing</a></li>
+              <li><a href="page-typography.php">Typography</a></li>
+              <li><a href="page-ui-elements.php">UI elements</a></li>
+              </ul>
           </li>
         </ul>
         <!-- END Navigation menu -->
@@ -249,7 +265,6 @@
     </header>
     <!-- END Page header -->
 
-
     <!-- Main container -->
     <main>
       <section class="no-padding-top bg-alt">
@@ -260,199 +275,69 @@
               <br>
               <h5>We found <strong>357</strong> matches, you're watching <i>10</i> to <i>20</i></h5>
             </div>
+   
 
-            <!-- Job item -->
-            <div class="col-xs-12">
+   <!-- Job item -->
+       
+
+        <?php 
+
+$sql = "SELECT * FROM jobs";
+$result = $conn->query($sql);
+if (mysqli_num_rows($result) > 0) {
+                     
+        
+
+    // output data of each row
+      while($row = mysqli_fetch_assoc($result)) {
+          ?>
+
+
+        
+
+              <div class="col-xs-12">
               <a class="item-block" href="job-detail.php">
                 <header>
-                  <img src="./pictures/logo-google.jpg" alt="">
+                
                   <div class="hgroup">
-                    <h4>Senior front-end developer</h4>
-                    <h5>Google <span class="label label-success">Full-time</span></h5>
+                    <h4>  <?php echo $row['job_title'] ?></h4>
+                    <h5><?php echo $row['select_company'] ?><span class="label label-success"><?php echo $row['form_work'] ?></span></h5>
                   </div>
-                  <time datetime="2016-03-10 20:00">34 min ago</time>
+                  <time datetime="2016-03-10 20:00">  <?php echo $row['created_at'] ?></time>
                 </header>
 
                 <div class="item-body">
-                  <p>A rapidly growing, well established marketing firm is looking for an experienced web developer for a full-time position. In this role, you will develop websites, apps, emails and other forms of digital electronic media, all while maintaining brand standards across design projects and other marketing communication materials.</p>
+                  <?php echo $row['short_description'] ?>
                 </div>
 
                 <footer>
                   <ul class="details cols-3">
                     <li>
                       <i class="fa fa-map-marker"></i>
-                      <span>Menlo Park, CA</span>
+                      <span> <?php echo $row['location'] ?></span>
                     </li>
 
                     <li>
                       <i class="fa fa-money"></i>
-                      <span>$90,000 - $110,000 / year</span>
+                      <span> <?php echo $row['salary'] ?></span>
                     </li>
 
                     <li>
                       <i class="fa fa-certificate"></i>
-                      <span>Master or Bachelor</span>
+                      <span><?php echo $row['certicifate'] ?></span>
                     </li>
                   </ul>
                 </footer>
               </a>
             </div>
-            <!-- END Job item -->
+     <?php
+                     }
+                  } else {
+                      echo "No results";
+                  }
+             ?>
 
 
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-linkedin.png" alt="">
-                  <div class="hgroup">
-                    <h4>Software Engineer (Entry or Senior)</h4>
-                    <h5>Linkedin <span class="label label-warning">Part-time</span></h5>
-                  </div>
-                  <time datetime="2016-03-10 20:00">8 hours ago</time>
-                </header>
-
-                <div class="item-body">
-                  <p>The Special Programs Department II is seeking to hire a Computer Scientist to augment our software development team. Members of the software development team are expected to follow established software engineering principles to methodically deliver mission application software.</p>
-                </div>
-
-                <footer>
-                  <ul class="details cols-3">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>Livermore, CA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$60,000 - $75,000 / year</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-certificate"></i>
-                      <span>Master or Bachelor</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
-            </div>
-            <!-- END Job item -->
-
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-envato.png" alt="">
-                  <div class="hgroup">
-                    <h4>Full Stack Web Developer</h4>
-                    <h5>Envato <span class="label label-info">Freelance</span></h5>
-                  </div>
-                  <time datetime="2016-03-10 20:00">2 days ago</time>
-                </header>
-
-                <div class="item-body">
-                  <p>We're seeing a driven, curious, passionate full-stack web developer to help change how people learn creative skills and effortlessly create the images they imagine. You’ll be part of a new rapid prototyping and development team helping to apply lean startup development methodologies and modern web technologies to shape the future of Creative Cloud.</p>
-                </div>
-
-                <footer>
-                  <ul class="details cols-3">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>San Francisco, CA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$105,000 / year</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-certificate"></i>
-                      <span>Master</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
-            </div>
-            <!-- END Job item -->
-
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-facebook.png" alt="">
-                  <div class="hgroup">
-                    <h4>Web Applications Developer</h4>
-                    <h5>Facebook <span class="label label-danger">Internship</span></h5>
-                  </div>
-                  <time datetime="2016-03-10 20:00">Feb 26, 2016</time>
-                </header>
-
-                <div class="item-body">
-                  <p>Client needs a back-end Java developer who has worked mainly on Java, J2EE, Spring, Web Services, and other Java related technologies.</p>
-                </div>
-
-                <footer>
-                  <ul class="details cols-3">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>Lexington, MA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$130,000 - $150,000 / year</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-certificate"></i>
-                      <span>Ph.D. or Master</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
-            </div>
-            <!-- END Job item -->
-
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-microsoft.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Sr. SQL Server Developer</h4>
-                    <h5>Microsoft <span class="label label-success">Remote</span></h5>
-                  </div>
-                  <time datetime="2016-03-10 20:00">Feb 16, 2016</time>
-                </header>
-
-                <div class="item-body">
-                  <p>Understand and model complex business requirements into database schemas and work with existing databases in SQL and NOSQL data stores. Develop high performance stored procedures, triggers and other database level code to provide data services to other teams.</p>
-                </div>
-
-                <footer>
-                  <ul class="details cols-3">
-                    <li>
-                      <i class="fa fa-map-marker"></i>
-                      <span>Palo Alto, CA</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-money"></i>
-                      <span>$125,000 - $140,000 / year</span>
-                    </li>
-
-                    <li>
-                      <i class="fa fa-certificate"></i>
-                      <span>Ph.D. or Master</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
-            </div>
             <!-- END Job item -->
 
           </div>
@@ -550,7 +435,6 @@
     <!-- Back to top button -->
     <a id="scroll-up" href="#"><i class="ti-angle-up"></i></a>
     <!-- END Back to top button -->
-
     <!-- Scripts -->
     <script src="./js/app.min.js"></script>
     <script src="./js/custom.js"></script>
