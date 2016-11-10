@@ -1,9 +1,19 @@
-<?php
 
-//Konekcija
-$conn = mysqli_connect('localhost','root','','baza_1');
-?>
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "baza_1";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password , $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
 if (isset($_POST["submit"])) {
   $job_title=$_POST["job_title"];
   $select_company=$_POST["select_company"];
@@ -17,21 +27,27 @@ if (isset($_POST["submit"])) {
   $certificate=$_POST["certificate"];
   $description=$_POST["description"];
 
-$q = "INSERT INTO jobs (job_title, select_company, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[select_company]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
+
+if(empty($job_title) || empty($select_company) || empty ($short_description) ||  empty($application_url) || empty ($location) || empty($form_work) || empty($salary) || empty($working_hours) || empty($experience) || empty($certificate) || empty($description)){
+    echo "You did not fill out the required fields.";
+} else {
+  $q = "INSERT INTO jobs (job_title, select_company, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[select_company]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
 $provjera = mysqli_query($conn,$q);
+
 if ($provjera) {
-  echo "Uspjesno uneseno";
+  echo "successfully entered";
 }
-
 else{
-
-  echo "Doslo je do greske";
+  echo "Error";
 }
-
+}
 }
 
 
 ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -42,6 +58,7 @@ else{
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
+
 
     <title>TheJobs - Add job</title>
 
@@ -87,8 +104,8 @@ else{
 
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="user-login.html">Login</a></li>
-              <li><a href="user-register.html">Register</a></li>
-              <li><a href="user-forget-pass.html">Forget pass</a></li>
+              <li><a href="user-register.php">Register</a></li>
+              <li><a href="user-forget-pass.php">Forget pass</a></li>
               <li><a href="#">Logout</a></li>
             </ul>
           </div>
@@ -102,51 +119,51 @@ else{
             <a href="index.php">Home</a>
             <ul>
               <li><a href="index.php">Version 1</a></li>
-              <li><a href="index-2.html">Version 2</a></li>
+              <li><a href="index-2.php">Version 2</a></li>
             </ul>
           </li>
           <li>
             <a class="active" href="#">Position</a>
             <ul>
               <li><a href="job-list-1.php">Browse jobs - 1</a></li>
-              <li><a href="job-list-2.html">Browse jobs - 2</a></li>
-              <li><a href="job-list-3.html">Browse jobs - 3</a></li>
+              <li><a href="job-list-2.php">Browse jobs - 2</a></li>
+              <li><a href="job-list-3.php">Browse jobs - 3</a></li>
               <li><a href="job-detail.php">Job detail</a></li>
-              <li><a href="job-apply.html">Apply for job</a></li>
+              <li><a href="job-apply.php">Apply for job</a></li>
               <li><a class="active" href="job-add.php">Post a job</a></li>
               <li><a href="job-manage.php">Manage jobs</a></li>
-              <li><a href="job-candidates.html">Candidates</a></li>
+              <li><a href="job-candidates.php">Candidates</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Resume</a>
             <ul>
-              <li><a href="resume-list.html">Browse resumes</a></li>
-              <li><a href="resume-detail.html">Resume detail</a></li>
-              <li><a href="resume-add.html">Create a resume</a></li>
-              <li><a href="resume-manage.html">Manage resumes</a></li>
+              <li><a href="resume-list.php">Browse resumes</a></li>
+              <li><a href="resume-detail.php">Resume detail</a></li>
+              <li><a href="resume-add.php">Create a resume</a></li>
+              <li><a href="resume-manage.php">Manage resumes</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Company</a>
             <ul>
-              <li><a href="company-list.html">Browse companies</a></li>
-              <li><a href="company-detail.html">Company detail</a></li>
-              <li><a href="company-add.html">Create a company</a></li>
-              <li><a href="company-manage.html">Manage companies</a></li>
+              <li><a href="company-list.php">Browse companies</a></li>
+              <li><a href="company-detail.php">Company detail</a></li>
+              <li><a href="company-add.php">Create a company</a></li>
+              <li><a href="company-manage.php">Manage companies</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Pages</a>
             <ul>
-              <li><a href="page-blog.html">Blog</a></li>
-              <li><a href="page-post.html">Blog-post</a></li>
-              <li><a href="page-about.html">About</a></li>
-              <li><a href="page-contact.html">Contact</a></li>
-              <li><a href="page-faq.html">FAQ</a></li>
-              <li><a href="page-pricing.html">Pricing</a></li>
-              <li><a href="page-typography.html">Typography</a></li>
-              <li><a href="page-ui-elements.html">UI elements</a></li>
+              <li><a href="page-blog.php">Blog</a></li>
+              <li><a href="page-post.php">Blog-post</a></li>
+              <li><a href="page-about.php">About</a></li>
+              <li><a href="page-contact.php">Contact</a></li>
+              <li><a href="page-faq.php">FAQ</a></li>
+              <li><a href="page-pricing.php">Pricing</a></li>
+              <li><a href="page-typography.php">Typography</a></li>
+              <li><a href="page-ui-elements.php">UI elements</a></li>
             </ul>
           </li>
         </ul>
@@ -168,19 +185,24 @@ else{
 
         <div class="row">
           <div class="form-group col-xs-12 col-sm-6">
-            <form action ="job-add.php" method="POST">
-            <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="job_title" id="job_title">
+            <form action="job-add.php" method="post">
+            <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="job_title" id="job_title" 
+            <?php if (isset($error_msg["job_title"])) {
+              echo $error_msg["job_title"];
+            } 
+            ?>>
+
           </div>
 
           <div class="form-group col-xs-12 col-sm-6">
-            <select name="select_company" class="form-control selectpicker">
+            <select id="select_company" name="select_company" class="form-control">
               <option>Select a company</option>
-              <option>Google</option>
-              <option>Microsoft</option>
-              <option>Apple</option>
-              <option>Facebook</option>
+              <option value='google' >Google</option>
+              <option value='microsoft' >Microsoft</option>
+              <option value='apple'>Apple</option>
+              <option value='facebook'>Facebook</option>
             </select>
-            <a class="help-block" href="company-add.html">Add new company</a>
+            <a class="help-block" href="company-add.php">Add new company</a>
           </div>
 
           <div class="form-group col-xs-12">
@@ -201,12 +223,12 @@ else{
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-              <select name="form_work" id="form_work" class="form-control selectpicker">
-                <option>Full time</option>
-                <option>Part time</option>
-                <option>Internship</option>
-                <option>Freelance</option>
-                <option>Remote</option>
+              <select name="form_work" id="form_work" class="form-control">
+                <option value"full time">Full time</option>
+                <option value="part time">Part time</option>
+                <option value="intership">Internship</option>
+                <option value="freelance">Freelance</option>
+                <option value="remote">Remote</option>
               </select>
             </div>
           </div>
@@ -237,7 +259,7 @@ else{
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-certificate"></i></span>
-              <select name="certificate" id="certificate" class="form-control selectpicker" multiple>
+              <select name="certificate" id="certificate" class="form-control">
                 <option>Postdoc</option>
                 <option>Ph.D.</option>
                 <option>Master</option>
@@ -277,7 +299,7 @@ else{
               <p>Write about your company, job description, skills required, benefits, etc.</p>
             </header>
             
-            <textarea name="description" class="summernote-editor"></textarea>
+            <textarea name="description" id="description" class="summernote-editor"></textarea>
 
           </div>
         </section>
@@ -293,7 +315,7 @@ else{
               <p>Please review your information once more and press the below button to put your job online.</p>
             </header>
 
-            <p class="text-center"><button name="submit" id="submit" class="btn btn-success btn-xl btn-round">Submit your job</button></p>
+            <p class="text-center"><button name="submit" id="submit" class="btn btn-success btn-xl btn-round" >Submit your job</button></p>
    </form>
           </div>
         </section>
@@ -318,11 +340,11 @@ else{
           <div class="col-xs-6 col-md-3">
             <h6>Company</h6>
             <ul class="footer-links">
-              <li><a href="page-about.html">About us</a></li>
-              <li><a href="page-typography.html">How it works</a></li>
-              <li><a href="page-faq.html">Help center</a></li>
-              <li><a href="page-typography.html">Privacy policy</a></li>
-              <li><a href="page-contact.html">Contact us</a></li>
+              <li><a href="page-about.php">About us</a></li>
+              <li><a href="page-typography.php">How it works</a></li>
+              <li><a href="page-faq.php">Help center</a></li>
+              <li><a href="page-typography.php">Privacy policy</a></li>
+              <li><a href="page-contact.php">Contact us</a></li>
             </ul>
           </div>
 
@@ -330,10 +352,10 @@ else{
             <h6>Trendeing jobs</h6>
             <ul class="footer-links">
               <li><a href="job-list-1.php">Front-end developer</a></li>
-              <li><a href="job-list.html">Android developer</a></li>
-              <li><a href="job-list.html">iOS developer</a></li>
-              <li><a href="job-list.html">Full stack developer</a></li>
-              <li><a href="job-list.html">Project administrator</a></li>
+              <li><a href="job-list.php">Android developer</a></li>
+              <li><a href="job-list.php">iOS developer</a></li>
+              <li><a href="job-list.php">Full stack developer</a></li>
+              <li><a href="job-list.php">Project administrator</a></li>
             </ul>
           </div>
         </div>
@@ -374,6 +396,7 @@ else{
     <script src="./js/app.min.js"></script>
     <script src="./js/summernote.min.js"></script>
     <script src="./js/custom.js"></script>
+
 
   </body>
 </html>
