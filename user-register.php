@@ -12,7 +12,33 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 ?>
+<?php 
 
+if (isset($_POST["submit"])) {
+$name = $_POST["name"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+
+if (empty($name) || empty($email) || empty($password)) {
+echo "You did not fill out the required fields.";
+} else {
+$q = "INSERT INTO register(name,email,password) VALUES ('$_POST[name]','$_POST[email]','$_POST[password]')";
+$provjera = mysqli_query($conn,$q);
+if ($provjera) {
+  echo "Successful registration";
+}
+
+else{
+
+  echo "An error occurred";
+}
+
+}
+}
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,14 +49,14 @@ if (!$conn) {
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Login</title>
+    <title>TheJobs - Register</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
     <link href="./css/custom.css" rel="stylesheet">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="font-awesome_4.6.3/css/font-awesome.min.css">
+       <link rel="stylesheet" href="font-awesome_4.6.3/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Oswald:100,300,400,500,600,800%7COpen+Sans:300,400,500,600,700,800%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicons -->
@@ -44,16 +70,24 @@ if (!$conn) {
     <main>
 
       <div class="login-block">
-       
-         <a class="logo" href="index.php"><img src="./pictures/logo.png" alt="logo"></a>
+        <img src="./pictures/logo.png" alt="">
         <h1>Log into your account</h1>
 
-        <form action="user-login.php" method="POST">
+        <form action="user-register.php" method="POST">
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="ti-user"></i></span>
+              <input type="text" name="name" class="form-control" placeholder="Your name">
+            </div>
+          </div>
+          
+          <hr class="hr-xs">
 
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-email"></i></span>
-              <input type="text" name="email" class="form-control" placeholder="Email">
+              <input type="text" name="email" class="form-control" placeholder="Your email address">
             </div>
           </div>
           
@@ -62,14 +96,14 @@ if (!$conn) {
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" name="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" class="form-control" placeholder="Choose a password">
             </div>
           </div>
 
-          <button class="btn btn-primary btn-block" name="submit" type="submit">Login</button>
+          <button class="btn btn-primary btn-block" name="submit" type="submit" >Sign up</button>
 
           <div class="login-footer">
-            <h6>Or login with</h6>
+            <h6>Or register with</h6>
             <ul class="social-icons">
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -81,8 +115,7 @@ if (!$conn) {
       </div>
 
       <div class="login-links">
-        <a class="pull-left" href="user-forget-pass.php">Forget Password?</a>
-        <a class="pull-right" href="user-register.php">Register an account</a>
+        <p class="text-center">Already have an account? <a class="txt-brand" href="user-login.html">Login</a></p>
       </div>
 
     </main>
