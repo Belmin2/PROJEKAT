@@ -20,12 +20,13 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 
 if (empty($name) || empty($email) || empty($password)) {
-echo "You did not fill out the required fields.";
+echo "<script> alert('You did not fill out the required fields')</script>";
 } else {
-$q = "INSERT INTO register(name,email,password) VALUES ('$_POST[name]','$_POST[email]','$_POST[password]')";
+$q = "INSERT INTO users(name,email,password) VALUES ('$_POST[name]','$_POST[email]','$_POST[password]')";
 $provjera = mysqli_query($conn,$q);
 if ($provjera) {
-  echo "Successful registration";
+
+  echo "<h3 style='color:#0000; text-align:center'>Succesefull register</h3>";
 }
 
 else{
@@ -115,7 +116,7 @@ else{
       </div>
 
       <div class="login-links">
-        <p class="text-center">Already have an account? <a class="txt-brand" href="user-login.html">Login</a></p>
+        <p class="text-center">Already have an account? <a class="txt-brand" href="user-login.php">Login</a></p>
       </div>
 
     </main>

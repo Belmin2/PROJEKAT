@@ -2,7 +2,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "baza_1";
 
 // Create connection
@@ -30,7 +30,8 @@ if (isset($_POST["submit"])) {
 
 if(empty($job_title) || empty($select_company) || empty ($short_description) ||  empty($application_url) || empty ($location) || empty($form_work) || empty($salary) || empty($working_hours) || empty($experience) || empty($certificate) || empty($description)){
     echo "You did not fill out the required fields.";
-} else {
+} 
+else {
   $q = "INSERT INTO jobs (job_title, select_company, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[select_company]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
 $provjera = mysqli_query($conn,$q);
 

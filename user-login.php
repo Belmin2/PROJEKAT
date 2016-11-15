@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,7 +12,31 @@ $conn = mysqli_connect($servername, $username, $password , $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
 ?>
+<?php 
+if (isset($_POST["submit"])) {
+$name = $_POST ["name"];
+$password = $_POST["password"];
+
+$query = "SELECT * FROM users WHERE name='$name' AND password ='$password'";
+
+
+$results = mysqli_query($conn,$query) or die(mysqli_error());
+$rows = mysqli_num_rows($results);
+if($rows == 1){
+
+$_SESSION["name"] = $_POST["name"];
+header("location:index.php");
+}
+else{
+echo "<script> alert('Email or password is incorect')</script>";
+
+}
+}
+
+?>
+
 
 
 <!DOCTYPE html>
@@ -45,15 +70,15 @@ if (!$conn) {
 
       <div class="login-block">
        
-         <a class="logo" href="index.php"><img src="./pictures/logo.png" alt="logo"></a>
+         <a class="logo"><img src="./pictures/logo.png" alt="logo"></a>
         <h1>Log into your account</h1>
 
         <form action="user-login.php" method="POST">
 
-          <div class="form-group">
+         <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon"><i class="ti-email"></i></span>
-              <input type="text" name="email" class="form-control" placeholder="Email">
+              <span class="input-group-addon"><i class="ti-user"></i></span>
+              <input type="text" name="name" class="form-control" placeholder="Your name">
             </div>
           </div>
           

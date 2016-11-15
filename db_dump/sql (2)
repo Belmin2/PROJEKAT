@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2016 at 07:05 PM
+-- Generation Time: Nov 15, 2016 at 06:31 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -44,10 +44,10 @@ CREATE TABLE `jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `register`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `register` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -56,11 +56,13 @@ CREATE TABLE `register` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `register`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `register` (`id`, `name`, `email`, `password`, `created_at`) VALUES
-(2, 'dsadas', 'dasdasd', 'dsadasdsa', '0000-00-00 00:00:00');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
+(15, 'belmin', '1111', '1111', '0000-00-00 00:00:00'),
+(16, 'Belmin', 'bvk387@gmail.com', '1234', '0000-00-00 00:00:00'),
+(17, 'Admel', '4234234', '123', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -73,9 +75,9 @@ ALTER TABLE `jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `register`
+-- Indexes for table `users`
 --
-ALTER TABLE `register`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -88,10 +90,10 @@ ALTER TABLE `register`
 ALTER TABLE `jobs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `register`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
