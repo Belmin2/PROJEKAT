@@ -16,7 +16,7 @@ if (!$conn) {
 
 if (isset($_POST["submit"])) {
   $job_title=$_POST["job_title"];
-  $select_company=$_POST["select_company"];
+  $company_id=$_POST["company_id"];
   $short_description=$_POST["short_description"];
   $application_url=$_POST["application_url"];
   $location=$_POST["location"];
@@ -28,11 +28,11 @@ if (isset($_POST["submit"])) {
   $description=$_POST["description"];
 
 
-if(empty($job_title) || empty($select_company) || empty ($short_description) ||  empty($application_url) || empty ($location) || empty($form_work) || empty($salary) || empty($working_hours) || empty($experience) || empty($certificate) || empty($description)){
+if(empty($job_title) || empty($company_id) || empty ($short_description) ||  empty($application_url) || empty ($location) || empty($form_work) || empty($salary) || empty($working_hours) || empty($experience) || empty($certificate) || empty($description)){
     echo "You did not fill out the required fields.";
 } 
 else {
-  $q = "INSERT INTO jobs (job_title, select_company, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[select_company]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
+  $q = "INSERT INTO jobs (job_title, company_id, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[select_company]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
 $provjera = mysqli_query($conn,$q);
 
 if ($provjera) {
@@ -187,24 +187,33 @@ else{
         <div class="row">
           <div class="form-group col-xs-12 col-sm-6">
             <form action="job-add.php" method="post">
-            <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="job_title" id="job_title" 
-            <?php if (isset($error_msg["job_title"])) {
-              echo $error_msg["job_title"];
-            } 
-            ?>>
+            <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="job_title" id="job_title">
+        
 
           </div>
+          <?php 
 
-          <div class="form-group col-xs-12 col-sm-6">
-            <select id="select_company" name="select_company" class="form-control">
+
+$query= "SELECT * FROM companies";
+$result = $conn->query($query);
+if (mysqli_num_rows($result) > 0) {
+ 
+ ?>                 
+        <div class="form-group col-xs-12 col-sm-6">
+            <select id="company_id" name="company_id" class="form-control">
               <option>Select a company</option>
-              <option value='google' >Google</option>
-              <option value='microsoft' >Microsoft</option>
-              <option value='apple'>Apple</option>
-              <option value='facebook'>Facebook</option>
+              <option value="<?php echo $query['id']?>"><?php echo $query['name'] ?></option>
+             
             </select>
             <a class="help-block" href="company-add.php">Add new company</a>
           </div>
+<?php
+  } else {
+            echo "No companies";
+          }
+          
+
+          ?>
 
           <div class="form-group col-xs-12">
             <textarea class="form-control" name="short_description" id="short_description" rows="3" placeholder="Short description"></textarea>
