@@ -32,11 +32,11 @@ if(empty($job_title) || empty($company_id) || empty ($short_description) ||  emp
     echo "You did not fill out the required fields.";
 } 
 else {
-  $q = "INSERT INTO jobs (job_title, company_id, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[select_company]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
+  $q = "INSERT INTO jobs (job_title, company_id, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[company_id]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
 $provjera = mysqli_query($conn,$q);
 
 if ($provjera) {
-  echo "successfully entered";
+  echo "<h3 style='text-align:center;color:#0000'>Successfully entered</h3>";
 }
 else{
   echo "Error";
@@ -46,10 +46,6 @@ else{
 
 
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -188,33 +184,38 @@ else{
           <div class="form-group col-xs-12 col-sm-6">
             <form action="job-add.php" method="post">
             <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="job_title" id="job_title">
-        
-
-          </div>
-          <?php 
-
-
-$query= "SELECT * FROM companies";
-$result = $conn->query($query);
-if (mysqli_num_rows($result) > 0) {
- 
- ?>                 
-        <div class="form-group col-xs-12 col-sm-6">
-            <select id="company_id" name="company_id" class="form-control">
-              <option>Select a company</option>
-              <option value="<?php echo $query['id']?>"><?php echo $query['name'] ?></option>
-             
-            </select>
-            <a class="help-block" href="company-add.php">Add new company</a>
-          </div>
+        </div>
 <?php
-  } else {
-            echo "No companies";
-          }
-          
+$sql = "SELECT * FROM companies";
+$result = $conn->query($sql);
+if (mysqli_num_rows($result) > 0) {
+         while ($row = mysqli_fetch_assoc($result)) {
+                               
+        ?>
+  <div class="form-group col-xs-12 col-sm-6">
+             
+         <select id="company_id" name="company_id" class="form-control">
+             
+            <option>Select a company</option>
+             
+            <option value="<?php echo $row['id']?>"><?php echo $row['name'] ?></option>
+            
 
-          ?>
+       
+            </select>
+           
+           <a class="help-block" href="company-add.html">Add new company</a>
+          </div>
+      <?php
+                     }
+                  } 
+                  else {
+                      echo " <h2 style='text-align:center;'>No companies</h2>";
+                 
 
+                  }
+             ?>
+                
           <div class="form-group col-xs-12">
             <textarea class="form-control" name="short_description" id="short_description" rows="3" placeholder="Short description"></textarea>
           </div>
