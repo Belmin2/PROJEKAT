@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2016 at 06:31 PM
+-- Generation Time: Nov 22, 2016 at 07:04 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -23,23 +23,53 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `companies`
+--
+
+CREATE TABLE `companies` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `picture` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `address` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`id`, `name`, `picture`, `description`, `address`) VALUES
+(11, 'Google', 'no', 'bla bla ', 'Sarajevo'),
+(12, 'Microsoft ', 'no', 'bla bla', 'bla bla');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jobs`
 --
 
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
   `job_title` varchar(255) NOT NULL,
-  `select_company` varchar(100) NOT NULL,
-  `short_description` varchar(150) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `short_description` varchar(255) NOT NULL,
   `application_url` varchar(255) NOT NULL,
-  `location` varchar(150) NOT NULL,
-  `form_work` varchar(200) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `form_work` varchar(100) NOT NULL,
   `salary` varchar(255) NOT NULL,
   `working_hours` varchar(255) NOT NULL,
-  `experience` varchar(200) NOT NULL,
-  `certificate` varchar(110) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `experience` varchar(255) NOT NULL,
+  `certificate` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `job_title`, `company_id`, `short_description`, `application_url`, `location`, `form_work`, `salary`, `working_hours`, `experience`, `certificate`, `description`, `created_at`) VALUES
+(12, 'web page developer', 11, '...', 'http://........', 'Sarajevo', 'Full time', ' 1000', '14/h', '2 years', 'Bachelor', '<p>...</p>', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -62,11 +92,18 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
 (15, 'belmin', '1111', '1111', '0000-00-00 00:00:00'),
 (16, 'Belmin', 'bvk387@gmail.com', '1234', '0000-00-00 00:00:00'),
-(17, 'Admel', '4234234', '123', '0000-00-00 00:00:00');
+(17, 'Admel', '4234234', '123', '0000-00-00 00:00:00'),
+(19, 'Belmin', 'Vedin123@gmail.com', '888', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jobs`
@@ -85,15 +122,20 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
