@@ -189,24 +189,20 @@ else{
 $sql = "SELECT * FROM companies";
 $result = $conn->query($sql);
 if (mysqli_num_rows($result) > 0) {
-         while ($row = mysqli_fetch_assoc($result)) {
-                               
-        ?>
+        
+    ?>
   <div class="form-group col-xs-12 col-sm-6">
              
          <select id="company_id" name="company_id" class="form-control">
-             
-            <option>Select a company</option>
+             <?php
+          while($row = mysqli_fetch_assoc($result)) {
+
+                ?>
+             <option>Select a company</option>
              
             <option value="<?php echo $row['id']?>"><?php echo $row['name'] ?></option>
             
-
-       
-            </select>
-           
-           <a class="help-block" href="company-add.html">Add new company</a>
-          </div>
-      <?php
+        <?php
                      }
                   } 
                   else {
@@ -216,6 +212,13 @@ if (mysqli_num_rows($result) > 0) {
                   }
              ?>
                 
+            </select>
+           
+           <a class="help-block" href="company-add.html">Add new company</a>
+          </div>
+      
+
+      
           <div class="form-group col-xs-12">
             <textarea class="form-control" name="short_description" id="short_description" rows="3" placeholder="Short description"></textarea>
           </div>
