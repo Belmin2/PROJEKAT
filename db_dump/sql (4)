@@ -1,0 +1,149 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 23, 2016 at 06:31 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `baza_1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companies`
+--
+
+CREATE TABLE `companies` (
+  `id` int(11) NOT NULL,
+  `company_title` varchar(100) NOT NULL,
+  `short_discription` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `picture` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `page_url` varchar(255) NOT NULL,
+  `employees` varchar(255) NOT NULL,
+  `Established` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `companies`
+--
+
+INSERT INTO `companies` (`id`, `company_title`, `short_discription`, `location`, `name`, `picture`, `description`, `address`, `contact`, `page_url`, `employees`, `Established`, `email`) VALUES
+(15, 'Internet and computer software', 'Google’s mission is to organize the world’s information and make it universally accessible and useful.', 'New York', 'Google', 'No', 'Google began in 1996 as a research project by Larry Page and Sergey Brin Ph.D. students at Stanford University.[2]\r\n\r\nIn search of a dissertation jack, Page had been considering—among other things—exploring the mathematical properties of the World Wide Web, understanding its link structure as a huge graph.[3] His supervisor, Terry Winograd, encouraged him to pick this idea (which Page later recalled as "the best advice I ever got"[4]) and Page focused on the problem of finding out which web pages link to a given page, based on the consideration that the number and nature of such backlinks was valuable information about that page (with the role of citations in academic publishing in mind).[3]\r\n\r\nIn his research project, nicknamed "BackRub", Page was soon joined by Brin, who was supported by a National Science Foundation Graduate Fellowship.[5] Brin was already a close friend, whom Page had first met in the summer of 1995, when Page was part of a group of potential new students that Brin had volunteered to show around the campus.[3] Both Brin and Page were working on the Stanford Digital Library Project (SDLP). The SDLP''s goal was “to develop the enabling technologies for a single, integrated and universal digital library" and it was funded through the National Science Foundation, among other federal agencies.[5][6][7][8]\r\n\r\nPage''s web crawler began exploring the web in March 1996, with Page''s own Stanford home page serving as the only starting point.[3] To convert the backlink data that it gathered for a given web page into a measure of importance, Brin and Page developed the PageRank algorithm.[3] While analyzing BackRub''s output—which, for a given URL, consisted of a list of backlinks ranked by importance—the pair realized that a search engine based on PageRank would produce better results than existing techniques (existing search engines at the time essentially ranked results according to how many times the search term appeared on a ', '568945649685', ' (+0) 156 456 77690', 'Google.com', '20 000 - 40,000 employer', '1956', 'bvk387@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL,
+  `job_title` varchar(255) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `short_description` varchar(255) NOT NULL,
+  `application_url` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `form_work` varchar(100) NOT NULL,
+  `salary` varchar(255) NOT NULL,
+  `working_hours` varchar(255) NOT NULL,
+  `experience` varchar(255) NOT NULL,
+  `certificate` varchar(50) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `job_title`, `company_id`, `short_description`, `application_url`, `location`, `form_work`, `salary`, `working_hours`, `experience`, `certificate`, `description`, `created_at`) VALUES
+(12, 'web page developer', 11, '...', 'http://........', 'Sarajevo', 'Full time', ' 1000', '14/h', '2 years', 'Bachelor', '<p>...</p>', '0000-00-00 00:00:00'),
+(13, 'web designer', 13, '\r\n....', 'http://........', 'Sarajevo', 'intership', ' 5555', '14/h', '2 years', 'Ph.D.', '<p>rrr</p>', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
+(15, 'belmin', '1111', '1111', '0000-00-00 00:00:00'),
+(16, 'Belmin', 'bvk387@gmail.com', '1234', '0000-00-00 00:00:00'),
+(17, 'Admel', '4234234', '123', '0000-00-00 00:00:00'),
+(19, 'Belmin', 'Vedin123@gmail.com', '888', '0000-00-00 00:00:00');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
