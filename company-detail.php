@@ -138,7 +138,13 @@ if (mysqli_num_rows($query)>0) {
 ?>
       <div class="container">
         <div class="header-detail">
+        
+<img class="logo" src="<?php  echo $row['picture']?>">
           
+
+
+
+        
           <div class="hgroup">
             <h1><?php echo $row['name'] ?></h1>
             <h3><?php echo $row['company_title'] ?></h3>
