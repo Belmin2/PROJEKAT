@@ -49,9 +49,9 @@
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="user-login.html">Login</a></li>
-              <li><a href="user-register.html">Register</a></li>
-              <li><a href="user-forget-pass.html">Forget pass</a></li>
+              <li><a href="user-login.php">Login</a></li>
+              <li><a href="user-register.php">Register</a></li>
+              <li><a href="user-forget-pass.php">Forget pass</a></li>
               <li><a href="#">Logout</a></li>
             </ul>
           </div>
@@ -84,10 +84,10 @@
           <li>
             <a href="#">Resume</a>
             <ul>
-              <li><a href="resume-list.html">Browse resumes</a></li>
-              <li><a href="resume-detail.html">Resume detail</a></li>
-              <li><a href="resume-add.html">Create a resume</a></li>
-              <li><a href="resume-manage.html">Manage resumes</a></li>
+              <li><a href="resume-list.php">Browse resumes</a></li>
+              <li><a href="resume-detail.php">Resume detail</a></li>
+              <li><a href="resume-add.php">Create a resume</a></li>
+              <li><a href="resume-manage.php">Manage resumes</a></li>
             </ul>
           </li>
           <li>

@@ -83,10 +83,10 @@ else {
           <li>
             <a href="#">Resume</a>
             <ul>
-              <li><a href="resume-list.html">Browse resumes</a></li>
-              <li><a href="resume-detail.html">Resume detail</a></li>
-              <li><a href="resume-add.html">Create a resume</a></li>
-              <li><a href="resume-manage.html">Manage resumes</a></li>
+              <li><a href="resume-list.php">Browse resumes</a></li>
+              <li><a href="resume-detail.php">Resume detail</a></li>
+              <li><a href="resume-add.php">Create a resume</a></li>
+              <li><a href="resume-manage.php">Manage resumes</a></li>
             </ul>
           </li>
           <li>
