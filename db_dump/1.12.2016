@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2016 at 10:46 PM
+-- Generation Time: Dec 01, 2016 at 10:48 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -52,39 +52,6 @@ INSERT INTO `companies` (`id`, `company_title`, `short_discription`, `location`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
---
-
-CREATE TABLE `images` (
-  `id` int(11) NOT NULL,
-  `img` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`id`, `img`) VALUES
-(16, '24276_503744052994985_1960039809_n.jpg'),
-(17, '23722_306205309479607_517656558_n.jpg'),
-(18, '100_2677.JPG'),
-(19, '100_2677.JPG'),
-(20, '24276_503744052994985_1960039809_n.jpg'),
-(21, '10150604_743878295647045_1387906600_n.jpg'),
-(22, '100_2677.JPG'),
-(23, '#A.jpg'),
-(24, '1.jpg'),
-(25, '1.jpg'),
-(26, '1.jpg'),
-(27, '100_2677.JPG'),
-(28, '1.jpg'),
-(29, '1087_10200819772677453_151697546_n.jpg'),
-(30, '5629_519957598055395_1867207592_n.jpg'),
-(31, '8646_348812798577763_267714998_n.jpg');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `jobs`
 --
 
@@ -129,16 +96,34 @@ CREATE TABLE `resume` (
   `age` varchar(100) NOT NULL,
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `tag_name` varchar(50) NOT NULL
+  `tag_name` varchar(50) NOT NULL,
+  `degree_bachelor` varchar(255) NOT NULL,
+  `major_computer_sience` varchar(255) NOT NULL,
+  `school_name` varchar(50) NOT NULL,
+  `date_from` varchar(100) NOT NULL,
+  `date_to` varchar(100) NOT NULL,
+  `education_discription` varchar(255) NOT NULL,
+  `company_name` varchar(120) NOT NULL,
+  `position` varchar(100) NOT NULL,
+  `work_date_from` varchar(100) NOT NULL,
+  `work_date_to` varchar(100) NOT NULL,
+  `work_description` varchar(255) NOT NULL,
+  `skill_name` varchar(255) NOT NULL,
+  `skill_proficiency` varchar(255) NOT NULL,
+  `profile_img` varchar(255) NOT NULL,
+  `education_img` varchar(255) NOT NULL,
+  `work_img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `resume`
 --
 
-INSERT INTO `resume` (`id`, `name`, `headline`, `short_description`, `location`, `page_url`, `salary`, `age`, `contact`, `email`, `tag_name`) VALUES
-(1, '', '', '', '', '', '', '', '', '', 'HTML,CSS,Javascript'),
-(2, '44', '44', '44', '44', '44', '44', '44', '44', '44', 'HTML,CSS,Javascript');
+INSERT INTO `resume` (`id`, `name`, `headline`, `short_description`, `location`, `page_url`, `salary`, `age`, `contact`, `email`, `tag_name`, `degree_bachelor`, `major_computer_sience`, `school_name`, `date_from`, `date_to`, `education_discription`, `company_name`, `position`, `work_date_from`, `work_date_to`, `work_description`, `skill_name`, `skill_proficiency`, `profile_img`, `education_img`, `work_img`) VALUES
+(19, 'Belmin Krak', 'Front-end developer', 'The front end is the part that users see and interact with, includes the User Interface, the animations', 'Sarajevo', 'www.blablabla.com', '2.000', '18', '+38761700734', 'bvk387@gmail.com', 'HTML,CSS,Javascript,java', 'High school', 'No', 'Mjesovita Srednja Tehnicka Skola Travnik', '03.10.2010', '06.07.2015', 'The University of California, Berkeley is a public research university located in Berkeley, California. It is the flagship campus of the University of California system', 'Google', 'Senior front-end developer', 'jan 2014', '03.05.2015', '<p style="margin-bottom: 0px; color: rgb(162, 162, 162);">Responsibilities:</p><ul style="color: rgb(162, 162, 162);"><li>Developed front-end for world-class online social viewing video and chat platform using xHTML, CSS, ActionScript 2-3, Javascript, and', 'java', '30%', '', '', '0'),
+(46, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'resume_img/13882203_1670189739969874_8203551726240851759_n.jpg', '', ''),
+(47, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'resume_img/14940094_1632360666789737_176599882401993026_o.jpg', ''),
+(48, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'resume_img/belmin.jpg');
 
 -- --------------------------------------------------------
 
@@ -175,12 +160,6 @@ ALTER TABLE `companies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `images`
---
-ALTER TABLE `images`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -208,11 +187,6 @@ ALTER TABLE `users`
 ALTER TABLE `companies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT for table `images`
---
-ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
---
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -221,7 +195,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `resume`
 --
 ALTER TABLE `resume`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT for table `users`
 --
