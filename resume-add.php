@@ -151,8 +151,11 @@ if (!$conn) {
 
 
 <?php
-   if(isset($_FILES['image'])){
-      $errors= array();
+  if(isset($_FILES['image'])){
+  if(isset($_FILES['logo1'])){  
+  if(isset($_FILES['logo2'])){
+
+     $errors= array();
       $file_name = $_FILES['image']['name'];
       $file_size =$_FILES['image']['size'];
       $file_tmp =$_FILES['image']['tmp_name'];
@@ -172,26 +175,64 @@ if (!$conn) {
       
       if(empty($errors)==true){
          move_uploaded_file($file_tmp,"resume_img/".$file_name);
-         echo "<h3 style='text-align:center;color:#0000;'>Your picture has been successfully saved</h3>";
+       
       }else{
          print_r($errors);
       }
-if (empty($file_name)) {
-  echo "<h2 style='text-align:center;'>Please add your image</h2>";
-} else {
- 
+
+
+      $errors= array();
+      $file_name1 = $_FILES['logo1']['name'];
+      $file_size =$_FILES['logo1']['size'];
+      $file_tmp =$_FILES['logo1']['tmp_name'];
+      $file_type=$_FILES['logo1']['type'];
+      $img_path1= "resume_img/".$file_name1;
+      $file_ext=strtolower(end(explode('.',$_FILES['logo1']['name'])));
+      
+      $expensions= array("jpeg","jpg","png");
+      
+      if(in_array($file_ext,$expensions)=== false){
+         $errors[]="";
+      }
+      
+      if($file_size > 2097152){
+         $errors[]='File size must be excately 2 MB';
+      }
+      
+      if(empty($errors)==true){
+         move_uploaded_file($file_tmp,"resume_img/".$file_name1);
+        
+      }else{
+         print_r($errors);
+      }
+
+      $errors= array();
+      $file_name2 = $_FILES['logo2']['name'];
+      $file_size =$_FILES['logo2']['size'];
+      $file_tmp =$_FILES['logo2']['tmp_name'];
+      $file_type=$_FILES['logo2']['type'];
+      $img_path2= "resume_img/".$file_name2;
+      $file_ext=strtolower(end(explode('.',$_FILES['logo2']['name'])));
+      
+      $expensions= array("jpeg","jpg","png");
+      
+      if(in_array($file_ext,$expensions)=== false){
+         $errors[]="";
+      }
+      
+      if($file_size > 2097152){
+         $errors[]='File size must be excately 2 MB';
+      }
+      
+      if(empty($errors)==true){
+         move_uploaded_file($file_tmp,"resume_img/".$file_name2);
+        
+      }else{
+         print_r($errors);
+      }
 
 
 
-  $sql = "INSERT INTO resume(profile_img) VALUES('$img_path')";
-$result = mysqli_query($conn,$sql);
-  
-}
-   }
-?>
-
-
-<?php
 if (isset($_POST['submit'])) {
 $name = $_POST["name"];
 $headline = $_POST["headline"];
@@ -219,7 +260,7 @@ $skill_proficiency = $_POST["skill_proficiency"];
 
 
 
-if (empty($name) || empty($headline) || empty($short_description) || empty($location) || empty($page_url)|| empty($salary)|| empty($age) || empty($contact)|| empty($email)||empty($tag_name) || empty($degree_bachelor) || empty($major_computer_sience) || empty($school_name) || empty($date_from)||empty($date_to) || empty($education_discription) ||empty($company_name)|| empty($position) || empty($work_date_from)||empty($work_date_to) || empty($work_description) || empty($skill_name) || empty($skill_proficiency)) {
+if (empty($name) || empty($headline) || empty($short_description) || empty($location) || empty($page_url)|| empty($salary)|| empty($age) || empty($contact)|| empty($email)||empty($tag_name) || empty($degree_bachelor) || empty($major_computer_sience) || empty($school_name) || empty($date_from)||empty($date_to) || empty($education_discription) ||empty($company_name)|| empty($position) || empty($work_date_from)||empty($work_date_to) || empty($work_description) || empty($skill_name) || empty($skill_proficiency) || empty($file_name)|| empty($file_name1)||empty($file_name2)) {
 
 echo "<h3 style='text-align:center;color:#0000;'>You did not fill out the requierd fields<h3>";
 
@@ -227,10 +268,10 @@ echo "<h3 style='text-align:center;color:#0000;'>You did not fill out the requie
 
 else {
 
-$sql = "INSERT INTO resume (name,headline,short_description,location,page_url,salary,age,contact,email,tag_name,degree_bachelor,major_computer_sience,school_name,date_from,date_to,education_discription,company_name,position,work_date_from,work_date_to,work_description,skill_name,skill_proficiency) VALUES ('$_POST[name]','$_POST[headline]','$_POST[short_description]','$_POST[location]','$_POST[page_url]','$_POST[salary]','$_POST[age]','$_POST[contact]','$_POST[email]','$_POST[tag_name]','$_POST[degree_bachelor]','$_POST[major_computer_sience]','$_POST[school_name]','$_POST[date_from]','$_POST[date_to]','$_POST[education_discription]','$_POST[company_name]','$_POST[position]','$_POST[work_date_from]','$_POST[work_date_to]','$_POST[work_description]','$_POST[skill_name]','$_POST[skill_proficiency]')";
+$sql = "INSERT INTO resume (name,headline,short_description,location,page_url,salary,age,contact,email,tag_name,degree_bachelor,major_computer_sience,school_name,date_from,date_to,education_discription,company_name,position,work_date_from,work_date_to,work_description,skill_name,skill_proficiency,profile_img,education_img,work_img) VALUES ('$_POST[name]','$_POST[headline]','$_POST[short_description]','$_POST[location]','$_POST[page_url]','$_POST[salary]','$_POST[age]','$_POST[contact]','$_POST[email]','$_POST[tag_name]','$_POST[degree_bachelor]','$_POST[major_computer_sience]','$_POST[school_name]','$_POST[date_from]','$_POST[date_to]','$_POST[education_discription]','$_POST[company_name]','$_POST[position]','$_POST[work_date_from]','$_POST[work_date_to]','$_POST[work_description]','$_POST[skill_name]','$_POST[skill_proficiency]','$img_path','$img_path1','$img_path2')";
 $result = mysqli_query($conn,$sql);
 if ($result) {
-  echo "<h3 style='text-align:center;color:#0000;'>Succes entered<h3>";
+  echo "<h3 style='text-align:center;color:#0000;'>Successfully entered<h3>";
 
 } else {
   echo "Error";
@@ -239,6 +280,10 @@ if ($result) {
 
 }
 
+
+}
+   }
+}
 
 
 
@@ -360,45 +405,6 @@ if ($result) {
             
             <div class="row">
 
-<?php
-   if(isset($_FILES['logo1'])){
-      $errors= array();
-      $file_name = $_FILES['logo1']['name'];
-      $file_size =$_FILES['logo1']['size'];
-      $file_tmp =$_FILES['logo1']['tmp_name'];
-      $file_type=$_FILES['logo1']['type'];
-      $img_path= "resume_img/".$file_name;
-      $file_ext=strtolower(end(explode('.',$_FILES['logo1']['name'])));
-      
-      $expensions= array("jpeg","jpg","png");
-      
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="";
-      }
-      
-      if($file_size > 2097152){
-         $errors[]='File size must be excately 2 MB';
-      }
-      
-      if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"resume_img/".$file_name);
-         echo "<h3 style='text-align:center;color:#0000;'>Your logo has been successfully saved</h3>";
-      }else{
-         print_r($errors);
-      }
-if (empty($file_name)) {
-  echo "<h2 style='text-align:center;'>Please add your logo</h2>";
-} else {
- 
-
-
-
-  $sql = "INSERT INTO resume(education_img) VALUES('$img_path')";
-$result = mysqli_query($conn,$sql);
-  
-}
-   }
-?>
 
               <div class="col-xs-12">
                 <div class="item-block">
@@ -513,45 +519,7 @@ $result = mysqli_query($conn,$sql);
             </header>
             
             <div class="row">
-                   <?php
-   if(isset($_FILES['logo2'])){
-      $errors= array();
-      $file_name = $_FILES['logo2']['name'];
-      $file_size =$_FILES['logo2']['size'];
-      $file_tmp =$_FILES['logo2']['tmp_name'];
-      $file_type=$_FILES['logo2']['type'];
-      $img_path= "resume_img/".$file_name;
-      $file_ext=strtolower(end(explode('.',$_FILES['logo2']['name'])));
-      
-      $expensions= array("jpeg","jpg","png");
-      
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="";
-      }
-      
-      if($file_size > 2097152){
-         $errors[]='File size must be excately 2 MB';
-      }
-      
-      if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"resume_img/".$file_name);
-         echo "<h3 style='text-align:center;color:#0000;'>Your logo has been successfully saved</h3>";
-      }else{
-         print_r($errors);
-      }
-if (empty($file_name)) {
-  echo "<h2 style='text-align:center;'>Please add your logo</h2>";
-} else {
- 
 
-
-
-  $sql = "INSERT INTO resume (work_img) VALUES('$img_path')";
-$result = mysqli_query($conn,$sql);
-  
-}
-   }
-?>
               <div class="col-xs-12">
                 <div class="item-block">
                   <div class="item-form">

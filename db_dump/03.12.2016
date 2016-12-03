@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2016 at 10:48 PM
+-- Generation Time: Dec 03, 2016 at 02:45 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -107,7 +107,7 @@ CREATE TABLE `resume` (
   `position` varchar(100) NOT NULL,
   `work_date_from` varchar(100) NOT NULL,
   `work_date_to` varchar(100) NOT NULL,
-  `work_description` varchar(255) NOT NULL,
+  `work_description` text NOT NULL,
   `skill_name` varchar(255) NOT NULL,
   `skill_proficiency` varchar(255) NOT NULL,
   `profile_img` varchar(255) NOT NULL,
@@ -120,10 +120,7 @@ CREATE TABLE `resume` (
 --
 
 INSERT INTO `resume` (`id`, `name`, `headline`, `short_description`, `location`, `page_url`, `salary`, `age`, `contact`, `email`, `tag_name`, `degree_bachelor`, `major_computer_sience`, `school_name`, `date_from`, `date_to`, `education_discription`, `company_name`, `position`, `work_date_from`, `work_date_to`, `work_description`, `skill_name`, `skill_proficiency`, `profile_img`, `education_img`, `work_img`) VALUES
-(19, 'Belmin Krak', 'Front-end developer', 'The front end is the part that users see and interact with, includes the User Interface, the animations', 'Sarajevo', 'www.blablabla.com', '2.000', '18', '+38761700734', 'bvk387@gmail.com', 'HTML,CSS,Javascript,java', 'High school', 'No', 'Mjesovita Srednja Tehnicka Skola Travnik', '03.10.2010', '06.07.2015', 'The University of California, Berkeley is a public research university located in Berkeley, California. It is the flagship campus of the University of California system', 'Google', 'Senior front-end developer', 'jan 2014', '03.05.2015', '<p style="margin-bottom: 0px; color: rgb(162, 162, 162);">Responsibilities:</p><ul style="color: rgb(162, 162, 162);"><li>Developed front-end for world-class online social viewing video and chat platform using xHTML, CSS, ActionScript 2-3, Javascript, and', 'java', '30%', '', '', '0'),
-(46, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'resume_img/13882203_1670189739969874_8203551726240851759_n.jpg', '', ''),
-(47, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'resume_img/14940094_1632360666789737_176599882401993026_o.jpg', ''),
-(48, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'resume_img/belmin.jpg');
+(62, 'Vedin Karic', 'Front-end developer', 'bla bla bla bla bla bla bla ', 'Zenica', 'www.blabala.com', '2.000', '17', '+3876345345', 'www.bla_bla@gmail.com', 'HTML,CSS,Javascript,c++', 'High school', 'bla bla ', 'Mjesovita srednja tehnicka skola Travnik', '04.02.2015', '06.07.2015', 'BivÅ¡a srednja Å¡kola â€œTaib DautoviÄ‡â€ osnovana je 1947 godine, odlukom Gradskog odbora Travnik. SjediÅ¡te Å¡kole se nalazilo u danaÅ¡njoj zgradi Prihoda. Registrovana je kod Osnovnog suda u Zenici 17.12.1990 godine, kao samostalna ustanova, a verifik', 'Google', 'Senior front-end developer ', 'jan 2015', '03.05.2016', 'Google is creating a better web that''s better for the environment. We’re greening our company by using resources efficiently and supporting renewable power. That means when you use Google products, you’re being better to the environment.', 'c', '60%', 'resume_img/13087009_842807935823565_2022778830999828900_o.jpg', 'resume_img/Screenshot_3.png', 'resume_img/logo-google.jpg');
 
 -- --------------------------------------------------------
 
@@ -195,7 +192,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `resume`
 --
 ALTER TABLE `resume`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `users`
 --
