@@ -14,6 +14,9 @@ if (!$conn) {
 }
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,7 +38,7 @@ if (!$conn) {
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="./pictures/favicon.ico">
   </head>
 
   <body class="nav-on-header smart-nav bg-alt">
@@ -277,35 +280,33 @@ if (!$conn) {
             </div>
    
 
-   <!-- Job item -->
-       
+    <?php 
 
-        <?php 
-
-$sql = "SELECT * FROM jobs";
+$sql = "SELECT * FROM jobs INNER JOIN companies ON jobs.company_id = companies.id";
 $result = $conn->query($sql);
 if (mysqli_num_rows($result) > 0) {
-                     
-        
-
-    // output data of each row
-      while($row = mysqli_fetch_assoc($result)) {
+while($row = mysqli_fetch_assoc($result)) {
           ?>
 
 
         
 
               <div class="col-xs-12">
+
               <a class="item-block" href="job-detail.php">
                 <header>
-                
-                  <div class="hgroup">
-                    <h4>  <?php echo $row['job_title'] ?></h4>
-                    <h5><?php echo $row['select_company'] ?><span class="label label-success"><?php echo $row['form_work'] ?></span></h5>
-                  </div>
-                  <time datetime="2016-03-10 20:00">  <?php echo $row['created_at'] ?></time>
-                </header>
+                  <img src="<?php echo $row["picture"] ?>" alt="">
+                 <div class="hgroup">
+                <h4><?php echo $row['job_title'] ?></h4>
+               
+           <h5><?php echo $row['name'] ?> <span class="label label-success"><?php echo $row['form_work'] ?></span></h5>
 
+             </div>
+                  <time><?php echo $row['created_at'] ?></time>
+             
+
+                </header>
+                  
                 <div class="item-body">
                   <?php echo $row['short_description'] ?>
                 </div>
@@ -324,20 +325,25 @@ if (mysqli_num_rows($result) > 0) {
 
                     <li>
                       <i class="fa fa-certificate"></i>
-                      <span><?php echo $row['certicifate'] ?></span>
+                      <span><?php echo $row['certificate'] ?></span>
                     </li>
                   </ul>
                 </footer>
               </a>
+        
+
             </div>
      <?php
                      }
-                  } else {
+                  } 
+                  else {
                       echo "No results";
+                 
+
                   }
              ?>
 
-
+ 
             <!-- END Job item -->
 
           </div>
