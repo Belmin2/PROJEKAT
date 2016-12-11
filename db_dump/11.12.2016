@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2016 at 06:40 PM
+-- Generation Time: Dec 11, 2016 at 09:21 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -48,7 +48,8 @@ CREATE TABLE `companies` (
 
 INSERT INTO `companies` (`id`, `company_title`, `short_discription`, `location`, `name`, `description`, `contact`, `page_url`, `employees`, `established`, `email`, `picture`, `created_at`) VALUES
 (1, 'Internet and computer software', 'Google Inc. is an American multinational technology company specializing in Internet-related services and products. These include online advertising technologies, search, ', 'New Yourk', 'Google', 'Google was founded by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University. Together they own about 14 percent of its shares but control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a privately held company on September 4, 1998. An initial public offering followed on August 19, 2004. Its mission statement from the outset was "to organize the world''s information and make it universally accessible and useful," and its unofficial slogan was "Don''t be evil". In 2004, Google moved to its new headquarters in Mountain View, California, nicknamed the Googleplex. In August 2015, Google announced plans to reorganize its interests as a holding company called Alphabet Inc. When this restructuring took place on October 2, 2015, Google became Alphabet''s leading subsidiary, as well as the parent for Google''s Internet interests.', '(0)+3875345543', 'www.Google.com', '20 000 - 40 000 enemployees', 'From 1995', 'bvk.387@gmail.com', '/uploads/logo-google.jpg', '0000-00-00 00:00:00'),
-(2, 'Computer software and hardware', 'As a global company, Microsoft is organized into geographic regions. Each area has a headquarters that serves as the hub for regional activities, including sales, business development, and marketing. ', 'Dublin ', 'Microsoft', '<p><span style="color: rgb(26, 26, 26); font-family: wf_segoe-ui, &quot;Segoe UI&quot;, Segoe, &quot;Segoe WP&quot;, Arial, sans-serif;">As a global company, Microsoft is organized into geographic regions. Each area has a headquarters that serves as the hub for regional activities, including sales, business development, and marketing. The offices are located in China, France, Germany, Singapore, Turkey, and the U.S. Generally, youâ€™ll find finance, human resources, sales, and management positions in area headquarters.</span><br></p>', '(+0) 387272737', 'www.Microsoft.com', '10,000 - 99,999', 'From 1989', 'Microsoft@gmail.com', 'resume_img/logo-microsoft.jpg', '0000-00-00 00:00:00');
+(2, 'Computer software and hardware', 'As a global company, Microsoft is organized into geographic regions. Each area has a headquarters that serves as the hub for regional activities, including sales, business development, and marketing. ', 'Dublin ', 'Microsoft', '<p><span style="color: rgb(26, 26, 26); font-family: wf_segoe-ui, &quot;Segoe UI&quot;, Segoe, &quot;Segoe WP&quot;, Arial, sans-serif;">As a global company, Microsoft is organized into geographic regions. Each area has a headquarters that serves as the hub for regional activities, including sales, business development, and marketing. The offices are located in China, France, Germany, Singapore, Turkey, and the U.S. Generally, youâ€™ll find finance, human resources, sales, and management positions in area headquarters.</span><br></p>', '(+0) 387272737', 'www.Microsoft.com', '10,000 - 99,999', 'From 1989', 'Microsoft@gmail.com', 'resume_img/logo-microsoft.jpg', '0000-00-00 00:00:00'),
+(3, 'Internet', 'LinkedIn is a business-oriented social networking service. ', 'SAD', 'Linkeidn', 'With basic membership, a member can only establish connections with someone he has worked with, knows professionally (online or offline) or has gone to school with. Connections up to three degrees away (see six degrees of separation) are seen as part of the member''s network, but the member is not allowed to contact them through LinkedIn without an introduction. Premium subscriptions can be purchased to provide members with better access to contacts in the LinkedIn database.', '(+0)543563465464', 'www.linkeidn.com', '10.000,99.000', 'From 2002', 'www.linkeid@gmail.com', 'resume_img/logo-linkedin.png', '2016-12-10 09:13:27');
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,7 @@ CREATE TABLE `jobs` (
   `working_hours` varchar(100) NOT NULL,
   `experience` varchar(100) NOT NULL,
   `certificate` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -77,7 +78,8 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `job_title`, `company_id`, `short_description`, `application_url`, `location`, `form_work`, `salary`, `working_hours`, `experience`, `certificate`, `description`, `created_at`) VALUES
-(1, 'web page developer', 1, 'A rapidly growing, well established marketing firm is looking for an experienced web developer for a full-time position. In this role, you will develop websites, apps, emails and other forms of digital electronic media, all while maintaining brand standar', 'http://........', 'Sarajevo', 'Full time', ' 1.000', '13/h', '2 years', 'Master', '<p>Bla bla bla bla&nbsp;</p>', '0000-00-00 00:00:00');
+(1, 'web page developer', 1, 'A rapidly growing, well established marketing firm is looking for an experienced web developer for a full-time position. In this role, you will develop websites, apps, emails and other forms of digital electronic media, all while maintaining brand standar', 'http://........', 'Sarajevo', 'Full time', ' 1.000', '13/h', '2 years', 'Master', '<p>You will help Google build next-generation web applications like Gmail, Google Docs, Google Analytics, and the Google eBookstore and eBook readers. As a Front End Engineer at Google, you will specialize in building responsive and elegant web UIs with AJAX and similar technologies. You may design or work on frameworks for building scalable frontend applications. We are looking for engineers who are passionate about and have experience building leading-edge user experience, including dynamic consumer experiences.</p>', '0000-00-00 00:00:00'),
+(2, 'Sr.Sql Server developer', 2, 'Understand and model complex business requirements into database schemas and work with existing databases in SQL and NOSQL data stores. Develop high performance stored procedures, triggers and other database level code to provide data ', 'www.Microsoft.com', 'Paulo Alto, Ca', 'remote', ' 125.000$ - 1400.000$ /year', '13/h', '2 years', 'Bachelor', 'Understand and model complex business requirements into database schemas and work with existing databases in SQL and NOSQL data stores. Develop high performance stored procedures, triggers and other database level code to provide data services to other teams.', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -182,12 +184,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `resume`
 --

@@ -1,22 +1,3 @@
-
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,15 +7,15 @@ if (!$conn) {
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Company detail</title>
+    <title>TheJobs - Contact us</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
     <link href="./css/custom.css" rel="stylesheet">
 
     <!-- Fonts -->
-        <link rel="stylesheet" href="font-awesome_4.6.3/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Oswald:100,300,400,500,600,800%7COpen+Sans:300,400,500,600,700,800%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome_4.6.3/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,800%7COpen+Sans:300,400,500,600,700,800%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -43,9 +24,9 @@ if (!$conn) {
 
   <body class="nav-on-header smart-nav">
 
-  <!-- Navigation bar -->
+    <!-- Navigation bar -->
     <nav class="navbar">
-      <div class="container"
+      <div class="container">
 
         <!-- Logo -->
         <div class="pull-left">
@@ -65,135 +46,117 @@ if (!$conn) {
         </div>
         <!-- END User account -->
 
-          <!--Navigation menu -->
+       <!--Navigation menu -->
         <div class="menu">
           <?php include 'menu-1.php';?>
           </div>
     
         <!-- END Navigation menu -->
+
       </div>
     </nav>
     <!-- END Navigation bar -->
 
 
-    <!-- Page header -->
-          <?php
-$sql = "SELECT * FROM companies";
-$query = mysqli_query($conn,$sql);
-if (mysqli_num_rows($query)>0) {
-  while ($row = mysqli_fetch_assoc($query)) {
-    
-?>
+    <!-- Site header -->
     <header class="page-header bg-img size-lg" style="background-image: url(./pictures/bg-banner2.jpg)">
- 
-      <div class="container">
-        <div class="header-detail">
-        
-<img class="logo" src="<?php  echo $row['picture']?>">
-          
-
-
-
-        
-          <div class="hgroup">
-            <h1><?php echo $row['name'] ?></h1>
-            <h3><?php echo $row['company_title'] ?></h3>
-          </div>
-          <hr>
-          <p class="lead"><?php echo $row['short_discription'] ?></p>
-
-          <ul class="details cols-3">
-            <li>
-              <i class="fa fa-map-marker"></i>
-              <span><?php echo $row['location']?></span>
-            </li>
-
-            <li>
-              <i class="fa fa-globe"></i>
-              <a href="#"><?php echo $row['page_url']?></a>
-            </li>
-
-            <li>
-              <i class="fa fa-users"></i>
-              <span><?php echo $row['employees']?></span>
-            </li>
-
-            <li>
-              <i class="fa fa-birthday-cake"></i>
-              <span>From <?php echo $row['established']?></span>
-            </li>
-
-            <li>
-              <i class="fa fa-phone"></i>
-              <span><?php echo $row['contact']?></span>
-            </li>
-
-            <li>
-              <i class="fa fa-envelope"></i>
-              <a href="#"><?php echo $row['email']?></a>
-            </li>
-          </ul>
-
-          <div class="button-group">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-
-            <div class="action-buttons">
-              <a class="btn btn-gray" href="#">Favorite</a>
-              <a class="btn btn-success" href="#">Contact</a>
-            </div>
-          </div>
-
-        </div>
+      <div class="container no-shadow">
+        <h1 class="text-center">Contact us</h1>
+        <p class="lead text-center">Say hi, drop a letter, and follow us in social media websites.</p>
       </div>
     </header>
-    <!-- END Page header -->
+    <!-- END Site header -->
 
 
     <!-- Main container -->
     <main>
 
-
-      <!-- Company detail -->
       <section>
         <div class="container">
 
-          <header class="section-header">
-            <span>About</span>
-            <h2>Company detail</h2>
-          </header>
-  <p><?php echo $row['description']?></p>
+
+          <br><br>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-8">
+              <?php 
+
+            if (isset($_POST["submit"])) {              
+              
+              $name = $_POST["name"];
+              $email = $_POST["email"];
+              $message = $_POST["message"];
+         
+
+
+            if (empty($name) || empty($email) || empty($message)) {
+              echo "<h3 style='text-align:center;color:#0000;'>You did not fill out the requierd fields<h3>";
+            } 
+            else {
+              $subject = "Message has been sent to the page";
+              $from = "From: $name<$email>";
+           mail('bvk387@gmail.com', $subject, $message, $from);
+         echo "Message has been succesefully sent";
+          }
+         }
+
+              ?>
+
+
+
+
+              <h4>Contact form</h4>
+              <form action="page-contact.php" method="POST">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control input-lg" placeholder="Name">
+                </div>
+
+                <div class="form-group">
+                  <input type="email"  name="email" class="form-control input-lg" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                </div>
+                
+                <button type="submit" name="submit" class="btn btn-primary">Send</button>
+              </form>
+           
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+              <h4>Information</h4>
+              <div class="highlighted-block">
+                <dl class="icon-holder">
+                  <dt><i class="fa fa-map-marker"></i></dt>
+                  <dd>Travnik</dd>
+
+                  <dt><i class="fa fa-phone"></i></dt>
+                  <dd>+38761700734</dd>
+
+                  <dt><i class="fa fa-fax"></i></dt>
+                  <dd>(+1) 123 456 7890</dd>
+
+                  <dt><i class="fa fa-envelope"></i></dt>
+                  <dd>bvk387@gmail.com</dd>
+                </dl>
+              </div>
+
+              <br>
+
+              <ul class="social-icons size-sm text-center">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+
+            </div>
+          </div>
+
         </div>
       </section>
- <?php 
- }     
-}
-else{
-echo "No companies";
-}
-
-
- ?>
-      <!-- END Company detail -->
-
-
-      <!-- Open positions -->
-      <section id="open-positions" class="bg-alt">
-        <div class="container">
-          <header class="section-header">
-            <span>vacancies</span>
-            <h2>Open positions</h2>
-          </header>
-          
-         
-            
-      </section>
-      <!-- END Open positions -->
 
 
     </main>

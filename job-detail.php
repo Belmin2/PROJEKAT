@@ -1,3 +1,18 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "baza_1";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password , $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
+ 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +34,7 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="./pictures/favicon.ico">
   </head>
 
   <body class="nav-on-header smart-nav">
@@ -42,88 +57,52 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.html">Login</a> or <a href="user-register.html">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
         </div>
         <!-- END User account -->
-
-        <!-- Navigation menu -->
-        <ul class="nav-menu">
-          <li>
-            <a href="index.php">Home</a>
-            <ul>
-              <li><a href="index.php">Version 1</a></li>
-              <li><a href="index-2.html">Version 2</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="active" href="#">Position</a>
-            <ul>
-              <li><a href="job-list-1.php">Browse jobs - 1</a></li>
-              <li><a href="job-list-2.php">Browse jobs - 2</a></li>
-              <li><a href="job-list-3.php">Browse jobs - 3</a></li>
-              <li><a class="active" href="job-detail.html">Job detail</a></li>
-              <li><a href="job-apply.php">Apply for job</a></li>
-              <li><a href="job-add.php">Post a job</a></li>
-              <li><a href="job-manage.php">Manage jobs</a></li>
-              <li><a href="job-candidates.php">Candidates</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Resume</a>
-            <ul>
-              <li><a href="resume-list.php">Browse resumes</a></li>
-              <li><a href="resume-detail.php">Resume detail</a></li>
-              <li><a href="resume-add.php">Create a resume</a></li>
-              <li><a href="resume-manage.php">Manage resumes</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Company</a>
-            <ul>
-              <li><a href="company-list.html">Browse companies</a></li>
-              <li><a href="company-detail.html">Company detail</a></li>
-              <li><a href="company-add.html">Create a company</a></li>
-              <li><a href="company-manage.html">Manage companies</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Pages</a>
-            <ul>
-              <li><a href="page-blog.html">Blog</a></li>
-              <li><a href="page-post.html">Blog-post</a></li>
-              <li><a href="page-about.html">About</a></li>
-              <li><a href="page-contact.html">Contact</a></li>
-              <li><a href="page-faq.html">FAQ</a></li>
-              <li><a href="page-pricing.html">Pricing</a></li>
-              <li><a href="page-typography.html">Typography</a></li>
-              <li><a href="page-ui-elements.html">UI elements</a></li>
-            </ul>
-          </li>
-        </ul>
+  <!--Navigation menu -->
+        <div class="menu">
+          <?php include 'menu-1.php';?>
+          </div>
+    
         <!-- END Navigation menu -->
 
-      </div>
+
+    </div>
     </nav>
     <!-- END Navigation bar -->
 
 
     <!-- Page header -->
+ 
+  <?php 
+  $row = $_GET["id"];
+
+  $sql = "SELECT * FROM jobs WHERE id='$row' ";
+  $query =mysqli_query($conn,$sql);
+  while ($row = mysqli_fetch_array($query)) {
+    ?>
+
+
+
     <header class="page-header bg-img size-lg" style="background-image: url(./pictures/bg-banner2.jpg)">
       <div class="container">
         <div class="header-detail">
-          <img class="logo" src="./pictures/logo-google.jpg" alt="">
+          <img class="logo" src="" alt="">
           <div class="hgroup">
-            <h1>Senior front-end developer</h1>
-            <h3><a href="#">Google</a></h3>
+            <h1><?php echo $row["job_title"]?></h1>
+          
+            <h3><a href="#"></a></h3>
           </div>
-          <time datetime="2016-03-03 20:00">2 days ago</time>
+
+          <time datetime="2016-03-03 20:00"><?php echo $row["created_at"]?></time>
           <hr>
-          <p class="lead">You will help Google build next-generation web applications like Gmail, Google Docs, Google Analytics, and the Google eBookstore and eBook readers. As a Front End Engineer at Google, you will specialize in building responsive and elegant web UIs with AJAX and similar technologies. You may design or work on frameworks for building scalable frontend applications. We are looking for engineers who are passionate about and have experience building leading-edge user experience, including dynamic consumer experiences.</p>
+          <p class="lead"><?php echo $row["description"] ?></p>
 
           <ul class="details cols-3">
             <li>
               <i class="fa fa-map-marker"></i>
-              <span>Menlo Park, CA</span>
+              <span><?php echo $row["location"]?></span>
             </li>
 
             <li>
@@ -133,22 +112,22 @@
 
             <li>
               <i class="fa fa-money"></i>
-              <span>$90,000 - $110,000 / year</span>
+              <span><?php echo $row["salary"]?></span>
             </li>
 
             <li>
               <i class="fa fa-clock-o"></i>
-              <span>40h / week</span>
+              <span><?php echo $row["working_hours"]?></span>
             </li>
 
             <li>
               <i class="fa fa-flask"></i>
-              <span>2+ years experience</span>
+              <span><?php echo $row["experience"]?></span>
             </li>
 
             <li>
               <i class="fa fa-certificate"></i>
-              <a href="#">Master or Bachelor</a>
+              <a href="#"><?php echo $row["certificate"]?></a>
             </li>
           </ul>
 
@@ -170,7 +149,13 @@
         </div>
       </div>
     </header>
-    <!-- END Page header -->
+  <?php 
+
+}
+?>
+  
+  <!-- END Page header -->
+  
 
 
     <!-- Main container -->
@@ -180,7 +165,7 @@
       <section>
         <div class="container">
 
-          <p>Google is and always will be an engineering company. We hire people with a broad set of technical skills who are ready to tackle some of technology's greatest challenges and make an impact on millions, if not billions, of users. At Google, engineers not only revolutionize search, they routinely work on massive scalability and storage solutions, large-scale applications and entirely new platforms for developers around the world. From AdWords to Chrome, Android to YouTube, Social to Local, Google engineers are changing the world one technological achievement after another.</p>
+        
 
           <br>
           <h4>Responsibilities</h4>
@@ -217,9 +202,9 @@
       <!-- END Job detail -->
 
     </main>
-    <!-- END Main container -->
 
-
+  <!-- END Main container -->
+  
     <!-- Site footer -->
     <footer class="site-footer">
 

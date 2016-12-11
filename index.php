@@ -1,3 +1,17 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "baza_1";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password , $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
 <?php 
 session_start();
 if (isset($_SESSION["name"])) {
@@ -58,67 +72,12 @@ else {
         </div>
         <!-- END User account -->
 
-        <!-- Navigation menu -->
-        <ul class="nav-menu">
-          <li>
-            <a class="active" href="index.php">Home</a>
-            <ul>
-              <li><a class="active" href="index.php">Version 1</a></li>
-              <li><a href="index-2.php">Version 2</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Position</a>
-            <ul>
-              <li><a href="job-list-1.php">Browse jobs - 1</a></li>
-              <li><a href="job-list-2.html">Browse jobs - 2</a></li>
-              <li><a href="job-list-3.html">Browse jobs - 3</a></li>
-              <li><a href="job-detail.php">Job detail</a></li>
-              <li><a href="job-apply.html">Apply for job</a></li>
-              <li><a href="job-add.php">Post a job</a></li>
-              <li><a href="job-manage.php">Manage jobs</a></li>
-              <li><a href="job-candidates.html">Candidates</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Resume</a>
-            <ul>
-              <li><a href="resume-list.php">Browse resumes</a></li>
-              <li><a href="resume-detail.php">Resume detail</a></li>
-              <li><a href="resume-add.php">Create a resume</a></li>
-              <li><a href="resume-manage.php">Manage resumes</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Company</a>
-            <ul>
-              <li><a href="company-list.html">Browse companies</a></li>
-              <li><a href="company-detail.html">Company detail</a></li>
-              <li><a href="company-add.html">Create a company</a></li>
-              <li><a href="company-manage.html">Manage companies</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Pages</a>
-            <ul>
-              <li><a href="page-blog.html">Blog</a></li>
-              <li><a href="page-post.html">Blog-post</a></li>
-              <li><a href="page-about.html">About</a></li>
-              <li><a href="page-contact.html">Contact</a></li>
-              <li><a href="page-faq.html">FAQ</a></li>
-              <li><a href="page-pricing.html">Pricing</a></li>
-              <li><a href="page-typography.html">Typography</a></li>
-              <li><a href="page-ui-elements.html">UI elements</a></li>
-            </ul>
-          </li>
-        </ul>
+          <!--Navigation menu -->
+        <div class="menu">
+          <?php include 'menu-1.php';?>
+          </div>
+    
         <!-- END Navigation menu -->
-
-      </div>
-    </nav>
-    <!-- END Navigation bar -->
-
-
     <!-- Site header -->
     <header class="site-header size-lg text-center" style="background-image: url(./pictures/bg-banner1.jpg)">
       <div class="container">
@@ -163,96 +122,41 @@ else {
 
           <div class="row item-blocks-connected">
 
+<?php 
+$sql = "SELECT * FROM jobs INNER JOIN companies ON jobs.company_id = companies.id";
+$result = mysqli_query($conn,$sql);
+if (mysqli_num_rows($result) > 0) {
+while($row = mysqli_fetch_assoc($result)) {
+?>
+
             <!-- Job item -->
             <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
+              <a class="item-block" href="job-detail.php?id=<?php echo $row['id']?>">
                 <header>
-                  <img src="./pictures/logo-google.jpg" alt="">
+                  <img src="<?php echo $row["picture"] ?>" alt="">
                   <div class="hgroup">
-                    <h4>Senior front-end developer</h4>
-                    <h5>Google</h5>
+                    <h4><?php echo $row["job_title"] ?></h4>
+                    <h5><?php echo $row["name"] ?></h5>
                   </div>
                   <div class="header-meta">
-                    <span class="location">Menlo park, CA</span>
-                    <span class="label label-success">Full-time</span>
+                    <span class="location"><?php echo $row["location"] ?></span>
+                    <span class="label label-success"><?php echo $row["form_work"] ?></span>
                   </div>
                 </header>
               </a>
             </div>
             <!-- END Job item -->
 
+  <?php
+                     }
+                  } 
+                  else {
+                      echo "No results";
+                 
 
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-linkedin.png" alt="">
-                  <div class="hgroup">
-                    <h4>Software Engineer (Entry or Senior)</h4>
-                    <h5>Linkedin</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">Livermore, CA</span>
-                    <span class="label label-warning">Part-time</span>
-                  </div>
-                </header>
-              </a>
-            </div>
-            <!-- END Job item -->
+                  }
+             ?>
 
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-envato.png" alt="">
-                  <div class="hgroup">
-                    <h4>Full Stack Web Developer</h4>
-                    <h5>Envato</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">San Francisco, CA</span>
-                    <span class="label label-info">Freelance</span>
-                  </div>
-                </header>
-              </a>
-            </div>
-            <!-- END Job item -->
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-facebook.png" alt="">
-                  <div class="hgroup">
-                    <h4>Web Applications Developer</h4>
-                    <h5>Facebook</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">Lexington, MA</span>
-                    <span class="label label-danger">Internship</span>
-                  </div>
-                </header>
-              </a>
-            </div>
-            <!-- END Job item -->
-
-            <!-- Job item -->
-            <div class="col-xs-12">
-              <a class="item-block" href="job-detail.php">
-                <header>
-                  <img src="./pictures/logo-microsoft.jpg" alt="">
-                  <div class="hgroup">
-                    <h4>Sr. SQL Server Developer</h4>
-                    <h5>Microsoft</h5>
-                  </div>
-                  <div class="header-meta">
-                    <span class="location">Palo Alto, CA</span>
-                    <span class="label label-success">Remote</span>
-                  </div>
-                </header>
-              </a>
-            </div>
-            <!-- END Job item -->
 
           </div>
 

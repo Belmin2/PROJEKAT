@@ -58,67 +58,12 @@
 
         </div>
         <!-- END User account -->
-
-        <!-- Navigation menu -->
-        <ul class="nav-menu">
-          <li>
-            <a class="active" href="index.php">Home</a>
-            <ul>
-              <li><a href="index.php">Version 1</a></li>
-              <li><a class="active" href="index-2.php">Version 2</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Position</a>
-            <ul>
-              <li><a href="job-list-1.php">Browse jobs - 1</a></li>
-              <li><a href="job-list-2.php">Browse jobs - 2</a></li>
-              <li><a href="job-list-3.php">Browse jobs - 3</a></li>
-              <li><a href="job-detail.php">Job detail</a></li>
-              <li><a href="job-apply.php">Apply for job</a></li>
-              <li><a href="job-add.php">Post a job</a></li>
-              <li><a href="job-manage.php">Manage jobs</a></li>
-              <li><a href="job-candidates.php">Candidates</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Resume</a>
-            <ul>
-              <li><a href="resume-list.php">Browse resumes</a></li>
-              <li><a href="resume-detail.php">Resume detail</a></li>
-              <li><a href="resume-add.php">Create a resume</a></li>
-              <li><a href="resume-manage.php">Manage resumes</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Company</a>
-            <ul>
-              <li><a href="company-list.html">Browse companies</a></li>
-              <li><a href="company-detail.html">Company detail</a></li>
-              <li><a href="company-add.html">Create a company</a></li>
-              <li><a href="company-manage.html">Manage companies</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Pages</a>
-            <ul>
-              <li><a href="page-blog.html">Blog</a></li>
-              <li><a href="page-post.html">Blog-post</a></li>
-              <li><a href="page-about.html">About</a></li>
-              <li><a href="page-contact.html">Contact</a></li>
-              <li><a href="page-faq.html">FAQ</a></li>
-              <li><a href="page-pricing.html">Pricing</a></li>
-              <li><a href="page-typography.html">Typography</a></li>
-              <li><a href="page-ui-elements.html">UI elements</a></li>
-            </ul>
-          </li>
-        </ul>
+     <!--Navigation menu -->
+        <div class="menu">
+          <?php include 'menu-1.php';?>
+          </div>
+    
         <!-- END Navigation menu -->
-
-      </div>
-    </nav>
-    <!-- END Navigation bar -->
-
 
     <!-- Site header -->
     <header class="site-header size-lg text-center" style="background-image: url(./pictures/bg-banner1.jpg)">
