@@ -39,7 +39,10 @@
             <ul>
             
               <li><a href="page-contact.php">Contact</a></li>
-            
+            <li><a href="page-typography.php">Typography</a></li>
+            <li><a href="page-about.php">About us</a></li>
+              <li><a href="page-faq.php">FAQ</a></li>
+
             </ul>
           </li>
         </ul>

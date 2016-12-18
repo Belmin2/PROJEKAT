@@ -29,7 +29,8 @@ if (isset($_POST["submit"])) {
 
 
 if(empty($job_title) || empty($company_id) || empty ($short_description) ||  empty($application_url) || empty ($location) || empty($form_work) || empty($salary) || empty($working_hours) || empty($experience) || empty($certificate) || empty($description)){
-    echo "You did not fill out the required fields.";
+echo "<h3 style='text-align:center;color:#0000;'>You did not fill out the requierd fields<h3>";
+
 } 
 else {
   $q = "INSERT INTO jobs (job_title, company_id, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[company_id]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
@@ -293,64 +294,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
     <!-- Site footer -->
-    <footer class="site-footer">
-
-      <!-- Top section -->
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">An employment website is a web site that deals specifically with employment or careers. Many employment websites are designed to allow employers to post job requirements for a position to be filled and are commonly known as job boards. Other employment sites offer employer reviews, career and job-search advice, and describe different job descriptions or employers. Through a job website a prospective employee can locate and fill out a job application.</p>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Company</h6>
-            <ul class="footer-links">
-              <li><a href="page-about.php">About us</a></li>
-              <li><a href="page-typography.php">How it works</a></li>
-              <li><a href="page-faq.php">Help center</a></li>
-              <li><a href="page-typography.php">Privacy policy</a></li>
-              <li><a href="page-contact.php">Contact us</a></li>
-            </ul>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Trendeing jobs</h6>
-            <ul class="footer-links">
-              <li><a href="job-list-1.php">Front-end developer</a></li>
-              <li><a href="job-list.php">Android developer</a></li>
-              <li><a href="job-list.php">iOS developer</a></li>
-              <li><a href="job-list.php">Full stack developer</a></li>
-              <li><a href="job-list.php">Project administrator</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <hr>
-      </div>
-      <!-- END Top section -->
-
-      <!-- Bottom section -->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyrights &copy; 2016 All Rights Reserved by <a href="http://themeforest.net/user/shamsoft">ShaMSofT</a>.</p>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- END Bottom section -->
-
-    </footer>
+  <?php include 'footer.php'; ?>
     <!-- END Site footer -->
 
 
