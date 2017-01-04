@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,10 +52,10 @@ if (!$conn) {
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="user-login.php">Login</a></li>
-              <li><a href="user-register.php">Register</a></li>
-              <li><a href="user-forget-pass.php">Forget pass</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="user-login.php">Prijavi se</a></li>
+              <li><a href="user-register.php">Registrujte</a></li>
+              <li><a href="user-forget-pass.php">Zaboravili ste pasword?</a></li>
+              <li><a href="#">Odjava</a></li>
             </ul>
           </div>
 
@@ -84,8 +73,8 @@ if (!$conn) {
       <div class="container">
         <div class="col-xs-12">
           <br><br>
-          <h2>We offer <mark>1,259</mark> job vacancies right now!</h2>
-          <h5 class="font-alt">Find your desire one in a minute</h5>
+          <h2>Nudimo <mark>1,259</mark> radnih mjesta odmah!</h2>
+          <h5 class="font-alt">Pronađite vašu želju u minuti</h5>
           <br><br><br>
           <form class="header-job-search">
             <div class="input-keyword">
@@ -97,8 +86,8 @@ if (!$conn) {
             </div>
 
             <div class="btn-search">
-              <button class="btn btn-primary" type="submit">Find jobs</button>
-              <a href="">Advanced Job Search</a>
+              <button class="btn btn-primary" type="submit">Pronađi posao</button>
+              <a href="">Napredno pretraživanje</a>
             </div>
           </form>
         </div>
@@ -162,7 +151,7 @@ while($row = mysqli_fetch_assoc($result)) {
           </div>
 
           <br><br>
-          <p class="text-center"><a class="btn btn-info" href="job-list.html">Browse all jobs</a></p>
+          <p class="text-center"><a class="btn btn-info" href="job-list.html">Pregledaj sve poslove</a></p>
         </div>
       </section>
       <!-- END Recent jobs -->
@@ -180,8 +169,8 @@ while($row = mysqli_fetch_assoc($result)) {
 
           <div class="col-sm-12 col-md-6">
             <header class="section-header text-left">
-              <span>Workflow</span>
-              <h2>How it works</h2>
+              <span>TOK RADA</span>
+              <h2>Kako radi</h2>
             </header>
 
             <p class="lead">Pellentesque et pulvinar orci. Suspendisse sed euismod purus. Pellentesque nunc ex, ultrices eu enim non, consectetur interdum nisl. Nam congue interdum mauris, sed ultrices augue lacinia in. Praesent turpis purus, faucibus in tempor vel, dictum ac eros.</p>
@@ -189,7 +178,7 @@ while($row = mysqli_fetch_assoc($result)) {
             
             
             <br><br>
-            <a class="btn btn-primary" href="page-typography.php">Learn more</a>
+            <a class="btn btn-primary" href="page-typography.php"> Saznajte više</a>
           </div>
 
         </div>
@@ -201,50 +190,50 @@ while($row = mysqli_fetch_assoc($result)) {
       <section class="bg-alt">
         <div class="container">
           <header class="section-header">
-            <span>Categories</span>
-            <h2>Popular jobs</h2>
-            <p>Here's the most popular categories</p>
+            <span>Kategorije</span>
+            <h2>Popularni poslovi</h2>
+            <p>Ovdje su najpopularnije kategorije</p>
           </header>
 
           <div class="category-grid">
             <a href="#">
               <i class="fa fa-laptop"></i>
-              <h6>Technology</h6>
-              <p>Designer, Developer, IT Service, Front-end developer, Project management</p>
+              <h6>Tehnologija</h6>
+              <p>Dezajner, Developer, IT Servis, Front-end developer, Projekt manadzment</p>
             </a>
 
             <a href="#">
               <i class="fa fa-line-chart"></i>
-              <h6>Accounting</h6>
-              <p>Finance, Tax service, Payroll manager, Book keeper, Human resource</p>
+              <h6>Računovodstvo</h6>
+              <p>Finansije, Poreska usluge,Knjigovodstvo,Ljudski resursi</p>
             </a>
 
             <a href="#">
               <i class="fa fa-medkit"></i>
-              <h6>Medical</h6>
-              <p>Doctor, Nurse, Hospotal, Dental service, Massagist</p>
+              <h6>Medicina</h6>
+              <p>Doktor, Medicinska sestra,Stomatološke usluge</p>
             </a>
 
             <a href="#">
               <i class="fa fa-cutlery"></i>
-              <h6>Food</h6>
-              <p>Restaurant, Food service, Coffe shop, Cashier, Waitress</p>
+              <h6>Hrana</h6>
+              <p>Restorani,Prehrana, Kafe Shop, Blagajnik, Konobarica</p>
             </a>
 
             <a href="#">
               <i class="fa fa-newspaper-o"></i>
-              <h6>Media</h6>
-              <p>Journalism, Newspaper, Reporter, Writer, Cameraman</p>
+              <h6>Mediji</h6>
+              <p>Žurnalizam, Novine, Reporter,Snimatelj</p>
             </a>
 
             <a href="#">
               <i class="fa fa-institution"></i>
-              <h6>Government</h6>
-              <p>Federal, Law, Human resource, Manager, Biologist</p>
+              <h6>Vlada</h6>
+              <p>Federalni Zakon, Ljudski resursi, Menadžer, Biolog</p>
             </a> 
           </div>
 
-          <p class="text-center"><a class="btn btn-info" href="">Browse all categories</a></p>
+          <p class="text-center"><a class="btn btn-info" href="">Pregledaj sve kategorije</a></p>
 
         </div>
       </section>
@@ -256,52 +245,52 @@ while($row = mysqli_fetch_assoc($result)) {
       <section>
         <div class="container">
           <header class="section-header">
-            <span>Plans</span>
-            <h2>Pricing</h2>
-            <p>Choose a plan that fits your needs</p>
+            <span>Planovi</span>
+            <h2>Cjene</h2>
+            <p>Izaberite plan koji odgovara vašim potrebama</p>
           </header>
 
           <ul class="pricing">
             <li>
-              <h6>Basic Package</h6>
+              <h6>Osnovni paket</h6>
               <div class="price">
                 <sup>$</sup>0
                 <span>&nbsp;</span>
               </div>
               <hr>
-              <p><strong>1</strong> job posting</p>
-              <p><strong>No</strong> featured job</p>
-              <p><strong>5 days</strong> listing duration</p>
+              <p><strong>1</strong> Posao knjiženja</p>
+              <p><strong>Ne</strong> Istaknuti posao</p>
+              <p><strong>5 dana</strong> Trajanje oglasa</p>
               <br>
-              <a class="btn btn-primary btn-block" href="#">Select plan</a>
+              <a class="btn btn-primary btn-block" href="#">Izaberite plan</a>
             </li>
 
             <li>
-              <h6>Medium Package</h6>
+              <h6>Mali paket</h6>
               <div class="price">
                 <sup>$</sup>5<sup>.99</sup>
-                <span>per month</span>
+                <span>Mjesećno</span>
               </div>
               <hr>
-              <p><strong>5</strong> job posting</p>
-              <p><strong>1</strong> featured job</p>
-              <p><strong>30 days</strong> listing duration</p>
+              <p><strong>5</strong>Posao knjiženja</p>
+              <p><strong>1</strong> Istaknuti posao</p>
+              <p><strong>30 dana</strong>Trajanje oglasa</p>
               <br>
-              <a class="btn btn-primary btn-block" href="#">Select plan</a>
+              <a class="btn btn-primary btn-block" href="#">Izaberite plan</a>
             </li>
 
             <li>
-              <h6>Big Package</h6>
+              <h6>Veliki paket</h6>
               <div class="price">
                 <sup>$</sup>15<sup>.99</sup>
-                <span>per month</span>
+                <span>Mjesećno</span>
               </div>
               <hr>
-              <p><strong>20</strong> job posting</p>
-              <p><strong>5</strong> featured job</p>
-              <p><strong>75 days</strong> listing duration</p>
+            <p><strong>20</strong>Posao knjiženja</p>
+              <p><strong>5</strong> Istaknutih poslova</p>
+              <p><strong>75 dana</strong>Trajanje oglasa</p>
               <br>
-              <a class="btn btn-primary btn-block" href="#">Select plan</a>
+              <a class="btn btn-primary btn-block" href="#">Izaberite plan</a>
             </li>
           </ul>
 
@@ -313,14 +302,15 @@ while($row = mysqli_fetch_assoc($result)) {
       <!-- Newsletter -->
       <section class="bg-img text-center" style="background-image: url(./pictures/bg-facts.jpg)">
         <div class="container">
-          <h2><strong>Subscribe</strong></h2>
-          <h6 class="font-alt">Get weekly top new jobs delivered to your inbox</h6>
+          <h2><strong>Upiši</strong></h2>
+          <h6 class="font-alt"><h6 class="font-alt">Nabavi sedmično nove poslove isporuči ih u inbox</h6></h6>
+       
           <br><br>
           <form class="form-subscribe" action="#">
             <div class="input-group">
-              <input type="text" class="form-control input-lg" placeholder="Your eamil address">
+              <input type="text" class="form-control input-lg" placeholder="Vaša email adresa">
               <span class="input-group-btn">
-                <button class="btn btn-success btn-lg" type="submit">Subscribe</button>
+                <button class="btn btn-success btn-lg" type="submit">Pretplati se</button>
               </span>
             </div>
           </form>

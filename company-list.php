@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +10,7 @@ if (!$conn) {
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Company list</title>
+    <title>Lista kompanija</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -57,7 +46,7 @@ if (!$conn) {
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili <a href="user-register.php">registrujte</a>
         </div>
         <!-- END User account -->
         <!--Navigation menu -->
@@ -74,8 +63,8 @@ if (!$conn) {
     <!-- Page header -->
     <header class="page-header bg-img" style="background-image: url(./pictures/bg-banner1.jpg);">
       <div class="container page-name">
-        <h1 class="text-center">Browse companies</h1>
-        <p class="lead text-center">Use following search box to find companies that fits you better</p>
+        <h1 class="text-center">Pronađi kompanije</h1>
+        <p class="lead text-center">Koristite sljedeći okvir za pretraživanje kako bi pronašli kompanije koje vam odgovaraju.</p>
       </div>
 
       <div class="container">
@@ -83,33 +72,33 @@ if (!$conn) {
 
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Keyword">
+              <input type="text" class="form-control" placeholder="Ključna riječ">
             </div>
 
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Location">
+              <input type="text" class="form-control" placeholder="Lokacija">
             </div>
 
             <div class="form-group col-xs-12 col-sm-4">
-              <select class="form-control selectpicker" multiple>
-                <option selected>All categories</option>
+            <select class="form-control selectpicker" multiple>
+                <option selected>Sve kategorije</option>
                 <option>Developer</option>
-                <option>Designer</option>
-                <option>Customer service</option>
-                <option>Finance</option>
-                <option>Healthcare</option>
-                <option>Sale</option>
+                <option>Dizajner</option>
+                <option>Služba za korisnike</option>
+                <option>Financije</option>
+                <option>Zdravstvo</option>
+                <option>Prodaja</option>
                 <option>Marketing</option>
-                <option>Information technology</option>
-                <option>Others</option>
-              </select>
+                <option>Informatione technologije</option>
+                <option>Ostalo</option>
+              </select
             </div>
 
           </div>
 
           <div class="button-group">
             <div class="action-buttons">
-              <button class="btn btn-primary">Apply filter</button>
+              <button class="btn btn-primary">Primjeni filter</button>
             </div>
           </div>
 

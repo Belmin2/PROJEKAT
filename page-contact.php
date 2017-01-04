@@ -1,3 +1,6 @@
+<?php
+ include 'conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +10,7 @@
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Contact us</title>
+    <title>Kontaktirajte nas</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -42,7 +45,7 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili <a href="user-register.php">registrujte</a>
         </div>
         <!-- END User account -->
 
@@ -61,8 +64,8 @@
     <!-- Site header -->
     <header class="page-header bg-img size-lg" style="background-image: url(./pictures/bg-banner2.jpg)">
       <div class="container no-shadow">
-        <h1 class="text-center">Contact us</h1>
-        <p class="lead text-center">Say hi, drop a letter, and follow us in social media websites.</p>
+        <h1 class="text-center">Kontaktirajte nas</h1>
+        <p class="lead text-center">Pozdrav napišite poruku, i pratite nas na društvenim medijima.</p>
       </div>
     </header>
     <!-- END Site header -->
@@ -105,27 +108,27 @@
 
 
 
-              <h4>Contact form</h4>
+              <h4>Kontakt forma</h4>
               <form action="page-contact.php" method="POST">
                 <div class="form-group">
-                  <input type="text" name="name" class="form-control input-lg" placeholder="Name">
+                  <input type="text" name="name" class="form-control input-lg" placeholder="Ime">
                 </div>
 
                 <div class="form-group">
-                  <input type="email"  name="email" class="form-control input-lg" placeholder="Email">
+                  <input type="email"  name="email" class="form-control input-lg" placeholder="email">
                 </div>
 
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                  <textarea class="form-control" name="message" rows="5" placeholder="Poruka"></textarea>
                 </div>
                 
-                <button type="submit" name="submit" class="btn btn-primary">Send</button>
+                <button type="submit" name="submit" class="btn btn-primary">Pošalji</button>
               </form>
            
             </div>
 
             <div class="col-sm-12 col-md-4">
-              <h4>Information</h4>
+              <h4>Informacije</h4>
               <div class="highlighted-block">
                 <dl class="icon-holder">
                   <dt><i class="fa fa-map-marker"></i></dt>

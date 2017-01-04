@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
  
 <!DOCTYPE html>
@@ -22,7 +11,7 @@ if (!$conn) {
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Job detail</title>
+    <title>Detalji o poslu</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -57,7 +46,7 @@ if (!$conn) {
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili <a href="user-register.php">registruj</a>
         </div>
         <!-- END User account -->
   <!--Navigation menu -->
@@ -76,7 +65,7 @@ if (!$conn) {
     <!-- Page header -->
  
   <?php 
-  $row = $_GET["id"];
+  $row = $_GET['id'];
 
   $sql = "SELECT * FROM jobs WHERE id='$row' ";
   $query =mysqli_query($conn,$sql);
@@ -98,7 +87,7 @@ if (!$conn) {
           <time datetime="2016-03-03 20:00"><?php echo $row["created_at"]?></time>
           <hr>
 
-          <p class="lead"><?php echo $row["description"]?></p>
+          <p class="lead"><?php echo $row["short_description"]?></p>
 
           <ul class="details cols-3">
             <li>
@@ -134,7 +123,7 @@ if (!$conn) {
 
           <div class="button-group">
             <ul class="social-icons">
-              <li class="title">Share on</li>
+              <li class="title">Podijeli na</li>
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -142,19 +131,15 @@ if (!$conn) {
             </ul>
 
             <div class="action-buttons">
-              <a class="btn btn-primary" href="#">Apply with linkedin</a>
-              <a class="btn btn-success" href="#">Apply now</a>
+              <a class="btn btn-primary" href="#">Priajvite se na linkedin</a>
+              <a class="btn btn-success" href="#">Prijavite se</a>
             </div>
           </div>
 
         </div>
       </div>
     </header>
-  <?php 
 
-}
-?>
-  
   <!-- END Page header -->
   
 
@@ -167,45 +152,20 @@ if (!$conn) {
         <div class="container">
 
 
-          <p></p>
+          <p> <?php echo $row["description"] ?></p>
         
 
-          <br>
-          <h4>Responsibilities</h4>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non.</p>
-          <ul>
-            <li>Build next-generation web applications with a focus on the client side.</li>
-            <li>Redesign UI's, implement new UI's, and pick up Java as necessary.</li>
-            <li>Explore and design dynamic and compelling consumer experiences.</li>
-            <li>Design and build scalable framework for web applications.</li>
-          </ul>
-
-          <br>
-          <h4>Minimum qualifications</h4>
-          <ul>
-            <li>BA/BS degree in a technical field or equivalent practical experience.  </li>
-            <li>2 years of relevant work experience in software development.</li>
-            <li>Programming experience in C, C++ or Java.</li>
-            <li>Experience with AJAX, HTML and CSS.</li>
-          </ul>
-
-          <br>
-          <h4>Preferred qualifications</h4>
-          <ul>
-            <li>Interest in user interface design.</li>
-            <li>Web application development experience.</li>
-            <li>Experience working on cross-browser platforms.</li>
-            <li>Development experience designing object-oriented JavaScript.</li>
-            <li>Experience with user interface frameworks such as XUL, Flex and XAML.</li>
-            <li>Knowledge of user interface design.</li>
-          </ul>
-
+     
         </div>
       </section>
       <!-- END Job detail -->
 
     </main>
+  <?php 
 
+}
+?>
+  
   <!-- END Main container -->
   
     <!-- Site footer -->

@@ -5,22 +5,24 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">An employment website is a web site that deals specifically with employment or careers. Many employment websites are designed to allow employers to post job requirements for a position to be filled and are commonly known as job boards. Other employment sites offer employer reviews, career and job-search advice, and describe different job descriptions or employers. Through a job website a prospective employee can locate and fill out a job application.</p>
+            <h6>O stranici</h6>
+            <p class="text-justify">Stranica za zapošljavanje je web stranica koja se bavi isključivo zapošljavanjem ili karijerom.
+Mnoge web stranice za zapošljavanje su dizajnirane kako bi se omogućilo poslodavcima postavljanje zahtjeva za radno mjesto koje se popunjava i opće su poznati kao poslovne zajednice.
+Ostale stranice za zapošljavanje nude poslodavcu mišljenja, karijeru savjet pri traženju poslova i opis različitih poslova ili poslodavaca.Putem web stranice potencijalni zaposlenik može pronaći i ispuniti prijave za posao.</p>
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Company</h6>
+            <h6>Kompanija</h6>
             <ul class="footer-links">
-              <li><a href="page-about.php">About us</a></li>
-              <li><a href="page-typography.php">How it works</a></li>
-              <li><a href="page-faq.php">Help center</a></li>
-              <li><a href="page-contact.php">Contact us</a></li>
+              <li><a href="page-about.php">O nama</a></li>
+              <li><a href="page-typography.php">Kako radi</a></li>
+              <li><a href="page-faq.php">Centar za pomoc</a></li>
+              <li><a href="page-contact.php">Kontakt</a></li>
             </ul>
           </div>
 
           <div class="col-xs-6 col-md-3">
-            <h6>Trendeing jobs</h6>
+            <h6>Najaktuelniji poslovi</h6>
             <ul class="footer-links">
               <li><a href="#">Front-end developer</a></li>
               <li><a href="#">Android developer</a></li>

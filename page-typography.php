@@ -7,7 +7,7 @@
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Typography</title>
+    <title>Tipografija</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili <a href="user-register.php">Registrujte</a>
         </div>
         <!-- END User account -->
 
@@ -60,8 +60,8 @@
     <!-- Site header -->
     <header class="page-header bg-img size-lg" style="background-image: url(./pictures/bg-banner2.jpg)">
       <div class="container no-shadow">
-        <h1 class="text-center">Typography</h1>
-        <p class="lead text-center">Use the following tags and classes to write a better documentation.</p>
+        <h1 class="text-center">Tipografija</h1>
+        <p class="lead text-center">Koristite sljedeće oznake i klase, i napišite bolju dokumentaciju.</p>
       </div>
     </header>
     <!-- END Site header -->
@@ -73,16 +73,8 @@
       <section>
         <div class="container">
 
-          <h4>Introduction</h4>
-          <p>Typography (from the Greek words τύπος typos “form” and γράφειν graphein “to write”) is the art and technique of arranging type to make written language readable and beautiful. The arrangement of type involves selecting typefaces, point size, line length, line-spacing (leading), letter-spacing (tracking), and adjusting the space within letters pairs (kerning). <a href="http://en.wikipedia.org/wiki/Type_design">Type design</a> is a closely related craft, sometimes considered part of typography; most typographers do not design typefaces, and some type designers do not consider themselves typographers. In modern times, typography has been put in film, television and online broadcasts to add emotion to communication.</p>
-
-          <p>Donec scelerisque urna nibh, et interdum ex pellentesque tincidunt. Morbi lorem felis, dapibus ac eleifend id, commodo at diam. Praesent finibus velit est, eget posuere nisi sodales eget. Nunc iaculis euismod malesuada. Aenean vitae <a href="#">sample link</a> mauris eu lacus <strong>strong text</strong> tempor consequat <em>italic sample</em> nec eu justo. Nullam convallis, lacus pretium blandit facilisis, leo elit aliquet urna, non cursus est odio ut purus. Quisque consequat posuere est id viverra.</p>
-
-          <p class="lead">Is a closely related craft, sometimes considered part of typography; most typographers do not design typefaces, and some type designers do not consider themselves typographers. In modern times, typography has been put in film, television and online broadcasts to add emotion to communication.</p>
-
-          <p>Proin libero justo, sollicitudin dictum sagittis eu, gravida vel erat. Mauris pharetra odio nec nisi ullamcorper bibendum. <a href="#">Aenean pharetra fermentum semper</a>. Etiam maximus, leo ac facilisis egestas, dolor lacus condimentum purus, quis consequat orci justo vitae nunc. Cras tortor mauris, finibus vitae tortor in, porta fermentum orci. Pellentesque bibendum pharetra maximus. Donec vitae porttitor mi. Cras mollis magna eu neque porta, ac mattis sem faucibus.</p>
-
-          <p class="small">Is a closely related craft, sometimes considered part of typography; most typographers do not design typefaces, and some type designers do not consider themselves typographers. In modern times, typography has been put in film, television and online broadcasts to add emotion to communication.</p>
+          <h4>Uvod</h4>
+          <p> Tipografija (nastala od Grčke riječi τύπος "forma" i γράφειν pisati), to je umjetnost i tehnika uređenja, da pisani jezik bude čitljiv i lijep.Aranžman tipa ukljčuje odabir pisama,veličinu, dužinu linija,razmak-linija,i podešavanje prostora unutar slova.Dizajn je usko povezan zanat, ponekad se smatra dijelom tipografije,većina tipografa se ne bavi dizajnom, i neke vrste dizajnera sebe ne smatraju tipografima.U modernom vremenu tipografija se javlja u filmu, televiziji i online emisije dodaju emocije u komunikaciji.</p>
 
           <hr>
 
@@ -95,7 +87,7 @@
 
           <hr>
 
-          <h4>Ordered List:</h4>
+          <h4>Uređena lista:</h4>
           <ol>
             <li>In posuere risus eget velit finibus luctus.</li>
             <li>Praesent lacinia nunc et fringilla condimentum.</li>
@@ -104,7 +96,7 @@
             <li>Praesent lacinia nunc et fringilla condimentum</li>
           </ol>
 
-          <h4>Unordered List:</h4>
+          <h4>Neuređena lista:</h4>
           <ul>
             <li>Phasellus posuere libero non velit sodales, sed efficitur nisi iaculis.</li>
             <li>Donec ut est eget ex vehicula egestas a eget urna.</li>
@@ -115,14 +107,14 @@
 
           <hr>
 
-          <h4>Blockquote</h4>
-          <p>Computer technology revolutionized typography in the 20th century. Personal computers in the 1980s like the Macintosh allowed type designers to create types digitally using commercial graphic design software. Digital technology also enabled designers to create more experimental typefaces, alongside the practical fonts of traditional typography. Designs for typefaces could be created faster with the new technology, and for more specific functions. The cost for developing typefaces was drastically lowered, becoming widely available to the masses. The change has been called the “democratization of type” and has given new designers more opportunities to enter the field.</p>
+          <h4>Admin</h4>
+          <p>Računarske tehnologije su doprinijele revoluciji tipografije u 20. stoljeću.Tip osobnih računala u 1980. kao Macintosh dozvoljavao je dizajnerima da stvore tipove digitalno pomoću komercijalnog softvera za grafički dizajn. Digitalna tehnologija omogućila dizajnerima da stvore više eksperimentalnih pisma,uz praktične fontovi tradicionalnih tipografije.Dizajn za pisma moze se stvoriti brže s novom tehnologijom.Troškovi za razvoj pisma su se drastično spustili, postaje široko dostupna mnogima. Promjena je nazvana  "demokratizaciju tipa" i dala je novim dizajnerima više mogućnosti.</p>
           <blockquote>
-            <p>Painting is concerned with all the 10 attributes of sight; which are: Darkness, Light, Solidity and Colour, Form and Position, Distance and Propinquity, Motion and Rest.</p>
-            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            <p>Slikarstvo se bavi svih 10 atribute a to su: Tama, svjetlo, čvrstine i boja, oblik i položaj, udaljenost i bliskost, pokret i odmor.</p>
+            <footer>Neko poznat u <cite title="Source Title">izvornom naslovu</cite></footer>
           </blockquote>
 
-          <p>Typography is performed by typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, clerical workers, and everyone else who arranges type for a product. Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of visual designers and lay users, and David Jury, Head of Graphic Design at Colchester Institute in England, states that “typography is now something everybody does.”</p>
+          <p>U digitalnom dobu, tipografija je specijalizirano zanimanje. Digitalizacija je prenijela tipografiju na nove generacije vizuelnih dizajnera i  David Jury voditelj grafičkog dizajna u Colchester instituta u Engleskoj, navodi sljedeće"tipografija je sada nešto što svi rade".</p>
 
         </div>
       </section>

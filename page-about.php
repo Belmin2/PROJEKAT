@@ -7,7 +7,7 @@
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - About</title>
+    <title>O stranici</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" href="assets/img/favicon.ico">
+    <link rel="icon" href="./pictures/favicon.ico">
   </head>
 
   <body class="nav-on-header smart-nav">
@@ -43,7 +43,7 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili <a href="user-register.php">registrujte</a>
         </div>
         <!-- END User account -->
 
@@ -59,8 +59,8 @@
     <!-- Site header -->
     <header class="page-header bg-img size-lg" style="background-image: url(./pictures/bg-banner2.jpg)">
       <div class="container no-shadow">
-        <h1 class="text-center">About us</h1>
-        <p class="lead text-center">Keep reading this page to figure out how we got started and who is behind it!</p>
+        <h1 class="text-center">O nama</h1>
+        <p class="lead text-center">Nastavite sa čitanjem ove stranice, i saznajte kako smo nastali i ko stoji iza toga.</p>
       </div>
     </header>
     <!-- END Site header -->
@@ -75,14 +75,14 @@
       <section>
         <div class="container">
 
-          <h5>The first days</h5>
-          <p>Computer technology revolutionized typography in the 20th century. Personal computers in the 1980s like the Macintosh allowed type designers to create types digitally using commercial graphic design software. Digital technology also enabled designers to create more experimental typefaces, alongside the practical fonts of traditional typography. Designs for typefaces could be created faster with the new technology, and for more specific functions. The cost for developing typefaces was drastically lowered, becoming widely available to the masses. The change has been called the “democratization of type” and has given new designers more opportunities to enter the field.</p>
+          <h5>Prvi dan</h5>
+          <p>Računarske tehnologije su doprinijele revoluciji tipografije u 20. stoljeću.Tip osobnih računala u 1980. kao Macintosh dozvoljavao je dizajnerima da stvore tipove digitalno pomoću komercijalnog softvera za grafički dizajn. Digitalna tehnologija omogućila dizajnerima da stvore više eksperimentalnih pisma,uz praktične fontovi tradicionalnih tipografije.Dizajn za pisma moze se stvoriti brže s novom tehnologijom.Troškovi za razvoj pisma su se drastično spustili, postaje široko dostupna mnogima. Promjena je nazvana "demokratizaciju tipa" i dala je novim dizajnerima više mogućnosti.</p>
           <p>Pellentesque ullamcorper erat non malesuada dictum. Cras nec dui metus. Nam non consequat turpis. Aenean ut arcu porttitor, auctor nibh tempor, interdum quam. Etiam eu vehicula magna. Quisque ut egestas sem. Phasellus rutrum, nibh et efficitur condimentum, eros erat pellentesque est, ut malesuada nunc magna vel velit. In hac habitasse platea dictumst. Praesent volutpat dignissim tortor dignissim imperdiet. Cras accumsan vulputate dolor, nec condimentum nulla tincidunt eu.</p>
 
-          <h5>How we resolve it?</h5>
+          <h5>Kako smo to riješili?</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in tristique odio. Quisque nec sollicitudin est. Sed vel malesuada diam. Donec laoreet scelerisque imperdiet. Sed eleifend porta lorem a dictum. Sed lorem lorem, rhoncus eget posuere eget, bibendum ut odio. Nulla lacinia nunc et fermentum lobortis. Fusce scelerisque, lacus tincidunt pellentesque luctus, tellus risus consectetur dui, ut accumsan tellus leo vel mauris. Aenean id tortor lacus.</p>
 
-          <h5>What's our solution?</h5>
+          <h5>Šta je naše rješenje?</h5>
           <p>Quisque lobortis accumsan tempus. Mauris pretium neque eu posuere molestie. Maecenas tincidunt eleifend egestas. Vestibulum tellus augue, laoreet sit amet quam nec, pulvinar luctus nisl. In consequat elit et aliquet posuere. Mauris porttitor est a ipsum vehicula, non porttitor quam tincidunt. Proin id orci tortor. Integer sit amet enim a nisi sagittis ultrices. Sed efficitur feugiat lobortis. In in lorem mauris. Ut placerat velit ut ligula placerat, eu accumsan sapien luctus. Vivamus in est sit amet felis dictum dapibus. Sed et eros sed massa porttitor volutpat vel at orci. Proin et lacus molestie, bibendum nisi eu, bibendum velit.</p>
 
         </div>

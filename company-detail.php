@@ -1,17 +1,6 @@
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
 
 
@@ -26,7 +15,7 @@ if (!$conn) {
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Company detail</title>
+    <title>Detalji kompanije</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -61,7 +50,7 @@ if (!$conn) {
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili <a href="user-register.php">registrujte</a>
         </div>
         <!-- END User account -->
 
@@ -144,8 +133,8 @@ if (mysqli_num_rows($query)>0) {
             </ul>
 
             <div class="action-buttons">
-              <a class="btn btn-gray" href="#">Favorite</a>
-              <a class="btn btn-success" href="#">Contact</a>
+              <a class="btn btn-gray" href="#">Omiljeni</a>
+              <a class="btn btn-success" href="#">Kontakt</a>
             </div>
           </div>
 
@@ -164,8 +153,8 @@ if (mysqli_num_rows($query)>0) {
         <div class="container">
 
           <header class="section-header">
-            <span>About</span>
-            <h2>Company detail</h2>
+            <span>O kompaniji</span>
+            <h2>Detalji kompanije</h2>
           </header>
   <p><?php echo $row['description']?></p>
         </div>
@@ -186,8 +175,8 @@ echo "No companies";
       <section id="open-positions" class="bg-alt">
         <div class="container">
           <header class="section-header">
-            <span>vacancies</span>
-            <h2>Open positions</h2>
+            <span>Slobodna radna mjesta</span>
+            <h2>Otvorene pozicije</h2>
           </header>
           
          

@@ -1,18 +1,6 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
+ include 'conn.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +11,7 @@ if (!$conn) {
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Resume detail</title>
+    <title>Rezime detalji</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -58,7 +46,7 @@ if (!$conn) {
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili<a href="user-register.php">Registrujte</a>
         </div>
         <!-- END User account -->
 
@@ -151,8 +139,8 @@ while ($row = mysqli_fetch_assoc($query)) {
           </ul>
 
           <div class="action-buttons">
-            <a class="btn btn-gray" href="#">Download CV</a>
-            <a class="btn btn-success" data-toggle="modal" data-target="#modal-contact" href="#">Contact me</a>
+            <a class="btn btn-gray" href="#">Preuzmite CV</a>
+            <a class="btn btn-success" data-toggle="modal" data-target="#modal-contact" href="#">Kontaktirajte me</a>
           </div>
         </div>
       </div>
@@ -169,8 +157,8 @@ while ($row = mysqli_fetch_assoc($query)) {
         <div class="container">
 
           <header class="section-header">
-            <span>Latest degrees</span>
-            <h2>Education</h2>
+            <span>Zadnji stepen</span>
+            <h2>Obrazovanje</h2>
           </header>
           
          
@@ -179,7 +167,7 @@ while ($row = mysqli_fetch_assoc($query)) {
                 <header>
                   <img src="<?php echo $row ["education_img"]?>" alt="">
                   <div class="hgroup">
-                    <h4><?php echo $row ["degree_bachelor"]?><small>Computer Science</small></h4>
+                    <h4><?php echo $row ["degree_bachelor"]?><small>Računarske nauke</small></h4>
                     <h5><?php echo $row ["school_name"]?></h5>
                   </div>
                   <h6 class="time"><?php echo $row ["date_from"]?>-<?php echo $row ["date_to"]?></h6>
@@ -200,8 +188,8 @@ while ($row = mysqli_fetch_assoc($query)) {
       <section class="bg-alt">
         <div class="container">
           <header class="section-header">
-            <span>Past positions</span>
-            <h2>Work Experience</h2>
+            <span>Predhodne pozicije</span>
+            <h2>Radno iskustvo</h2>
           </header>
           
           <div class="row">
@@ -218,7 +206,7 @@ while ($row = mysqli_fetch_assoc($query)) {
                   <h6 class="time"><?php echo $row ["work_date_from"]?>-<?php echo $row ["work_date_to"]?></h6>
                 </header>
                 <div class="item-body">
-                  <p>Responsibilities:</p>
+                  <p>Obaveze:</p>
                   <ul>
                     <li> <?php echo $row ["work_description"]?></li>
                   
@@ -240,8 +228,8 @@ while ($row = mysqli_fetch_assoc($query)) {
       <section>
         <div class="container">
           <header class="section-header">
-            <span>Expertise Areas</span>
-            <h2>Skills</h2>
+            <span>Ekspertska područja</span>
+            <h2>Vještine</h2>
           </header>
           
           <br>

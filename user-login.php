@@ -1,17 +1,6 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 
 ?>
 <?php 
@@ -48,7 +37,7 @@ echo "<script> alert('Email or password is incorect')</script>";
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Login</title>
+    <title>Prijava</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -71,14 +60,14 @@ echo "<script> alert('Email or password is incorect')</script>";
       <div class="login-block">
        
          <a class="logo"><img src="./pictures/logo.png" alt="logo"></a>
-        <h1>Log into your account</h1>
+        <h1>Priajvite se na svoj račun </h1>
 
         <form action="user-login.php" method="POST">
 
          <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" name="name" class="form-control" placeholder="Your name">
+              <input type="text" name="name" class="form-control" placeholder="Vaše ime">
             </div>
           </div>
           
@@ -91,10 +80,10 @@ echo "<script> alert('Email or password is incorect')</script>";
             </div>
           </div>
 
-          <button class="btn btn-primary btn-block" name="submit" type="submit">Login</button>
+          <button class="btn btn-primary btn-block" name="submit" type="submit">Prijavi se</button>
 
           <div class="login-footer">
-            <h6>Or login with</h6>
+            <h6>Ili prijavite preko</h6>
             <ul class="social-icons">
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -106,8 +95,8 @@ echo "<script> alert('Email or password is incorect')</script>";
       </div>
 
       <div class="login-links">
-        <a class="pull-left" href="user-forget-pass.php">Forget Password?</a>
-        <a class="pull-right" href="user-register.php">Register an account</a>
+        <a class="pull-left" href="user-forget-pass.php">Zaboravili ste password?</a>
+        <a class="pull-right" href="user-register.php">Registrujte korisnički račun</a>
       </div>
 
     </main>

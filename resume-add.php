@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,10 +54,10 @@ if (!$conn) {
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="user-login.php">Login</a></li>
-              <li><a href="user-register.php">Register</a></li>
-              <li><a href="user-forget-pass.php">Forget pass</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="user-login.php">Prijavite se</a></li>
+              <li><a href="user-register.php">Registrujte</a></li>
+              <li><a href="user-forget-pass.php">Zaboravili ste pasword?</a></li>
+              <li><a href="#">Odjava</a></li>
             </ul>
           </div>
 
@@ -93,8 +82,8 @@ if (!$conn) {
       <!-- Page header -->
       <header class="page-header">
         <div class="container page-name">
-          <h1 class="text-center">Add your resume</h1>
-          <p class="lead text-center">Create your resume and put it online.</p>
+          <h1 class="text-center">Dodajte svoj rezime</h1>
+          <p class="lead text-center">Kreirajte svoj rezime i postavite ga online</p>
         </div>
 
 
@@ -245,46 +234,46 @@ if ($result) {
             <div class="col-xs-12 col-sm-4">
               <div class="form-group">
                 <input type="file" class="dropify" name="image" data-default-file="./pictures/belmin.jpg">
-                <span class="help-block">Please choose a 4:6 profile picture.</span>
+                <span class="help-block">Molimo dodajte 4:6 profilnu fotografiju.</span>
               </div>
             </div>
 
             <div class="col-xs-12 col-sm-8">
               <div class="form-group">
-                <input type="text"  name="name" class="form-control input-lg" placeholder="Name">
+                <input type="text"  name="name" class="form-control input-lg" placeholder="Ime">
               </div>
               
               <div class="form-group">
-                <input type="text" name="headline" class="form-control" placeholder="Headline (e.g. Front-end developer)">
+                <input type="text" name="headline" class="form-control" placeholder="Naslov (Front-end developer)">
               </div>
 
               <div class="form-group">
-                <textarea name="short_description" class="form-control" rows="3" placeholder="Short description about you"></textarea>
+                <textarea name="short_description" class="form-control" rows="3" placeholder="Kratki opis o vama"></textarea>
               </div>
 
               <hr class="hr-lg">
 
-              <h6>Basic information</h6>
+              <h6>Osnovne informacije</h6>
               <div class="row">
 
                 <div class="form-group col-xs-12 col-sm-6">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                    <input type="text" name="location" class="form-control" placeholder="Location, e.g. Melon Park, CA">
+                    <input type="text" name="location" class="form-control" placeholder="Lokacija">
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                    <input type="text" name="page_url" class="form-control" placeholder="Website address">
+                    <input type="text" name="page_url" class="form-control" placeholder="Web adresa">
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-usd"></i></span>
-                    <input type="text" name="salary" class="form-control" placeholder="Salary, e.g. 85">
+                    <input type="text" name="salary" class="form-control" placeholder="Plata">
                     <span class="input-group-addon">Per hour</span>
                   </div>
                 </div>
@@ -292,22 +281,22 @@ if ($result) {
                 <div class="form-group col-xs-12 col-sm-6">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-                    <input name="age" type="text" class="form-control" placeholder="Age">
-                    <span class="input-group-addon">Years old</span>
+                    <input name="age" type="text" class="form-control" placeholder="Godine">
+                    <span class="input-group-addon">Godine starosti</span>
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                    <input name="contact" type="text" class="form-control" placeholder="Phone number">
+                    <input name="contact" type="text" class="form-control" placeholder="Broj telefona">
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input name="email" type="text" class="form-control" placeholder="Email address">
+                    <input name="email" type="text" class="form-control" placeholder="Email addresa">
                   </div>
                 </div>
 
@@ -315,10 +304,10 @@ if ($result) {
 
               <hr class="hr-lg">
 
-              <h6>Tags list</h6>
+              <h6>Tags lista</h6>
               <div class="form-group">
-                <input name="tag_name" type="text" value="HTML,CSS,Javascript" data-role="tagsinput" placeholder="Tag name">
-                <span class="help-block">Write tag name and press enter</span>
+                <input name="tag_name" type="text" value="HTML,CSS,Javascript" data-role="tagsinput" placeholder="Vještina">
+                <span class="help-block">Napišite tag i pritisnite enter</span>
               </div>
 
             </div>
@@ -328,12 +317,12 @@ if ($result) {
             <div class="action-buttons">
 
               <div class="upload-button">
-                <button class="btn btn-block btn-gray">Choose a resume file</button>
+                <button class="btn btn-block btn-gray">Odaberite rezime datoteku</button>
                 <input type="file">
               </div>
 
               <div class="upload-button">
-                <button class="btn btn-block btn-primary">Choose a cover image</button>
+                <button class="btn btn-block btn-primary">Odaberite cover fotografiju</button>
                 <input id="cover_img_file" type="file">
               </div>
 
@@ -350,8 +339,8 @@ if ($result) {
           <div class="container">
 
             <header class="section-header">
-              <span>Latest degrees</span>
-              <h2>Education</h2>
+              <span>Posljedni stepen</span>
+              <h2>Obrazovanje</h2>
             </header>
             
             <div class="row">
@@ -368,33 +357,33 @@ if ($result) {
                       <div class="col-xs-12 col-sm-4">
                         <div class="form-group">
                           <input type="file" name="logo1" class="dropify" data-default-file="./pictures/logo-default.png">
-                          <span class="help-block">Please choose a square logo</span>
+                          <span class="help-block">Molimo izaberite logo</span>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-8">
                         <div class="form-group">
-                          <input type="text" name="degree_bachelor" class="form-control" placeholder="Degree, e.g. Bachelor">
+                          <input type="text" name="degree_bachelor" class="form-control" placeholder="Stepen obrazovanja">
                         </div>
 
                         <div class="form-group">
-                          <input type="text" name="major_computer_sience" class="form-control" placeholder="Major, e.g. Computer Science">
+                          <input type="text" name="major_computer_sience" class="form-control" placeholder="Major računarskih nauka">
                         </div>
                         <div class="form-group">
-                          <input type="text"  name="school_name" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
+                          <input type="text"  name="school_name" class="form-control" placeholder="Ime škole">
                         </div>
 
                         <div class="form-group">
                           <div class="input-group">
-                            <span class="input-group-addon">Date from</span>
-                            <input type="text" name="date_from" class="form-control" placeholder="e.g. 2012">
-                            <span class="input-group-addon">Date to</span>
-                            <input type="text" name="date_to" class="form-control" placeholder="e.g. 2016">
+                            <span class="input-group-addon">Datum od</span>
+                            <input type="text" name="date_from" class="form-control" placeholder=" 2012">
+                            <span class="input-group-addon">Datum do</span>
+                            <input type="text" name="date_to" class="form-control" placeholder=" 2016">
                           </div>
                         </div>
 
                         <div class="form-group">
-                          <textarea class="form-control" rows="3" name="education_discription" placeholder="Short description"></textarea>
+                          <textarea class="form-control" rows="3" name="education_discription" placeholder="Kratki opis"></textarea>
                         </div>
                       </div>
                     </div>
@@ -413,33 +402,33 @@ if ($result) {
                       <div class="col-xs-12 col-sm-4">
                         <div class="form-group">
                            <input type="file" name="logo1c" class="dropify" data-default-file="./pictures/logo-default.png">
-                          <span class="help-block">Please choose a square logo</span>
+                          <span class="help-block">Molimo izaberite loho</span>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-8">
                         <div class="form-group">
-                          <input type="text" name="degree_bachelor1" class="form-control" placeholder="Degree, e.g. Bachelor">
+                          <input type="text" name="degree_bachelor1" class="form-control" placeholder="Stepen obrazovanja">
                         </div>
 
                         <div class="form-group">
-                          <input type="text" name="major_computer_sience1" class="form-control" placeholder="Major, e.g. Computer Science">
+                          <input type="text" name="major_computer_sience1" class="form-control" placeholder="Major,računarskih nauka">
                         </div>
                         <div class="form-group">
-                          <input type="text"  name="school_name1" class="form-control" placeholder="School name, e.g. Massachusetts Institute of Technology">
+                          <input type="text"  name="school_name1" class="form-control" placeholder="Ime škole">
                         </div>
 
                         <div class="form-group">
                           <div class="input-group">
-                            <span class="input-group-addon">Date from</span>
-                            <input type="text" name="date_from1" class="form-control" placeholder="e.g. 2012">
-                            <span class="input-group-addon">Date to</span>
-                            <input type="text" name="date_to1" class="form-control" placeholder="e.g. 2016">
+                            <span class="input-group-addon">Datum od</span>
+                            <input type="text" name="date_from1" class="form-control" placeholder="2012">
+                            <span class="input-group-addon">Datum do</span>
+                            <input type="text" name="date_to1" class="form-control" placeholder=" 2016">
                           </div>
                         </div>
 
                         <div class="form-group">
-                       <textarea class="form-control" rows="3" name="education_discription1" placeholder="Short description"></textarea>
+                       <textarea class="form-control" rows="3" name="education_discription1" placeholder="Kratki opis"></textarea>
 
                         </div>
                       </div>
@@ -451,7 +440,7 @@ if ($result) {
 
               <div class="col-xs-12 text-center">
                 <br>
-                <button class="btn btn-primary btn-duplicator">Add education</button>
+                <button class="btn btn-primary btn-duplicator">Dodajte obrazovanje</button>
               </div>
 
 
@@ -465,8 +454,8 @@ if ($result) {
         <section>
           <div class="container">
             <header class="section-header">
-              <span>Past positions</span>
-              <h2>Work Experience</h2>
+              <span>Posljednja pozicija</span>
+              <h2>Radno iskustvo</h2>
             </header>
             
             <div class="row">
@@ -481,24 +470,24 @@ if ($result) {
                       <div class="col-xs-12 col-sm-4">
                         <div class="form-group">
                           <input type="file" name="logo2" class="dropify" data-default-file="./pictures/logo-default.png">
-                          <span class="help-block">Please choose a square logo</span>
+                          <span class="help-block">Molimo izaberite logo</span>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-8">
                         <div class="form-group">
-                          <input type="text" name="company_name" class="form-control" placeholder="Company name">
+                          <input type="text" name="company_name" class="form-control" placeholder="Ime kompanije">
                         </div>
 
                         <div class="form-group">
-                          <input name="position" type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
+                          <input name="position" type="text" class="form-control" placeholder="Pozcija">
                         </div>
 
                         <div class="form-group">
                           <div class="input-group">
-                            <span class="input-group-addon">Date from</span>
+                            <span class="input-group-addon">Datum od</span>
                             <input name="work_date_from" type="text" class="form-control" placeholder="e.g. 2012">
-                            <span class="input-group-addon">Date to</span>
+                            <span class="input-group-addon">Datum do</span>
                             <input name="work_date_to" type="text" class="form-control" placeholder="e.g. 2016">
                           </div>
                         </div>
@@ -526,25 +515,25 @@ if ($result) {
                       <div class="col-xs-12 col-sm-4">
                         <div class="form-group">
                           <input type="file" class="dropify" data-default-file="assets/img/logo-default.png">
-                          <span class="help-block">Please choose a square logo</span>
+                          <span class="help-block">Molimo odaberite logo</span>
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-8">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Company name">
+                          <input type="text" class="form-control" placeholder="Ime kompanije ">
                         </div>
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Position, e.g. UI/UX Researcher">
+                          <input type="text" class="form-control" placeholder="Pozicija">
                         </div>
 
                         <div class="form-group">
                           <div class="input-group">
-                            <span class="input-group-addon">Date from</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2012">
-                            <span class="input-group-addon">Date to</span>
-                            <input type="text" class="form-control" placeholder="e.g. 2016">
+                            <span class="input-group-addon">Datum od</span>
+                            <input type="text" class="form-control" placeholder="2012">
+                            <span class="input-group-addon">Datum do</span>
+                            <input type="text" class="form-control" placeholder="2016">
                           </div>
                         </div>
 
@@ -563,7 +552,7 @@ if ($result) {
 
               <div class="col-xs-12 text-center">
                 <br>
-                <button class="btn btn-primary btn-duplicator">Add experience</button>
+                <button class="btn btn-primary btn-duplicator">Dodajte iskustvo</button>
               </div>
 
 
@@ -578,8 +567,8 @@ if ($result) {
         <section class=" bg-alt">
           <div class="container">
             <header class="section-header">
-              <span>Expertise Areas</span>
-              <h2>Skills</h2>
+              <span>Ekspertsko podrucje</span>
+              <h2>Vještine</h2>
             </header>
             
             <div class="row">
@@ -593,7 +582,7 @@ if ($result) {
                     <div class="row">
                       <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                          <input name="skill_name" type="text" class="form-control" placeholder="Skill name, e.g. HTML">
+                          <input name="skill_name" type="text" class="form-control" placeholder="Ime vještine, e.g. HTML">
                         </div>
                       </div>
 
@@ -601,7 +590,7 @@ if ($result) {
 
                         <div class="form-group">
                           <div class="input-group">
-                            <input name="skill_proficiency" type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
+                            <input name="skill_proficiency" type="text" class="form-control" placeholder="Znanje vještine, e.g. 90">
                             <span class="input-group-addon">%</span>
                           </div>
                         </div>
@@ -622,7 +611,7 @@ if ($result) {
                     <div class="row">
                       <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Skill name, e.g. HTML">
+                          <input type="text" class="form-control" placeholder="Ime vještine,  HTML">
                         </div>
                       </div>
 
@@ -630,7 +619,7 @@ if ($result) {
 
                         <div class="form-group">
                           <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Skill proficiency, e.g. 90">
+                            <input type="text" class="form-control" placeholder="Znanje vještine e.g. 90">
                             <span class="input-group-addon">%</span>
                           </div>
                         </div>
@@ -644,7 +633,7 @@ if ($result) {
 
               <div class="col-xs-12 text-center">
                 <br>
-                <button class="btn btn-primary btn-duplicator">Add experience</button>
+                <button class="btn btn-primary btn-duplicator">Dodajte iskustvo</button>
               </div>
 
 
@@ -660,12 +649,12 @@ if ($result) {
         <section class=" bg-img" style="background-image: url(./pictures/bg-facts.jpg);">
           <div class="container">
             <header class="section-header">
-              <span>Are you done?</span>
-              <h2>Submit resume</h2>
-              <p>Please review your information once more and press the below button to put your resume online.</p>
+              <span>Jeste li završili?</span>
+              <h2>Pošaljite rezime</h2>
+              <p>Molimo pogledajte vaše informacije još jednom, i pritisnite dugme ispod da postavite vaš rezime online .</p>
             </header>
 
-            <p class="text-center"><button class="btn btn-success btn-xl btn-round" name="submit" id="submit">Submit your resume</button></p>
+            <p class="text-center"><button class="btn btn-success btn-xl btn-round" name="submit" id="submit">Pošaljite vaš rezime</button></p>
 
           </div>
         </section>

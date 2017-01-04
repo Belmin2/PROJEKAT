@@ -1,17 +1,8 @@
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
+?>
+<?php
 
 
 if (isset($_POST["submit"])) {
@@ -27,26 +18,57 @@ if (isset($_POST["submit"])) {
   $certificate=$_POST["certificate"];
   $description=$_POST["description"];
 
+if(empty($job_title)){
+$error_msg['job_title'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($company_id)) {
+$error_msg['company_id'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($short_description)) {
+  
+$error_msg['short_description'] = "<p>Polje je obavezno molimo popunite ga<p>";
+}
+if (empty($application_url)) {
+ $error_msg['application_url'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($location)) {
+$error_msg['location'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($form_work)) {
+$error_msg['form_work'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($salary)) {
+$error_msg['salary'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($working_hours)) {
+$error_msg['working_hours'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($experience)) {
+$error_msg['experience'] = "Polje je obavezno molimo popunite ga";
+}
+if (empty($certificate)) {
+$error_msg['certificate'] = "<h4 style='text-align:center;'>Polje je obavezno molimo popunite ga<h>";
+}
+if (empty($description)) {
 
-if(empty($job_title) || empty($company_id) || empty ($short_description) ||  empty($application_url) || empty ($location) || empty($form_work) || empty($salary) || empty($working_hours) || empty($experience) || empty($certificate) || empty($description)){
-echo "<h3 style='text-align:center;color:#0000;'>You did not fill out the requierd fields<h3>";
+$error_msg['description'] = "<h5 style='text-align:center;'>Polje je obavezno molimo popunite ga<h5>";
+}
 
-} 
 else {
   $q = "INSERT INTO jobs (job_title, company_id, short_description, application_url, location, form_work, salary, working_hours, experience, certificate, description) VALUES ('$_POST[job_title]','$_POST[company_id]', '$_POST[short_description]','$_POST[application_url]','$_POST[location]','$_POST[form_work]',' $_POST[salary]','$_POST[working_hours]','$_POST[experience]', '$_POST[certificate]','$_POST[description]')";
 $provjera = mysqli_query($conn,$q);
-
 if ($provjera) {
-  echo "<h3 style='text-align:center;color:#0000'>Successfully entered</h3>";
+echo "<script> alert('Vaš oglas je uspješno spremljen')</script>";
 }
 else{
   echo "Error";
 }
 }
 }
-
-
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +80,7 @@ else{
     <meta name="keywords" content="">
 
 
-    <title>TheJobs - Add job</title>
+    <title>Objavite oglas</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -101,10 +123,10 @@ else{
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="user-login.php">Login</a></li>
-              <li><a href="user-register.php">Register</a></li>
-              <li><a href="user-forget-pass.php">Forget pass</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="user-login.php">Prijavite se</a></li>
+              <li><a href="user-register.php">Registrujte </a></li>
+              <li><a href="user-forget-pass.php">Zaboravili ste password?</a></li>
+              <li><a href="#">Odjava</a></li>
             </ul>
           </div>
 
@@ -122,12 +144,11 @@ else{
     </nav>
     <!-- END Navigation bar -->
 
-
     <!-- Page header -->
     <header class="page-header">
       <div class="container page-name">
-        <h1 class="text-center">Add a new job</h1>
-        <p class="lead text-center">Create a new vacancy for your company and put it online.</p>
+        <h1 class="text-center">Objavite oglas</h1>
+        <p class="lead text-center">Kreirajte novi konkurs za vašu kompaniju i postavite ga online.</p>
       </div>
 
       <div class="container">
@@ -135,7 +156,12 @@ else{
         <div class="row">
           <div class="form-group col-xs-12 col-sm-6">
             <form action="job-add.php" method="post">
-            <input type="text" class="form-control input-lg" placeholder="Job title, e.g. Front-end developer" name="job_title" id="job_title">
+            <input type="text" class="form-control input-lg" value="<?php if (isset($_POST['job_title'])){echo $_POST['job_title'];} ?>" placeholder="Naziv posla, e.g. Front-end developer" name="job_title" id="job_title">
+        <?php  if (isset($error_msg["job_title"])) {
+          echo $error_msg['job_title'];
+        }
+        ?>
+
         </div>
 <?php
 $sql = "SELECT * FROM companies";
@@ -145,8 +171,8 @@ if (mysqli_num_rows($result) > 0) {
     ?>
   <div class="form-group col-xs-12 col-sm-6">
              
-         <select id="company_id" name="company_id" class="form-control">
-                <option>Select a company</option>
+         <select id="company_id" name="company_id" value="<?php if (isset($_POST['company_id'])){echo $_POST['company_id'];} ?>" class="form-control">
+                <option>Izaberite kompaniju</option>
              <?php
           while($row = mysqli_fetch_assoc($result)) {
 
@@ -159,80 +185,113 @@ if (mysqli_num_rows($result) > 0) {
                      }
                   } 
                   else {
-                      echo " <h2 style='text-align:center;'>No companies</h2>";
+                      echo " <h2 style='text-align:center;'>Trenutno nema kompanija</h2>";
                  
 
                   }
              ?>
-                
+           
             </select>
            
-           <a class="help-block" href="company-add.html">Add new company</a>
+           <a class="help-block" href="company-add.php"></a>
+       
           </div>
       
 
       
           <div class="form-group col-xs-12">
-            <textarea class="form-control" name="short_description" id="short_description" rows="3" placeholder="Short description"></textarea>
+            <textarea class="form-control" name="short_description" value="<?php if (isset($_POST['short_description'])){echo $_POST['short_description'];} ?>" id="short_description" rows="3" placeholder="Kratki opis"></textarea>
+           <?php  if (isset($error_msg["short_description"])) {
+          echo $error_msg['short_description'];
+        }
+        ?>
+
           </div>
 
           <div class="form-group col-xs-12">
-            <input type="text" name="application_url" id="application_url" class="form-control" placeholder="Application URL">
+            <input type="text" name="application_url" id="application_url" value="<?php if (isset($_POST['application_url'])){echo $_POST['application_url'];} ?>" class="form-control" placeholder="URL Aplikacije">
+             <?php  if (isset($error_msg["application_url"])) {
+          echo $error_msg['application_url'];
+        }
+        ?>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-              <input type="text" class="form-control" name="location" id="location" placeholder="Location, e.g. Melon Park, CA">
+              <input type="text" class="form-control" value="<?php if (isset($_POST['location'])){echo $_POST['location'];} ?>" name="location" id="location" placeholder="Lokacija">
+      
             </div>
+               <?php  if (isset($error_msg["location"])) {
+          echo $error_msg['location'];
+        }
+        ?>
           </div>
-
+       
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
-              <select name="form_work" id="form_work" class="form-control">
-                <option value"full time">Full time</option>
-                <option value="part time">Part time</option>
-                <option value="intership">Internship</option>
-                <option value="freelance">Freelance</option>
-                <option value="remote">Remote</option>
+              <select value="<?php if (isset($_POST['form_work'])){echo $_POST['form_work'];} ?>" name="form_work" id="form_work" class="form-control">
+                <option value"puno vrijeme">Puno vrijeme</option>
+                <option value="Skračeno vrijeme">Skraceno vrijeme</option>
+                <option value="staž">Staž</option>
+                <option value="honorarno">Honorarno</option>
+                <option value="Udaljeni rad">Udaljeni rad</option>
               </select>
             </div>
+           <?php  if (isset($error_msg["form_work"])) {
+          echo $error_msg['form_work'];
+        }
+        ?>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-money"></i></span>
-              <input type="text" class="form-control" name="salary" id="salary" placeholder="Salary">
+              <input type="text" value="<?php if (isset($_POST['salary'])){echo $_POST['salary'];} ?>" class="form-control" name="salary" id="salary" placeholder="Plata">
             </div>
-          </div>
+           <?php  if (isset($error_msg["salary"])) {
+          echo $error_msg['salary'];
+        }
+        ?>
+           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-              <input type="text" name="working_hours" id="working_hours" class="form-control" placeholder="Working hours, e.g. 40">
-              <span class="input-group-addon">hours / week</span>
+              <input value="<?php if (isset($_POST['working_hours'])){echo $_POST['working_hours'];} ?>" type="text" name="working_hours" id="working_hours" class="form-control" placeholder="Radni sati">
+              <span class="input-group-addon">sati /sedmica</span>
             </div>
+           <?php  if (isset($error_msg["working_hours"])) {
+          echo $error_msg['working_hours'];
+        }
+        ?>
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-flask"></i></span>
-              <input type="text" class="form-control" name="experience" id="experience" placeholder="Experience, e.g. 5">
-              <span class="input-group-addon">Years</span>
+              <input type="text" value="<?php if (isset($_POST['experience'])){echo $_POST['experience'];} ?>" class="form-control" name="experience" id="experience" placeholder="Iskoustvo,e.g. 5">
+              <span class="input-group-addon">Godine</span>
             </div>
-          </div>
+          <?php  if (isset($error_msg["experience"])) {
+          echo $error_msg['experience'];
+        }
+        ?>
+         </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-md-4">
             <div class="input-group input-group-sm">
               <span class="input-group-addon"><i class="fa fa-certificate"></i></span>
-              <select name="certificate" id="certificate" class="form-control">
-                <option>Postdoc</option>
+              <select value="<?php if (isset($_POST['certificate'])){echo $_POST['certificate'];} ?>" name="certificate" id="certificate" class="form-control">
+                  <option>Diploma</option>
+             <option>Postdoc</option>
                 <option>Ph.D.</option>
                 <option>Master</option>
-                <option selected>Bachelor</option>
+                <option>Bachelor</option>
               </select>
             </div>
+         
           </div>
 
 
@@ -241,7 +300,7 @@ if (mysqli_num_rows($result) > 0) {
         <div class="button-group">
           <div class="action-buttons">
             <div class="upload-button">
-              <button class="btn btn-block btn-primary">Choose a cover image</button>
+              <button class="btn btn-block btn-primary">Odaberite naslovnu fotografiju</button>
               <input id="cover_img_file" type="file">
             </div>
           </div>
@@ -261,14 +320,17 @@ if (mysqli_num_rows($result) > 0) {
           <div class="container">
 
             <header class="section-header">
-              <span>Description</span>
-              <h2>Job detail</h2>
-              <p>Write about your company, job description, skills required, benefits, etc.</p>
+              <span>Opis</span>
+              <h2>Detalji posla</h2>
+              <p>Pišite o vašoj kompaniji, opis posla, vještine potrebne, prednosti, i sl.</p>
             </header>
             
-            <textarea name="description" id="description" class="summernote-editor"></textarea>
-
+ <textarea  class="form-control" name="description" id="short_description"></textarea>
           </div>
+          <?php  if (isset($error_msg["description"])) {
+          echo $error_msg['description'];
+        }
+        ?>
         </section>
         <!-- END Job detail -->
 
@@ -277,12 +339,12 @@ if (mysqli_num_rows($result) > 0) {
         <section class="bg-alt">
           <div class="container">
             <header class="section-header">
-              <span>Are you done?</span>
-              <h2>Submit Job</h2>
-              <p>Please review your information once more and press the below button to put your job online.</p>
+              <span>Jesi li gotov?</span>
+              <h2>Slanje posla</h2>
+              <p>Molimo pregledajte vaše informacije još jednom i pritisnite dugme ispod da stavite svoj posao online.</p>
             </header>
 
-            <p class="text-center"><button name="submit" id="submit" class="btn btn-success btn-xl btn-round" >Submit your job</button></p>
+            <p class="text-center"><button name="submit" id="submit" class="btn btn-success btn-xl btn-round" >Pošaljite svoj posao</button></p>
    </form>
           </div>
         </section>
@@ -306,7 +368,8 @@ if (mysqli_num_rows($result) > 0) {
     <script src="./js/app.min.js"></script>
     <script src="./js/summernote.min.js"></script>
     <script src="./js/custom.js"></script>
-
+  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
 
   </body>
 </html>

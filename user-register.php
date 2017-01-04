@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
 <?php 
 
@@ -50,7 +39,7 @@ else{
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Register</title>
+    <title>Registracija</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -72,14 +61,14 @@ else{
 
       <div class="login-block">
         <img src="./pictures/logo.png" alt="">
-        <h1>Log into your account</h1>
+        <h1>Priajvite se na svoj račun </h1>
 
         <form action="user-register.php" method="POST">
 
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" name="name" class="form-control" placeholder="Your name">
+              <input type="text" name="name" class="form-control" placeholder="Vaše ime">
             </div>
           </div>
           
@@ -88,7 +77,7 @@ else{
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-email"></i></span>
-              <input type="text" name="email" class="form-control" placeholder="Your email address">
+              <input type="text" name="email" class="form-control" placeholder="Vaša email adresa">
             </div>
           </div>
           
@@ -97,14 +86,14 @@ else{
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" name="password" class="form-control" placeholder="Choose a password">
+              <input type="password" name="password" class="form-control" placeholder="Odaberite password">
             </div>
           </div>
 
-          <button class="btn btn-primary btn-block" name="submit" type="submit" >Sign up</button>
+          <button class="btn btn-primary btn-block" name="submit" type="submit" >Prijavite se</button>
 
           <div class="login-footer">
-            <h6>Or register with</h6>
+            <h6>ili registrujte preko</h6>
             <ul class="social-icons">
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -116,7 +105,7 @@ else{
       </div>
 
       <div class="login-links">
-        <p class="text-center">Already have an account? <a class="txt-brand" href="user-login.php">Login</a></p>
+        <p class="text-center">Več imate račun <a class="txt-brand" href="user-login.php">Prijavite se</a></p>
       </div>
 
     </main>

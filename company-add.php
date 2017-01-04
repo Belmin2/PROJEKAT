@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
 <?php
  if(isset($_FILES['logo_c'])){
@@ -77,7 +66,7 @@ if ($result) {
     <meta name="keywords" content="">
 
 
-    <title>TheJobs - Add company</title>
+    <title>Dodavanje kompanije</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -120,10 +109,10 @@ if ($result) {
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="user-login.php">Login</a></li>
-              <li><a href="user-register.php">Register</a></li>
-              <li><a href="user-forget-pass.php">Forget pass</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a href="user-login.php">Prijavite se</a></li>
+              <li><a href="user-register.php">Registrujte</a></li>
+              <li><a href="user-forget-pass.php">Zaboravili ste pasword?</a></li>
+              <li><a href="#">Odjava</a></li>
             </ul>
           </div>
 
@@ -144,8 +133,8 @@ if ($result) {
       <!-- Page header -->
       <header class="page-header">
         <div class="container page-name">
-          <h1 class="text-center">Add your company</h1>
-          <p class="lead text-center">Create a profile for your company and put it online.</p>
+          <h1 class="text-center">Dodajte vašu kompaniju</h1>
+          <p class="lead text-center">Kreirajte profil za vašu kompaniju, i postavite ga online.</p>
         </div>
 
         <div class="container">
@@ -157,20 +146,20 @@ if ($result) {
                 <div class="col-xs-12 col-sm-4 col-lg-2">
                   <div class="form-group">
                     <input type="file" name="logo_c" class="dropify" data-default-file="./pictures//logo-default.png">
-                    <span class="help-block">A square logo</span>
+                    <span class="help-block">Logo</span>
                   </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-8 col-lg-10">
                   <div class="form-group">
-                    <input type="text" name="name" class="form-control input-lg" placeholder="Comapny name">
+                    <input type="text" name="name" class="form-control input-lg" placeholder="Ime kompanije">
                   </div>
                   <div class="form-group">
-                    <input type="text" name="company_title" class="form-control" placeholder="Headline (e.g. Internet and computer software)">
+                    <input type="text" name="company_title" class="form-control" placeholder="Naslov">
                   </div>
 
                   <div class="form-group">
-                    <textarea class="form-control" name="short_discription" rows="3" placeholder="Short description"></textarea>
+                    <textarea class="form-control" name="short_discription" rows="3" placeholder="Kratki opis">Kratki opis</textarea>
                   </div>
                 </div>
 
@@ -183,7 +172,7 @@ if ($result) {
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                    <input type="text" name="location" class="form-control" placeholder="Location, e.g. Melon Park, CA">
+                    <input type="text" name="location" class="form-control" placeholder="Lokacija ">
                   </div>
                 </div>
 
@@ -198,35 +187,35 @@ if ($result) {
                       <option>10,000 - 99,999</option>
                       <option>100,000 - 999,999</option>
                     </select>
-                    <span class="input-group-addon">Employer</span>
+                    <span class="input-group-addon">Zaposlenici</span>
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                    <input name="page_url" type="text" class="form-control" placeholder="Website address">
+                    <input name="page_url" type="text" class="form-control" placeholder="Web adresa">
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-                    <input type="text" name="established" class="form-control" placeholder="Founded on, e.g. 2013">
+                    <input type="text" name="established" class="form-control" placeholder="Osnovano od">
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                    <input name="contact" type="text" class="form-control" placeholder="Phone number">
+                    <input name="contact" type="text" class="form-control" placeholder="Broj telefona">
                   </div>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="text" name="email" class="form-control" placeholder="Email address">
+                    <input type="text" name="email" class="form-control" placeholder="Email adresa">
                   </div>
                 </div>
 
@@ -239,7 +228,7 @@ if ($result) {
           <div class="button-group">
             <div class="action-buttons">
               <div class="upload-button">
-                <button class="btn btn-block btn-primary">Choose a cover image</button>
+                <button class="btn btn-block btn-primary">Odaberite cover fotografiju</button>
                 <input id="cover_img_file" type="file">
               </div>
             </div>
@@ -260,12 +249,12 @@ if ($result) {
           <div class="container">
 
             <header class="section-header">
-              <span>About</span>
-              <h2>Company detail</h2>
-              <p>Write about your company, culture, benefits of working there, etc.</p>
+              <span>O kompaniji</span>
+              <h2>Detalji kompanije</h2>
+              <p>Pišite o vašoj kompaniji, kulturu, prednosti rada, itd</p>
             </header>
             
-            <textarea name="description" class="summernote-editor"></textarea>
+ <textarea  class="form-control" name="description" id="short_description"></textarea>
 
           </div>
         </section>
@@ -276,12 +265,12 @@ if ($result) {
         <section>
           <div class="container">
             <header class="section-header">
-              <span>Are you done?</span>
-              <h2>Submit it</h2>
-              <p>Please review your information once more and press the below button to put your company online.</p>
+              <span>Jeste li završili?</span>
+              <h2>Prosljedite to</h2>
+              <p>Molimo pogledajte vaše informacije još jednom, i pritisnite dugme ispod da postavite vašu kompaniju online.</p>
             </header>
 
-            <p class="text-center"><button  class="btn btn-success btn-xl btn-round" name="submit" >Submit your company</button></p>
+            <p class="text-center"><button  class="btn btn-success btn-xl btn-round" name="submit" >Pošaljite vašu kompaniju</button></p>
 
           </div>
         </section>
@@ -306,6 +295,7 @@ if ($result) {
     <script src="./js/app.min.js"></script>
      <script src="./js/summernote.min.js"></script>
     <script src="./js/custom.js"></script>
-
+  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
   </body>
 </html>

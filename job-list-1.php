@@ -1,17 +1,6 @@
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baza_1";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password , $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+ include 'conn.php';
 ?>
 
 
@@ -26,7 +15,7 @@ if (!$conn) {
     <meta name="description" content="Post a job position or create your online resume by TheJobs!">
     <meta name="keywords" content="">
 
-    <title>TheJobs - Job list</title>
+    <title>Lista poslova</title>
 
     <!-- Styles -->
     <link href="./css/app.min.css" rel="stylesheet">
@@ -61,7 +50,7 @@ if (!$conn) {
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="user-login.php">Login</a> or <a href="user-register.php">register</a>
+          <a class="btn btn-sm btn-primary" href="user-login.php">Prijavite se</a> ili <a href="user-register.php">registrujte</a>
         </div>
         <!-- END User account -->
 
@@ -80,8 +69,8 @@ if (!$conn) {
     <!-- Page header -->
     <header class="page-header bg-img" style="background-image: url(./pictures/bg-banner1.jpg);">
       <div class="container page-name">
-        <h1 class="text-center">Browse jobs</h1>
-        <p class="lead text-center">Use following search box to find jobs that fits you better</p>
+        <h1 class="text-center">Pretraživanje poslova</h1>
+        <p class="lead text-center">Koristite sljedeći okvir za pretraživanje kako bi pronašli posao koji vam bolje odgovara.</p>
       </div>
 
       <div class="container">
@@ -89,66 +78,66 @@ if (!$conn) {
 
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Keyword: job title, skills, or company">
+              <input type="text" class="form-control" placeholder="Ključne riječi: opis posla, vještine, ili kompanija">
             </div>
 
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Location: city, state or zip">
+              <input type="text" class="form-control" placeholder="Lokacija: grad, država ili poštanski">
             </div>
 
             <div class="form-group col-xs-12 col-sm-4">
               <select class="form-control selectpicker" multiple>
-                <option selected>All categories</option>
+                <option selected>Sve kategorije</option>
                 <option>Developer</option>
-                <option>Designer</option>
-                <option>Customer service</option>
-                <option>Finance</option>
-                <option>Healthcare</option>
-                <option>Sale</option>
+                <option>Dizajner</option>
+                <option>Služba za korisnike</option>
+                <option>Financije</option>
+                <option>Zdravstvo</option>
+                <option>Prodaja</option>
                 <option>Marketing</option>
-                <option>Information technology</option>
-                <option>Others</option>
+                <option>Informatione technologije</option>
+                <option>Ostalo</option>
               </select>
             </div>
 
 
             <div class="form-group col-xs-12 col-sm-4">
-              <h6>Contract</h6>
+              <h6>Ugovor</h6>
               <div class="checkall-group">
                 <div class="checkbox">
                   <input type="checkbox" id="contract1" name="contract" checked>
-                  <label for="contract1">All types</label>
+                  <label for="contract1">Svi tipovi</label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="contract2" name="contract">
-                  <label for="contract2">Full-time <small>(354)</small></label>
+                  <label for="contract2">Puno vrijeme <small>(354)</small></label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="contract3" name="contract">
-                  <label for="contract3">Part-time <small>(284)</small></label>
+                  <label for="contract3">Skračeno vrijeme <small>(284)</small></label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="contract4" name="contract">
-                  <label for="contract4">Internship <small>(169)</small></label>
+                  <label for="contract4">Staž<small>(169)</small></label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="contract5" name="contract">
-                  <label for="contract5">Freelance <small>(480)</small></label>
+                  <label for="contract5">Honorarno <small>(480)</small></label>
                 </div>
               </div>
             </div>
 
 
             <div class="form-group col-xs-12 col-sm-4">
-              <h6>Hourly rate</h6>
+              <h6>Stanice</h6>
               <div class="checkall-group">
                 <div class="checkbox">
                   <input type="checkbox" id="rate1" name="rate" checked>
-                  <label for="rate1">All rates</label>
+                  <label for="rate1">Sve cjene</label>
                 </div>
 
                 <div class="checkbox">
@@ -175,31 +164,31 @@ if (!$conn) {
 
 
             <div class="form-group col-xs-12 col-sm-4">
-              <h6>Academic degree</h6>
+              <h6>Fakultetska diploma</h6>
               <div class="checkall-group">
                 <div class="checkbox">
                   <input type="checkbox" id="degree1" name="degree" checked>
-                  <label for="degree1">All degrees</label>
+                  <label for="degree1">Svi stepeni</label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="degree2" name="degree">
-                  <label for="degree2">Associate degree <small>(216)</small></label>
+                  <label for="degree2">Školska sprema <small>(216)</small></label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="degree3" name="degree">
-                  <label for="degree3">Bachelor's degree <small>(569)</small></label>
+                  <label for="degree3">Diplomski <small>(569)</small></label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="degree4" name="degree">
-                  <label for="degree4">Master's degree <small>(439)</small></label>
+                  <label for="degree4">Magisterij <small>(439)</small></label>
                 </div>
 
                 <div class="checkbox">
                   <input type="checkbox" id="degree5" name="degree">
-                  <label for="degree5">Doctoral degree <small>(84)</small></label>
+                  <label for="degree5">Doktorat <small>(84)</small></label>
                 </div>
               </div>
             </div>
@@ -208,7 +197,7 @@ if (!$conn) {
 
           <div class="button-group">
             <div class="action-buttons">
-              <button class="btn btn-primary">Apply filter</button>
+              <button class="btn btn-primary">Primjeni filter</button>
             </div>
           </div>
 
@@ -227,13 +216,12 @@ if (!$conn) {
 
             <div class="col-xs-12">
               <br>
-              <h5>We found <strong>357</strong> matches, you're watching <i>10</i> to <i>20</i></h5>
             </div>
    
 
     <?php 
 
-$sql = "SELECT * FROM jobs INNER JOIN companies ON jobs.company_id = companies.id";
+$sql = "SELECT * FROM companies INNER JOIN jobs ON jobs.company_id = companies.id";
 $result = $conn->query($sql);
 if (mysqli_num_rows($result) > 0) {
 while($row = mysqli_fetch_assoc($result)) {
