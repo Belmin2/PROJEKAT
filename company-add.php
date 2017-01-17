@@ -2,30 +2,16 @@
  include 'conn.php';
 ?>
 <?php
- if(isset($_FILES['logo_c'])){
-
-     $errors= array();
-      $file_name = $_FILES['logo_c']['name'];
-      $file_size =$_FILES['logo_c']['size'];
-      $file_tmp =$_FILES['logo_c']['tmp_name'];
-      $file_type=$_FILES['logo_c']['type'];
-      $img_path= "resume_img/".$file_name;
-      $file_ext=strtolower(end(explode('.',$_FILES['logo_c']['name'])));
-      
-      $expensions= array("jpeg","jpg","png");
-      
-      if(in_array($file_ext,$expensions)=== false){
-         $errors[]="";
-      }
-      
-  
-      
-      if(empty($errors)==true){
-         move_uploaded_file($file_tmp,"resume_img/".$file_name);
-       
-      }else{
-         print_r($errors);
-      }
+if(isset($_FILES['logo_c'])){
+$file_name = $_FILES['logo_c']['name'];
+$img_path= "resume_img/".$file_name;
+$file_tmp =$_FILES['logo_c']['tmp_name'];
+if ($file_name) {
+    move_uploaded_file($_FILES['logo_c']['tmp_name'],"resume_img/".time().rand()."-".$file_name);
+}
+else{
+  $error_msg['logo_c']="<p style='text-align:center;color:#FF0000'>Slika je obavezna,molimo dodajte je.<p>";
+}
 if (isset($_POST["submit"])) {
   $company_title = $_POST["company_title"];
   $short_discription = $_POST["short_discription"];
@@ -37,24 +23,43 @@ if (isset($_POST["submit"])) {
   $employees = $_POST["employees"];
   $established= $_POST["established"];
   $email = $_POST["email"];
+  $img_path= "resume_img/".$file_name;
 
-if (empty($company_title) || empty($short_discription) || empty($location) || empty($name)|| empty($description)|| empty($contact) || empty($page_url) || empty($employees)|| empty($established) || empty($email)|| empty($file_name)) {
-echo "<h3 style='text-align:center;color:#0000;'>You did not fill out the requierd fields<h3>";
-}
+ 
+ if (empty($company_title)|| empty($short_discription) || empty($location) || empty($name) || empty($description) || empty($contact) || empty($page_url) || ($employees==":") || empty($established) || empty($email)|| empty($file_name)) {
+  
+ 
+$error_msg['company_title']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+ $error_msg['short_discription']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+ $error_msg['location']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+ $error_msg['name']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+$error_msg['description'] = "<p style='text-align:center;color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+ $error_msg['contact']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+ $error_msg['page_url']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+ $error_msg['employees']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+ $error_msg['established']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
+
+ $error_msg['email']="<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+ }
  else {
 $sql = "INSERT INTO companies(company_title,short_discription,location,name,description,contact,page_url,employees,established,email,picture) VALUES ('$_POST[company_title]','$_POST[short_discription]','$_POST[location]','$_POST[name]','$_POST[description]','$_POST[contact]','$_POST[page_url]','$_POST[employees]','$_POST[established]','$_POST[email]','$img_path')";
 $result = mysqli_query($conn,$sql);
 if ($result) {
-  echo "<h3 style='text-align:center;color:#0000;'>Your company Successfully saved<h3>";
+ echo "<script> alert('Vaš kompanija je uspješno spremljena')</script>";
 } else {
-  echo "<h3 style='text-align:center;color:#0000;'>Error<h3>";
-}
-
-
+echo "<script> alert('Došlo je do greške pokušajte ponovo')</script>";}
 }
 }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,22 +150,40 @@ if ($result) {
                 
                 <div class="col-xs-12 col-sm-4 col-lg-2">
                   <div class="form-group">
-                    <input type="file" name="logo_c" class="dropify" data-default-file="./pictures//logo-default.png">
+                    <input type="file" name="logo_c" class="dropify"   data-default-file="./pictures//logo-default.png">
                     <span class="help-block">Logo</span>
                   </div>
+                <?php if (isset($error_msg['logo_c'])) {
+                  echo $error_msg['logo_c'];
+                } 
+                ?>
                 </div>
 
                 <div class="col-xs-12 col-sm-8 col-lg-10">
                   <div class="form-group">
-                    <input type="text" name="name" class="form-control input-lg" placeholder="Ime kompanije">
+                    <input type="text" name="name" class="form-control input-lg" value="<?php if(isset($_POST['name'])){echo$_POST['name'];}?>" placeholder="Ime kompanije">
+                    <?php if (isset($error_msg['name'])) {
+                  echo $error_msg['name'];
+                } 
+                ?>
                   </div>
+                
                   <div class="form-group">
-                    <input type="text" name="company_title" class="form-control" placeholder="Naslov">
+                    <input type="text" name="company_title" value="<?php if(isset($_POST['company_title'])) {echo $_POST['company_title'];}?>" class="form-control" placeholder="Naslov">
+                      <?php if (isset($error_msg['company_title'])) {
+                  echo $error_msg['company_title'];
+                } 
+                ?>
                   </div>
-
+                
                   <div class="form-group">
-                    <textarea class="form-control" name="short_discription" rows="3" placeholder="Kratki opis">Kratki opis</textarea>
+                    <textarea class="form-control" name="short_discription" rows="3" placeholder="Kratki opis"><?php if(isset($_POST['short_discription'])) {echo $_POST['short_discription'];}?></textarea>
+                      <?php if (isset($error_msg['short_discription'])) {
+                  echo $error_msg['short_discription'];
+                } 
+                ?>
                   </div>
+               
                 </div>
 
               </div>
@@ -172,51 +195,87 @@ if ($result) {
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                    <input type="text" name="location" class="form-control" placeholder="Lokacija ">
-                  </div>
+                    <input type="text" name="location" class="form-control" value="<?php if(isset($_POST['location'])){echo $_POST['location'];} ?>" placeholder="Lokacija ">
+                  
                 </div>
-
+                   <?php if (isset($error_msg['location'])) {
+                  echo $error_msg['location'];
+                } 
+                ?>
+              </div>
+   
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                    <select name="employees" class="form-control ">
-                      <option>0 - 9</option>
-                      <option selected>10 - 99</option>
-                      <option>100 - 999</option>
-                      <option>1,000 - 9,999</option>
-                      <option>10,000 - 99,999</option>
-                      <option>100,000 - 999,999</option>
-                    </select>
+                    <select name="employees"  class="form-control ">
+                    
+                      <option selected value=":">Broj zaposlenih</option> 
+                      
+                    
+                       <option <?php if(isset($_POST['employees']) && $_POST['employees'] == "0 - 9") echo 'selected="seleceted"'; ?>>0 - 9</option>
+                      <option <?php if(isset($_POST['employees']) && $_POST['employees'] == "10 - 99") echo 'selected="seleceted"'; ?>>10 - 99</option>
+                      <option <?php if(isset($_POST['employees']) && $_POST['employees'] == "100 - 999") echo 'selected="seleceted"'; ?>>100 - 999</option>
+                       <option <?php if(isset($_POST['employees']) && $_POST['employees'] == "1,000 - 9,999") echo 'selected="seleceted"'; ?>>1,000 - 9,999</option>
+                      <option <?php if(isset($_POST['employees']) && $_POST['employees'] == "10,000 - 90,999") echo 'selected="seleceted"'; ?>>10,000 - 99,999</option>
+                      <option <?php if(isset($_POST['employees']) && $_POST['employees'] == "100,000 - 999,999") echo 'selected="seleceted"'; ?>>100,000 - 999,999</option>
+
+                  
+ </select>
                     <span class="input-group-addon">Zaposlenici</span>
+                 
+          
                   </div>
+                     <?php if (isset($error_msg['employees'])) {
+                  echo $error_msg['employees'];
+                } 
+                ?>
+                 
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                    <input name="page_url" type="text" class="form-control" placeholder="Web adresa">
+                    <input name="page_url" type="text" class="form-control" value="<?php if(isset($_POST['page_url'])){echo $_POST['page_url'];} ?>" placeholder="Web adresa">
                   </div>
+                     <?php if (isset($error_msg['page_url'])) {
+                  echo $error_msg['page_url'];
+                } 
+                ?>
+                 
+
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-                    <input type="text" name="established" class="form-control" placeholder="Osnovano od">
+                    <input type="text" name="established" value="<?php if(isset($_POST['established'])){echo $_POST['established'];} ?>" class="form-control" placeholder="Osnovano od">
                   </div>
+                   <?php if (isset($error_msg['established'])) {
+                  echo $error_msg['established'];
+                } 
+                ?>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                    <input name="contact" type="text" class="form-control" placeholder="Broj telefona">
+                    <input name="contact" type="text" value="<?php if(isset($_POST['contact'])){echo $_POST['contact'];} ?>" class="form-control" placeholder="Broj telefona">
                   </div>
+                    <?php if (isset($error_msg['contact'])) {
+                  echo $error_msg['contact'];
+                } 
+                ?>
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-4">
                   <div class="input-group input-group-sm">
                     <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                    <input type="text" name="email" class="form-control" placeholder="Email adresa">
+                    <input type="text" name="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>" class="form-control" placeholder="Email adresa">
                   </div>
+                   <?php if (isset($error_msg['email'])) {
+                  echo $error_msg['email'];
+                } 
+                ?>
                 </div>
 
               </div>
@@ -254,9 +313,15 @@ if ($result) {
               <p>Pišite o vašoj kompaniji, kulturu, prednosti rada, itd</p>
             </header>
             
- <textarea  class="form-control" name="description" id="short_description"></textarea>
+ <textarea   class="form-control" name="description" id="short_description"><?php if(isset($_POST['description'])) {echo $_POST['description'];}?></textarea>
 
           </div>
+        <?php 
+        if (isset($error_msg['description'])) {
+          echo $error_msg['description'];
+        }
+
+        ?>
         </section>
         <!-- END Company detail -->
 

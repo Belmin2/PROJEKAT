@@ -9,18 +9,21 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 
 if (empty($name) || empty($email) || empty($password)) {
-echo "<script> alert('You did not fill out the required fields')</script>";
+$error_msg['name'] = "<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+$error_msg['email'] = "<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+$error_msg['password'] = "<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+
 } else {
 $q = "INSERT INTO users(name,email,password) VALUES ('$_POST[name]','$_POST[email]','$_POST[password]')";
 $provjera = mysqli_query($conn,$q);
 if ($provjera) {
 
-  echo "<h3 style='color:#0000; text-align:center'>Succesefull register</h3>";
+echo "<script> alert('Uspjesna registracija')</script>";
 }
 
 else{
 
-  echo "An error occurred";
+echo "<script> alert('Došlo je do greške molimo pokušajte ponovo')</script>";
 }
 
 }
@@ -68,8 +71,13 @@ else{
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" name="name" class="form-control" placeholder="Vaše ime">
+              <input type="text" name="name" value="<?php if(isset($_POST['name'])){echo $_POST['name'];} ?>" class="form-control" placeholder="Vaše ime">
             </div>
+         <?php
+if (isset($error_msg['name'])) {
+  echo $error_msg['name'];
+}
+         ?>
           </div>
           
           <hr class="hr-xs">
@@ -77,8 +85,13 @@ else{
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-email"></i></span>
-              <input type="text" name="email" class="form-control" placeholder="Vaša email adresa">
+              <input type="text" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>" name="email" class="form-control" placeholder="Vaša email adresa">
             </div>
+                 <?php
+if (isset($error_msg['name'])) {
+  echo $error_msg['name'];
+}
+  ?>
           </div>
           
           <hr class="hr-xs">
@@ -86,8 +99,13 @@ else{
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" name="password" class="form-control" placeholder="Odaberite password">
+              <input type="password" value="<?php if(isset($_POST['password'])){echo $_POST['password'];} ?>" name="password"  class="form-control" placeholder="Odaberite password">
             </div>
+                          <?php
+if (isset($error_msg['password'])) {
+  echo $error_msg['password'];
+}
+  ?>
           </div>
 
           <button class="btn btn-primary btn-block" name="submit" type="submit" >Prijavite se</button>

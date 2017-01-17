@@ -16,7 +16,6 @@ Ostale stranice za zapošljavanje nude poslodavcu mišljenja, karijeru savjet pr
             <ul class="footer-links">
               <li><a href="page-about.php">O nama</a></li>
               <li><a href="page-typography.php">Kako radi</a></li>
-              <li><a href="page-faq.php">Centar za pomoc</a></li>
               <li><a href="page-contact.php">Kontakt</a></li>
             </ul>
           </div>

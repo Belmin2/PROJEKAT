@@ -133,7 +133,7 @@
 
 
             <div class="form-group col-xs-12 col-sm-4">
-              <h6>Stanice</h6>
+              <h6>Satnice</h6>
               <div class="checkall-group">
                 <div class="checkbox">
                   <input type="checkbox" id="rate1" name="rate" checked>

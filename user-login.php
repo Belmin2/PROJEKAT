@@ -8,6 +8,12 @@ if (isset($_POST["submit"])) {
 $name = $_POST ["name"];
 $password = $_POST["password"];
 
+if(empty($name) && empty($password)){
+$error_msg['name'] = "<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+$error_msg['password'] = "<p style='color:#FF0000'>Polje je obavezno molimo popunite ga<p>";
+}
+
+
 $query = "SELECT * FROM users WHERE name='$name' AND password ='$password'";
 
 
@@ -19,7 +25,7 @@ $_SESSION["name"] = $_POST["name"];
 header("location:index.php");
 }
 else{
-echo "<script> alert('Email or password is incorect')</script>";
+echo"<script> alert('Došlo je do greške,molimo pokušajte ponovo, provjerite vaš email i password')</script>";
 
 }
 }
@@ -67,8 +73,14 @@ echo "<script> alert('Email or password is incorect')</script>";
          <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-user"></i></span>
-              <input type="text" name="name" class="form-control" placeholder="Vaše ime">
+              <input type="text" value="<?php if (isset($_POST['name'])){echo $_POST['name'];} ?>" name="name" class="form-control" placeholder="Vaše ime">
             </div>
+          <?php
+          if (isset($error_msg['name'])) {
+            echo $error_msg['name'];
+          }
+
+          ?>
           </div>
           
           <hr class="hr-xs">
@@ -76,8 +88,13 @@ echo "<script> alert('Email or password is incorect')</script>";
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="ti-unlock"></i></span>
-              <input type="password" name="password" class="form-control" placeholder="Password">
+              <input type="password" value="<?php if (isset($_POST['password'])){echo $_POST['password'];} ?>" name="password" class="form-control" placeholder="Password">
             </div>
+           <?php
+          if (isset($error_msg['password'])) {
+            echo $error_msg['password'];
+          }
+          ?>
           </div>
 
           <button class="btn btn-primary btn-block" name="submit" type="submit">Prijavi se</button>
@@ -85,9 +102,9 @@ echo "<script> alert('Email or password is incorect')</script>";
           <div class="login-footer">
             <h6>Ili prijavite preko</h6>
             <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="#" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="#" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="#" href="#"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>
 
@@ -95,8 +112,8 @@ echo "<script> alert('Email or password is incorect')</script>";
       </div>
 
       <div class="login-links">
-        <a class="pull-left" href="user-forget-pass.php">Zaboravili ste password?</a>
-        <a class="pull-right" href="user-register.php">Registrujte korisnički račun</a>
+        <a class="pull-left" href="#">Zaboravili ste password?</a>
+        <a class="pull-right" href="#">Registrujte korisnički račun</a>
       </div>
 
     </main>

@@ -4,8 +4,8 @@
 <?php 
 session_start();
 if (isset($_SESSION["name"])) {
-  echo '<h3 style="text-align:center;">Login succes, Wellcome - '.$_SESSION['name'].'</h3>';
-  echo "<p class='text-center'><a class='btn btn-sm btn-primary' href='logout.php'>Logout</a></p>";
+  echo '<h3 style="text-align:center;">Uspješno ste se ulogovali, Dobrodošli - '.$_SESSION['name'].'</h3>';
+  echo "<p  class='text-center'><a class='btn btn-sm btn-primary' href='logout.php'>Logout</a></p>";
 
 
 } 
